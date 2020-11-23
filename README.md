@@ -74,6 +74,6 @@ It provides varying levels of difficulty depending on which region of the world 
 
 Wireframes were created using Balsamiq:
 
-1. [Mobile Wireframes](https://github.com/cjcon90/country-quiz/blob/main/docs/wifreframes/wireframe-mobile.pdf)
+1. [Mobile Wireframes](https://github.com/cjcon90/country-quiz/blob/main/docs/wireframes/wireframe-mobile.pdf)
 
 ---
