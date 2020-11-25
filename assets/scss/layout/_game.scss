@@ -1,0 +1,33 @@
+.game {
+  position: relative;
+  &__section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-white;
+    &--heading {
+      position: relative;
+      height: 17.5%;
+    }
+
+    &--options {
+      height: 82.5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+}
+
+.region {
+  z-index: 2;
+}
+.difficulty {
+  z-index: 1;
+}
+.game {
+  z-index: 0;
+}

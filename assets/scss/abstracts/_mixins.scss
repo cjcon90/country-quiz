@@ -1,0 +1,20 @@
+// centering and breakpoint mixins inspired from Jonas Schmedtmann Advanced CSS & Sass Udemy Course
+// Centers an object absolutely within its parent element
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//Modification for Vertical Centering
+@mixin yCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+// Modification for horizontal Centering
+@mixin xCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

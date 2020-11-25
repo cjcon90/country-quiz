@@ -1,0 +1,145 @@
+html {
+  /* CSS Reset Inspired by digitalocean minimal CSS reset: https://www.digitalocean.com/community/tutorials/css-minimal-css-reset" */
+  box-sizing: border-box;
+  /* Setting default font to 62.5% so that 1rem = 10px inspired by Jonas Schmedtmann Advanced CSS & Sass Udemy Course */
+  font-size: 62.5%; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal; }
+
+body {
+  background-color: #3636b9; }
+
+ol,
+ul {
+  list-style: none; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+a {
+  text-decoration: none; }
+
+.heading-primary,
+.heading-secondary {
+  width: 100%;
+  font-family: "Fredoka One", cursive;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  /* To center the text perfectly within the heading */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.heading-primary {
+  text-transform: uppercase;
+  font-size: 5rem; }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: capitalize; }
+
+.btn {
+  /* DEFAULT BUTTON STYLING */
+  width: 17.5rem;
+  padding: 1.5rem;
+  border-radius: 0.4rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem;
+  text-transform: uppercase;
+  outline: none;
+  border: none; }
+
+.about {
+  /* About Section Paragraphs */
+  /*About Section Button Style Links */ }
+  .about__text {
+    color: #f8f8f8;
+    font-size: 1.8rem;
+    margin: 2.5rem; }
+  .about__link {
+    display: block;
+    margin: 5rem auto;
+    background-color: #f8f8f8;
+    text-align: center;
+    text-decoration: none; }
+
+.header {
+  position: relative;
+  height: 40vh;
+  background-color: #f8f8f8; }
+  .header--about {
+    height: 17.5vh; }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  height: 4rem; }
+  .footer__text {
+    font-size: 1.6rem;
+    text-align: center;
+    padding-top: 1rem; }
+
+.game {
+  position: relative; }
+  .game__section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f8f8f8; }
+    .game__section--heading {
+      position: relative;
+      height: 17.5%; }
+    .game__section--options {
+      height: 82.5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center; }
+
+.region {
+  z-index: 2; }
+
+.difficulty {
+  z-index: 1; }
+
+.game {
+  z-index: 0; }
+
+.menu {
+  /* Menu Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 50vh;
+  /* Menu Section Button Style Links */ }
+  .menu__link {
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    text-align: center;
+    text-decoration: none; }

@@ -1,0 +1,15 @@
+.menu {
+  /* Menu Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 50vh;
+
+  /* Menu Section Button Style Links */
+  &__link {
+    margin: 0 auto;
+    background-color: $color-white;
+    text-align: center;
+    text-decoration: none;
+  }
+}

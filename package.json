@@ -1,0 +1,32 @@
+{
+  "name": "country-quiz",
+  "version": "1.0.0",
+  "description": "A JavaScript Quiz game based on the REST Countries API",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "compile:sass": "node-sass --watch assets/scss/app.scss -o assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjcon90/country-quiz.git"
+  },
+  "keywords": [
+    "javascript",
+    "quiz",
+    "countries",
+    "rest",
+    "API"
+  ],
+  "author": "Ciaran Concannon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjcon90/country-quiz/issues"
+  },
+  "homepage": "https://github.com/cjcon90/country-quiz#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
