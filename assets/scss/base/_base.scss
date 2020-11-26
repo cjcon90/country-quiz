@@ -1,9 +1,10 @@
 html {
-  /* CSS Reset Inspired by digitalocean minimal CSS reset: https://www.digitalocean.com/community/tutorials/css-minimal-css-reset" */
   box-sizing: border-box;
-  /* Setting default font to 62.5% so that 1rem = 10px inspired by Jonas Schmedtmann Advanced CSS & Sass Udemy Course */
+  // Setting default font to 62.5% so that 1rem = 10px inspired by Jonas Schmedtmann Advanced CSS & Sass Udemy Course
   font-size: 62.5%;
 }
+
+// CSS Reset sourced from digitalocean minimal CSS reset: https://www.digitalocean.com/community/tutorials/css-minimal-css-reset"
 
 *,
 *:before,

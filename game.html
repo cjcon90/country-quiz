@@ -10,9 +10,10 @@
   </head>
   <body>
     <main class="game">
-      <section class="region game__section">
-        <div class="region__heading game__section--heading">
-          <h1 class="region__heading heading-secondary">select region</h1>
+      <!-- SELECT REGION PAGE -->
+      <section class="game__section" id="region">
+        <div class="game__section--heading">
+          <h1 class="game__section--heading-text heading-secondary">select region</h1>
         </div>
         <div class="region__options game__section--options">
           <button class="region__options--button btn" id="region-africa" value="africa">Africa</button>
@@ -23,9 +24,10 @@
           <button class="region__options--button btn" id="region-world" value="world">World</button>
         </div>
       </section>
-      <section class="difficulty game__section">
-        <div class="difficulty__heading game__section--heading">
-          <h1 class="difficulty__heading heading-secondary">select difficulty</h1>
+      <!-- SELECT DIFFICULTY PAGE -->
+      <section class="game__section" id="difficulty">
+        <div class="game__section--heading">
+          <h1 class="game__section--heading-text heading-secondary">select difficulty</h1>
         </div>
         <div class="difficulty__options game__section--options">
           <button class="difficulty__options--button btn" id="difficulty-easy" value="easy">easy</button>
@@ -34,7 +36,39 @@
           <button class="difficulty__options--button btn" id="difficulty-expert" value="expert">expert</button>
         </div>
       </section>
-      <section class="game game__section"></section>
+      <!-- MAIN GAME PAGE -->
+      <section class="game__section" id="game">
+        <div class="counters">
+          <div class="counters__progress">
+            <p class="counters__progress--text">Country:</p>
+            <p class="counters__progress--text"><span id="progress-count">#</span> / 5</p>
+          </div>
+          <div class="counters__score">
+            <p class="counters__score--text">Score:</p>
+            <p class="counters__score--text" id="score-count">###</p>
+          </div>
+        </div>
+        <div class="flag">
+          <img src="https://restcountries.eu/data/irl.svg" alt="Flag" class="flag__img" id="flag" />
+        </div>
+        <div class="question">
+          <p class="question__question" id="question">What is the name of this country?</p>
+          <input type="text" class="question__input" id="question-input" />
+          <div class="question__buttons">
+            <button class="question__buttons--button btn">134,324,543</button>
+            <button class="question__buttons--button btn">134,324,543</button>
+            <button class="question__buttons--button btn">134,324,543</button>
+          </div>
+        </div>
+        <div class="answer">
+          <p class="answer__result heading-primary">Correct!!</p>
+          <p class="answer__answer heading-secondary" id="correct-answer">The answer is Ireland</p>
+        </div>
+        <div class="game-buttons">
+          <button class="game-buttons__submit btn" id="submit-button">Submit</button>
+          <button class="game-buttons__next btn" id="next-button">Next</button>
+        </div>
+      </section>
     </main>
     <script src="assets/js/game.js"></script>
   </body>

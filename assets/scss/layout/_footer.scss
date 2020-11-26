@@ -1,11 +1,9 @@
 .footer {
-  //Footer Size and Layout Styling
   position: fixed;
   bottom: 0;
   width: 100%;
   background-color: $color-white;
   height: 4rem;
-  // Footer Text Styling
   &__text {
     font-size: 1.6rem;
     text-align: center;

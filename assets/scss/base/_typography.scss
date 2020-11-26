@@ -1,13 +1,10 @@
 // DEFAULT FONT STYLE DEFINITIONS
-
 .heading-primary,
 .heading-secondary {
   width: 100%;
   font-family: $font-heading;
   letter-spacing: 0.1rem;
   text-align: center;
-  /* To center the text perfectly within the heading */
-  @include absCenter;
 }
 
 .heading-primary {

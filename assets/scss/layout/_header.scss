@@ -2,6 +2,13 @@
   position: relative;
   height: 40vh;
   background-color: $color-white;
+  &__title {
+    &--menu,
+    &--about {
+      /* To center the text perfectly within the heading */
+      @include absCenter;
+    }
+  }
   &--about {
     height: 15vh;
   }

@@ -1,11 +1,11 @@
 .menu {
-  /* Menu Layout */
+  /*  Styling for front-page menu of index.html */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 50vh;
 
-  /* Menu Section Button Style Links */
+  // MAIN PLAY GAME & ABOUT BUTTON STYLING
   &__link {
     margin: 0 auto;
     background-color: $color-white;

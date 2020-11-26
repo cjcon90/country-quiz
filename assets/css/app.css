@@ -1,7 +1,5 @@
 html {
-  /* CSS Reset Inspired by digitalocean minimal CSS reset: https://www.digitalocean.com/community/tutorials/css-minimal-css-reset" */
   box-sizing: border-box;
-  /* Setting default font to 62.5% so that 1rem = 10px inspired by Jonas Schmedtmann Advanced CSS & Sass Udemy Course */
   font-size: 62.5%; }
 
 *,
@@ -42,12 +40,7 @@ a {
   width: 100%;
   font-family: "Fredoka One", cursive;
   letter-spacing: 0.1rem;
-  text-align: center;
-  /* To center the text perfectly within the heading */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
+  text-align: center; }
 
 .heading-primary {
   text-transform: uppercase;
@@ -58,7 +51,6 @@ a {
   text-transform: capitalize; }
 
 .btn {
-  /* DEFAULT BUTTON STYLING */
   width: 17.5rem;
   padding: 1.5rem;
   border-radius: 0.4rem;
@@ -71,24 +63,28 @@ a {
   outline: none;
   border: none; }
 
-.about {
-  /* About Section Paragraphs */
-  /*About Section Button Style Links */ }
-  .about__text {
-    color: #f8f8f8;
-    font-size: 1.8rem;
-    margin: 2.5rem; }
-  .about__link {
-    display: block;
-    margin: 5rem auto;
-    background-color: #f8f8f8;
-    text-align: center;
-    text-decoration: none; }
+.about__text {
+  color: #f8f8f8;
+  font-size: 1.8rem;
+  margin: 2.5rem; }
+
+.about__link {
+  display: block;
+  margin: 5rem auto;
+  background-color: #f8f8f8;
+  text-align: center;
+  text-decoration: none; }
 
 .header {
   position: relative;
   height: 40vh;
   background-color: #f8f8f8; }
+  .header__title--menu, .header__title--about {
+    /* To center the text perfectly within the heading */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
   .header--about {
     height: 15vh; }
 
@@ -115,6 +111,12 @@ a {
     .game__section--heading {
       position: relative;
       height: 15%; }
+      .game__section--heading-text {
+        /* To center the text perfectly within the heading */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
     .game__section--options {
       height: 85%;
       display: flex;
@@ -122,22 +124,63 @@ a {
       justify-content: space-evenly;
       align-items: center; }
 
-.region {
-  z-index: 2; }
+#region {
+  z-index: 2;
+  display: none; }
 
-.difficulty {
-  z-index: 1; }
+#difficulty {
+  z-index: 1;
+  display: none; }
 
-.game {
+#game {
   z-index: 0; }
 
+.counters {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem 0 1rem;
+  font-size: 2rem;
+  font-family: "Raleway", sans-serif; }
+  .counters__score {
+    text-align: right; }
+
+.flag {
+  margin: 1rem auto;
+  height: 30vh;
+  width: 90%; }
+  .flag__img {
+    object-fit: cover;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%; }
+
+.question {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: "Raleway", sans-serif; }
+  .question__input {
+    font-size: 2rem;
+    font-family: "Raleway", sans-serif; }
+  .question__buttons--button {
+    display: block;
+    width: 80%;
+    margin: 1rem auto; }
+
+.game-buttons {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+  .game-buttons > * {
+    margin: 1rem; }
+
 .menu {
-  /* Menu Layout */
+  /*  Styling for front-page menu of index.html */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 50vh;
-  /* Menu Section Button Style Links */ }
+  height: 50vh; }
   .menu__link {
     margin: 0 auto;
     background-color: #f8f8f8;
