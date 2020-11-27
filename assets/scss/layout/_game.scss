@@ -1,5 +1,6 @@
 .game {
   position: relative;
+  overflow-y: hidden;
   // GENERAL STYLING FOR GAME SECTIONS (REGION | DIFFICULTY | GAME)
   &__section {
     position: relative;
@@ -26,16 +27,18 @@
     }
   }
 }
-//  Setting difficulty and game sections not to appear until region has been selected
-#difficulty,
-#region {
-  display: none;
-}
 
 #game {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+// Initially setting difficulty and game sections not to appear until region has been selected
+// game will revert to flex when activated
+#difficulty,
+#game {
+  display: none;
 }
 
 // STYLING FOR PROGRESS AND SCORE COUNTERS
@@ -88,7 +91,14 @@
 // STYLING FOR CORRECT / WRONG TEXT
 
 .answer {
-  opacity: 0;
+  &__result {
+    text-transform: capitalize;
+    opacity: 0;
+  }
+  &__answer {
+    text-transform: none;
+    opacity: 0;
+  }
 }
 
 // STYLING FOR SUBMIT AND NEXT BUTTONS

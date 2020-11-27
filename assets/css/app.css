@@ -100,7 +100,8 @@ a {
     padding-top: 1rem; }
 
 .game {
-  position: relative; }
+  position: relative;
+  overflow-y: hidden; }
   .game__section {
     position: relative;
     width: 100%;
@@ -124,14 +125,14 @@ a {
       justify-content: space-evenly;
       align-items: center; }
 
-#difficulty,
-#region {
-  display: none; }
-
 #game {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+
+#difficulty,
+#game {
+  display: none; }
 
 .counters {
   display: flex;
@@ -167,7 +168,12 @@ a {
     margin: 1rem auto;
     display: none; }
 
-.answer {
+.answer__result {
+  text-transform: capitalize;
+  opacity: 0; }
+
+.answer__answer {
+  text-transform: none;
   opacity: 0; }
 
 .game-buttons {
