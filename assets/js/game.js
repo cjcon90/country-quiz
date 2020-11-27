@@ -50,8 +50,11 @@ function getAnswers(list) {
     questionFlags.push(country.flag);
     // Create a names array of the official country name, the native country name, and alternative spellings
     let names = [country.name.toLowerCase(), country.nativeName.toLowerCase()];
-    for (altName of country.altSpellings) {
-      names.push(altName.toLowerCase());
+    for (let altName of country.altSpellings) {
+      if (!names.includes(altName.toLowerCase())) names.push(altName.toLowerCase());
+    }
+    for (let translation of Object.values(country.translations)) {
+      if (!names.includes(translation.toLowerCase())) names.push(translation.toLowerCase());
     }
     //return an answer array of 5 subarrays in format:
     // [names, capital, population]
