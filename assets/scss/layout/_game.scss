@@ -2,10 +2,10 @@
   position: relative;
   // GENERAL STYLING FOR GAME SECTIONS (REGION | DIFFICULTY | GAME)
   &__section {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
     height: 100vh;
     background-color: $color-white;
     &--heading {
@@ -26,19 +26,10 @@
     }
   }
 }
-//  Setting region at highest z-index to make sure it appears first
-#region {
-  z-index: 2;
-  display: none;
-}
-//  Setting difficulty second so it appears when region display is set to none
-#difficulty {
-  z-index: 1;
-  display: none;
-}
-//  Setting main game section lowest z-index so it appears once both selections have been made
+//  Setting difficulty and game sections not to appear until region has been selected
+#difficulty,
 #game {
-  z-index: 0;
+  display: none;
 }
 
 // STYLING FOR PROGRESS AND SCORE COUNTERS
@@ -57,7 +48,7 @@
 .flag {
   margin: 1rem auto;
   height: 30vh;
-  width: 90%;
+  width: 100%;
 
   &__img {
     object-fit: cover;
@@ -75,6 +66,7 @@
   &__input {
     font-size: 2rem;
     font-family: $font-default;
+    width: 80%;
   }
   &__buttons {
     &--button {
@@ -87,8 +79,6 @@
 
 // STYLING FOR SUBMIT AND NEXT BUTTONS
 .game-buttons {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
