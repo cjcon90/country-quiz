@@ -28,8 +28,14 @@
 }
 //  Setting difficulty and game sections not to appear until region has been selected
 #difficulty,
-#game {
+#region {
   display: none;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 // STYLING FOR PROGRESS AND SCORE COUNTERS
@@ -59,22 +65,30 @@
 }
 // STYLING FOR QUESTION & ANSWER INPUT / SELECTION
 .question {
-  text-align: center;
   font-size: 2.5rem;
   font-family: $font-default;
+  text-align: center;
 
   &__input {
+    margin: 0 auto;
     font-size: 2rem;
     font-family: $font-default;
-    width: 80%;
+    width: 75%;
   }
   &__buttons {
     &--button {
       display: block;
-      width: 80%;
+      width: 75%;
       margin: 1rem auto;
+      display: none;
     }
   }
+}
+
+// STYLING FOR CORRECT / WRONG TEXT
+
+.answer {
+  opacity: 0;
 }
 
 // STYLING FOR SUBMIT AND NEXT BUTTONS
