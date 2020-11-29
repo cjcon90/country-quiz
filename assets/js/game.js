@@ -17,6 +17,13 @@ const answerResult = document.getElementById("answer-result");
 const answerText = document.querySelector(".answer");
 const submitButton = document.getElementById("submit-button");
 const nextButton = document.getElementById("next-button");
+const endGameScreen = document.querySelector(".endgame");
+const endScore = document.getElementById("new-score");
+const highScore = document.getElementById("high-score");
+const highScoreText = document.querySelector(".endgame__high-score--text");
+const facebookShare = document.getElementById("facebook-share");
+const twitterShare = document.getElementById("twitter-share");
+const playAgain = document.getElementById("play-again");
 
 // create variable to store total countries available to play with
 let countryList;
@@ -25,12 +32,12 @@ let correctAnswers = [];
 let questionFlags = [];
 //variable to store user answer for current question
 let currentAnswer;
-//counter variables for progress, overall score, and streak of correct answers within a country
+//counter variables for progress, overall score, high score and streak of correct answers within a country
 let progress = 0,
   score = 0,
   streak = 0;
-
-scoreCount.textContent = score;
+// store selected region and difficulty for use in playing game again with same settings
+let regionSetting, difficultySetting;
 
 //define function to select 5 random countries from full list of countries
 function selectCountries(list) {
@@ -76,6 +83,7 @@ fetch("https://restcountries.eu/rest/v2/all")
 // add a click event listener for each button in SELECT REGION page
 regionSelectors.forEach((btn) =>
   btn.addEventListener("click", (e) => {
+    regionSetting = e.target.value;
     console.log(`\nRegion selected: ${e.target.value}`);
     if (e.target.value === "world") {
       //keep country list the same, hide region page and move on to difficulty page
@@ -103,6 +111,7 @@ const difficulty = { hard: 150000, medium: 5000000, easy: 20000000 };
 // add a click event listener for each button in SELECT DIFFICULTY page
 difficultySelectors.forEach((btn) =>
   btn.addEventListener("click", (e) => {
+    difficultySetting = e.target.value;
     console.log(`\nDifficulty selected: ${e.target.value}`);
     e.target.value === "expert" ? console.log(`Minimum population: none`) : console.log(`Minimum population: ${difficulty[e.target.value].toLocaleString()}`);
     if (e.target.value === "expert") {
@@ -118,13 +127,13 @@ difficultySelectors.forEach((btn) =>
     }
     // TESTING LOG
     console.log("Countries After Difficulty Select: " + countryList.length);
-    countryList = selectCountries(countryList);
+    selectedCountries = selectCountries(countryList);
     console.log("\nRandom 5 countries selected for game:");
-    for (country of countryList) {
+    for (country of selectedCountries) {
       console.log(`name: ${country.name}, population: ${country.population.toLocaleString()}`);
     }
     // Create array of correct answers
-    correctAnswers = getAnswers(countryList);
+    correctAnswers = getAnswers(selectedCountries);
 
     //Initiatite Quiz Game Functions
     playQuiz(correctAnswers);
@@ -134,7 +143,7 @@ difficultySelectors.forEach((btn) =>
 function playQuiz(answers) {
   //Function to check answers array for next country and slice name, capital and population from next country
   if (!correctAnswers.length) {
-    question.innerText = "ENDGAME";
+    endGame();
   } else {
     let currentCountry = correctAnswers.pop();
     // remove population buttons and reinstate text input for each new country
@@ -315,14 +324,71 @@ function getFlag() {
   flag.setAttribute("src", flagImg);
 }
 
-// Fix for height changes in mobile browsers from: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-// Get the viewport height and we multiple it by 1% to get a value for a vh unit
-let vh = window.innerHeight * 0.01;
-// S the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-// Listen to the resize event for when address bar appears/disappears in browser
-window.addEventListener("resize", () => {
-  // Execute the same script as before
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty("--vh", `${vh}px`);
-});
+function endGame() {
+  //run check score function
+  scoreCheck();
+  // set social links based on score
+  setSocialLinks();
+  // Set Play Game Again functionality
+  playGameAgain();
+  // Make endgame screen visible
+  endGameScreen.setAttribute("style", "display: block;");
+}
+
+// Function to check score against high score, and result text appropraitely
+// code modified from https://stackoverflow.com/questions/29370017/adding-a-high-score-to-local-storage
+function scoreCheck() {
+  // Display final score
+  endScore.textContent = score;
+  if (score === 100) {
+    // if it's a perfect score, set highScore in locla storage and display PERFECT SCORE
+    localStorage.setItem("savedHighScore", score);
+    highScore.textContent = score;
+    highScoreText.textContent = "Perfect Score!!";
+    highScoreText.setAttribute("style", "display: block");
+  } else {
+    // Otherwise, get previously stored high score
+    let savedHighScore = localStorage.getItem("savedHighScore");
+    // if there is none stored or new score is higher...
+    if (savedHighScore === "null" || score > savedHighScore) {
+      // then save new score and display NEW HIGH SCORE text
+      localStorage.setItem("savedHighScore", score);
+      highScore.textContent = score;
+      highScoreText.textContent = "New High Score!!";
+      highScoreText.setAttribute("style", "display: block");
+    } else {
+      //otherwise, display previously saved high score
+      highScore.textContent = savedHighScore;
+    }
+  }
+}
+
+function setSocialLinks() {
+  let shareText = `I just scored ${score} points in the Country Quiz Challenge! Can you do better?`;
+  facebookShare.setAttribute("href", `https://www.facebook.com/sharer/sharer.php?u=https://cjcon90.github.io/country-quiz/&quote=${shareText}`);
+  twitterShare.setAttribute(
+    "href",
+    `https://twitter.com/intent/tweet?text=${shareText}&url=https://cjcon90.github.io/country-quiz/
+  `
+  );
+}
+
+function playGameAgain() {
+  //set playAgain button to correct region
+  playAgain.textContent = `Play ${regionSetting} (${difficultySetting}) again`;
+  playAgain.addEventListener(
+    "click",
+    () => {
+      progress = 0;
+      score = 0;
+      scoreCount.textContent = score;
+      selectedCountries = selectCountries(countryList);
+      // Create array of correct answers
+      correctAnswers = getAnswers(selectedCountries);
+      //Initiatite Quiz Game Functions
+      playQuiz(correctAnswers);
+      endGameScreen.setAttribute("style", "display: none");
+    },
+    { once: true }
+  );
+}

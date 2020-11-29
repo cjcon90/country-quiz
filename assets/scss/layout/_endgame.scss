@@ -1,0 +1,82 @@
+.endgame {
+  display: none;
+  position: absolute;
+  // backdrop filter code from https://css-tricks.com/almanac/properties/b/backdrop-filter/
+  backdrop-filter: blur(2px);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  &__modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
+    @include absCenter;
+    width: 90%;
+    height: 70%;
+    background-color: $color-white;
+    border: solid 2px black;
+    z-index: 10;
+  }
+
+  &__scores {
+    display: flex;
+    justify-content: space-between;
+    &-box {
+      padding: 1rem;
+      &--text {
+        font-size: 2rem;
+      }
+      &--number {
+        font-size: 4rem;
+      }
+    }
+  }
+  &__high-score {
+    &--text {
+      display: none;
+    }
+  }
+  &__buttons {
+    &--btn {
+      background-color: lightgray;
+      font-size: 1.5rem;
+      text-align: center;
+      width: 27.5rem;
+      padding: 1.5rem 0;
+      margin: 1rem auto;
+      color: black;
+    }
+  }
+  &__social-links {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    &--link {
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      place-items: center;
+      font-size: 1.6rem;
+      margin: 1rem;
+      width: 17.5rem;
+      text-decoration: none;
+      font-family: $font-default;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.1rem;
+      border-radius: 0.2rem;
+
+      & > i {
+        font-size: 2rem;
+        margin: 0.5rem;
+      }
+    }
+  }
+}
+#facebook-share {
+  background-color: #3b5998;
+}
+#twitter-share {
+  background-color: #1da1f2;
+}

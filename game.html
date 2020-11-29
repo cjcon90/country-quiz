@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" type="text/css" href="assets/css/app.css" />
     <title>Country Quiz</title>
   </head>
@@ -45,7 +51,7 @@
           </div>
           <div class="counters__score">
             <p class="counters__score--text">Score:</p>
-            <p class="counters__score--text" id="score-count">###</p>
+            <p class="counters__score--text" id="score-count">0</p>
           </div>
         </div>
         <div class="flag">
@@ -60,14 +66,63 @@
         </div>
         <div class="answer">
           <p class="answer__result heading-primary" id="answer-result">Correct!!</p>
-          <p class="answer__answer heading-secondary" id="correct-answer">The correct Answer is ${Country Name}</span></p>
+          <p class="answer__answer heading-secondary" id="correct-answer">The correct Answer is ${Country Name}</p>
         </div>
         <div class="game-buttons">
           <button class="game-buttons__submit btn" id="submit-button">Submit</button>
           <button class="game-buttons__next btn" id="next-button" disabled>Next</button>
         </div>
       </section>
+      <section class="endgame">
+        <div class="endgame__modal">
+          <div class="endgame__scores">
+            <div class="endgame__scores-box">
+              <p class="endgame__scores-box--text heading-secondary">Final Score</p>
+              <p class="endgame__scores-box--number heading-primary" id="new-score">80</p>
+            </div>
+            <div class="endgame__scores-box">
+              <p class="endgame__scores-box--text heading-secondary">High Score</p>
+              <p class="endgame__scores-box--number heading-primary" id="high-score">80</p>
+            </div>
+          </div>
+          <div class="endgame__high-score">
+            <p class="endgame__high-score--text heading-secondary">New High Score!</p>
+          </div>
+          <div class="endgame__buttons">
+            <button class="endgame__buttons--btn btn" id="play-again">Play Game Again</button>
+            <a href="game.html" class="endgame__buttons--btn btn">Change Region/Difficulty</a>
+            <a href="index.html" class="endgame__buttons--btn btn">Exit Game</a>
+          </div>
+          <div class="endgame__social">
+            <p class="endgame__social--text heading-secondary">Share Your Score!</p>
+            <div class="endgame__social-links">
+              <!-- code for creating a facebook share button with custom text from this post: https://stackoverflow.com/a/45892041 -->
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=https://cjcon90.github.io/country-quiz/&quote=#"
+                target="_blank"
+                class="endgame__social-links--link"
+                id="facebook-share"
+                ><i class="fab fa-facebook-square"></i>
+                <p>Facebook</p></a
+              >
+              <!-- code for creating a facebook share button with custom text from this twitter guide https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/guides/web-intent -->
+              <a
+                href="https://twitter.com/intent/tweet?text=#&url=https://cjcon90.github.io/country-quiz/"
+                target="_blank"
+                class="endgame__social-links--link"
+                id="twitter-share"
+                ><i class="fab fa-twitter-square"></i>
+                <p>Twitter</p></a
+              >
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <p class="footer__text">Page Created by Ciaran Concannon</p>
+        </footer>
+      </section>
     </main>
+    <script src="assets/js/app.js"></script>
     <script src="assets/js/game.js"></script>
   </body>
 </html>

@@ -56,6 +56,7 @@ a {
   text-transform: capitalize; }
 
 .btn {
+  display: block;
   width: 17.5rem;
   padding: 1.5rem;
   font-family: "Raleway", sans-serif;
@@ -78,6 +79,74 @@ a {
   background-color: #f8f8f8;
   text-align: center;
   text-decoration: none; }
+
+.endgame {
+  display: none;
+  position: absolute;
+  backdrop-filter: blur(2px);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0; }
+  .endgame__modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 70%;
+    background-color: #f8f8f8;
+    border: solid 2px black;
+    z-index: 10; }
+  .endgame__scores {
+    display: flex;
+    justify-content: space-between; }
+    .endgame__scores-box {
+      padding: 1rem; }
+      .endgame__scores-box--text {
+        font-size: 2rem; }
+      .endgame__scores-box--number {
+        font-size: 4rem; }
+  .endgame__high-score--text {
+    display: none; }
+  .endgame__buttons--btn {
+    background-color: lightgray;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 27.5rem;
+    padding: 1.5rem 0;
+    margin: 1rem auto;
+    color: black; }
+  .endgame__social-links {
+    display: flex;
+    width: 100%;
+    justify-content: center; }
+    .endgame__social-links--link {
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      place-items: center;
+      font-size: 1.6rem;
+      margin: 1rem;
+      width: 17.5rem;
+      text-decoration: none;
+      font-family: "Raleway", sans-serif;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.1rem;
+      border-radius: 0.2rem; }
+      .endgame__social-links--link > i {
+        font-size: 2rem;
+        margin: 0.5rem; }
+
+#facebook-share {
+  background-color: #3b5998; }
+
+#twitter-share {
+  background-color: #1da1f2; }
 
 .header {
   position: relative;
