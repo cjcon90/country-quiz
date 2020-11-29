@@ -25,9 +25,12 @@ let correctAnswers = [];
 let questionFlags = [];
 //variable to store user answer for current question
 let currentAnswer;
-//counter variables for progress and score
+//counter variables for progress, overall score, and streak of correct answers within a country
 let progress = 0,
-  score = 0;
+  score = 0,
+  streak = 0;
+
+scoreCount.textContent = score;
 
 //define function to select 5 random countries from full list of countries
 function selectCountries(list) {
@@ -210,6 +213,7 @@ function populationQuestion(answers, name) {
   nextButton.addEventListener(
     "click",
     () => {
+      streak = 0;
       playQuiz(correctAnswers);
     },
     { once: true }
@@ -217,24 +221,21 @@ function populationQuestion(answers, name) {
 }
 
 function inputSubmit(answer, displayAnswer) {
-  if (typeof answer === "string" || typeof answer === "object") {
-    submitButton.addEventListener(
-      "click",
-      () => {
-        currentAnswer = answerInput.value;
-      },
-      { once: true }
-    );
-  }
-  submitButton.addEventListener("click", () => {
-    currentAnswer = answerInput.value;
-    correctAnswer.textContent = `The correct answer is ${displayAnswer}`;
-    isCorrect(answer);
-    // disable submit button and enable next button to move to next question
-    // credit for code = https://stackoverflow.com/a/11719987
-    submitButton.disabled = true;
-    nextButton.disabled = false;
-  });
+  submitButton.addEventListener(
+    "click",
+    () => {
+      currentAnswer = answerInput.value;
+      currentAnswer = answerInput.value;
+      correctAnswer.textContent = `The correct answer is ${displayAnswer}`;
+      isCorrect(answer);
+
+      // disable submit button and enable next button to move to next question
+      // credit for code = https://stackoverflow.com/a/11719987
+      submitButton.disabled = true;
+      nextButton.disabled = false;
+    },
+    { once: true }
+  );
 }
 
 function isCorrect(answer) {
@@ -252,6 +253,12 @@ function isCorrect(answer) {
     answerResult.textContent = "Correct!!!";
     answerResult.setAttribute("style", "color: green; opacity: 1");
     correctAnswer.setAttribute("style", "opacity: 0");
+    score += 5;
+    streak++;
+    if (streak === 3) {
+      score += 5;
+    }
+    scoreCount.textContent = score;
   } else {
     answerResult.textContent = "Wrong...";
     answerResult.setAttribute("style", "color: red; opacity: 1");
