@@ -148,8 +148,8 @@ function playQuiz(answers) {
 
 // Function to take the country array from playQuiz and initiate questions on each new country
 function playCountry(answers) {
-  // set current country flag as main image
-  flag.setAttribute("src", questionFlags.pop());
+  getFlag();
+  // Store proper country name in title case for use during questions
   let currentCountryName = answers[0][0]
     // Title case function code used from: https://www.freecodecamp.org/news/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27/
     .split(" ")
@@ -162,7 +162,7 @@ function playCountry(answers) {
 function nameQuestion(answers, name) {
   newQuestion();
   question.innerText = "What is the name of this country?";
-  inputSubmit(answers[0], name);
+  submitAnswer(answers[0], name);
   nextButton.addEventListener(
     "click",
     () => {
@@ -180,7 +180,7 @@ function capitalQuestion(answers, name) {
     .map((word) => word.replace(word[0], word[0].toUpperCase()))
     .join(" ");
   question.innerText = `What is the capital of ${name}?`;
-  inputSubmit(answers[1], capital);
+  submitAnswer(answers[1], capital);
   nextButton.addEventListener(
     "click",
     () => {
@@ -207,8 +207,11 @@ function populationQuestion(answers, name) {
     populationButtons[i].setAttribute("style", "display: block");
     populationButtons[i].addEventListener("click", (e) => (currentAnswer = e.target.value));
   }
-  inputSubmit(answers[2], answers[2].toLocaleString());
-  console.log(popOptions, answers[2]);
+  submitAnswer(answers[2], answers[2].toLocaleString());
+  console.log(`\nPopulation options: ${popOptions}`);
+  console.log(`Actual population: ${answers[2]}`);
+  console.log(`Actual Population is in options? ${popOptions.includes(answers[2]) ? "Yes" : "No"}`);
+  console.log(`Index of actual population ${popOptions.indexOf(answers[2])}`);
 
   nextButton.addEventListener(
     "click",
@@ -220,12 +223,19 @@ function populationQuestion(answers, name) {
   );
 }
 
-function inputSubmit(answer, displayAnswer) {
+function submitAnswer(answer, displayAnswer) {
+  if (typeof answer === "string" || typeof answer === "object") {
+    submitButton.addEventListener(
+      "click",
+      () => {
+        currentAnswer = answerInput.value;
+      },
+      { once: true }
+    );
+  }
   submitButton.addEventListener(
     "click",
     () => {
-      currentAnswer = answerInput.value;
-      currentAnswer = answerInput.value;
       correctAnswer.textContent = `The correct answer is ${displayAnswer}`;
       isCorrect(answer);
 
@@ -246,22 +256,29 @@ function isCorrect(answer) {
   } else if (typeof answer === "object") {
     isCorrect = answer.includes(currentAnswer.toLowerCase());
   } else if (typeof answer === "number") {
-    isCorrect = currentAnswer = answer.toString();
+    isCorrect = currentAnswer === answer.toString();
   }
+  console.log({ currentAnswer }, answer.toString());
   if (isCorrect) {
     //if answer is correct
+    // style and change result text
     answerResult.textContent = "Correct!!!";
-    answerResult.setAttribute("style", "color: green; opacity: 1");
+    answerResult.setAttribute("style", "color: green; opacity: 1; transform: translateY(40%)");
     correctAnswer.setAttribute("style", "opacity: 0");
+    // increment score
     score += 5;
     streak++;
+    // if user reaches a streak of 3 correct answers within a country, add +5 bonus points
     if (streak === 3) {
       score += 5;
     }
     scoreCount.textContent = score;
   } else {
+    // if answer is incorrect
+    // change and style result text
     answerResult.textContent = "Wrong...";
-    answerResult.setAttribute("style", "color: red; opacity: 1");
+    answerResult.setAttribute("style", "color: red; opacity: 1; transform: translateY(0%)");
+    // display correct answer
     correctAnswer.setAttribute("style", "color: red; opacity: 1");
   }
 }
@@ -280,3 +297,32 @@ function newQuestion() {
   progress++;
   progressCount.textContent = Math.ceil(progress / 3).toString();
 }
+
+// fucntion to retrieve and set the flag image
+function getFlag() {
+  // get next country flag
+  let flagImg = questionFlags.pop();
+  // find out whether flag is landscape or portrait (such as Nepal) and store as boolean
+  // source for naturalHeight & naturalWidth attributes: https://stackoverflow.com/a/623215
+  let landscape = flagImg.naturalHeight > flagImg.naturalWidth;
+  // if the flag is taller than it is wide (such as Nepal), set object-fit  to contain rather than cover
+  if (landscape) {
+    flag.setAttribute("style", "object-fit: cover");
+  } else {
+    flag.setAttribute("style", "object-fit: contain");
+  }
+  // set current country flag as main image
+  flag.setAttribute("src", flagImg);
+}
+
+// Fix for height changes in mobile browsers from: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+// Get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// S the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+// Listen to the resize event for when address bar appears/disappears in browser
+window.addEventListener("resize", () => {
+  // Execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+});

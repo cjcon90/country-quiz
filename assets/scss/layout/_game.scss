@@ -1,13 +1,13 @@
 .game {
   position: relative;
-  overflow-y: hidden;
+  height: 100%;
   // GENERAL STYLING FOR GAME SECTIONS (REGION | DIFFICULTY | GAME)
   &__section {
     position: relative;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    height: 100vh;
+    height: 100%;
     background-color: $color-white;
     &--heading {
       position: relative;
