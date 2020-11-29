@@ -79,13 +79,21 @@
     width: 75%;
   }
   &__buttons {
+    display: flex;
+    justify-content: center;
     &--button {
-      display: block;
-      width: 75%;
-      margin: 1rem auto;
       display: none;
+      width: 32%;
+      font-size: 1.5rem;
+      border: solid black 0.1rem;
+      padding: 1rem;
     }
   }
+}
+// to remove the doubling of the border width in adjascent population buttons
+#pop2 {
+  border-left: none;
+  border-right: none;
 }
 
 // STYLING FOR CORRECT / WRONG TEXT
@@ -94,10 +102,12 @@
   &__result {
     text-transform: capitalize;
     opacity: 0;
+    font-size: 5rem;
   }
   &__answer {
     text-transform: none;
     opacity: 0;
+    font-size: 2.5rem;
   }
 }
 

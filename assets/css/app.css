@@ -53,7 +53,6 @@ a {
 .btn {
   width: 17.5rem;
   padding: 1.5rem;
-  border-radius: 0.4rem;
   font-family: "Raleway", sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
@@ -162,19 +161,29 @@ a {
     font-size: 2rem;
     font-family: "Raleway", sans-serif;
     width: 75%; }
-  .question__buttons--button {
-    display: block;
-    width: 75%;
-    margin: 1rem auto;
-    display: none; }
+  .question__buttons {
+    display: flex;
+    justify-content: center; }
+    .question__buttons--button {
+      display: none;
+      width: 32%;
+      font-size: 1.5rem;
+      border: solid black 0.1rem;
+      padding: 1rem; }
+
+#pop2 {
+  border-left: none;
+  border-right: none; }
 
 .answer__result {
   text-transform: capitalize;
-  opacity: 0; }
+  opacity: 0;
+  font-size: 5rem; }
 
 .answer__answer {
   text-transform: none;
-  opacity: 0; }
+  opacity: 0;
+  font-size: 2.5rem; }
 
 .game-buttons {
   width: 100%;

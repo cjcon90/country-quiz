@@ -11,6 +11,7 @@ const scoreCount = document.getElementById("score-count");
 const flag = document.getElementById("flag");
 const question = document.getElementById("question");
 const answerInput = document.getElementById("question-input");
+const populationButtons = document.querySelectorAll(".question__buttons--button");
 const correctAnswer = document.getElementById("correct-answer");
 const answerResult = document.getElementById("answer-result");
 const answerText = document.querySelector(".answer");
@@ -54,7 +55,7 @@ function getAnswers(list) {
       if (!names.includes(altName.toLowerCase())) names.push(altName.toLowerCase());
     }
     for (let translation of Object.values(country.translations)) {
-      if (!names.includes(translation.toLowerCase())) names.push(translation.toLowerCase());
+      if (translation && !names.includes(translation.toLowerCase())) names.push(translation.toLowerCase());
     }
     //return an answer array of 5 subarrays in format:
     // [names, capital, population]
@@ -133,57 +134,101 @@ function playQuiz(answers) {
     question.innerText = "ENDGAME";
   } else {
     let currentCountry = correctAnswers.pop();
+    // remove population buttons and reinstate text input for each new country
+    for (let button of populationButtons) {
+      button.setAttribute("style", "display: none");
+    }
+    answerInput.setAttribute("style", "display: block");
     playCountry(currentCountry);
   }
 }
 
+// Function to take the country array from playQuiz and initiate questions on each new country
 function playCountry(answers) {
   // set current country flag as main image
   flag.setAttribute("src", questionFlags.pop());
-  // Function to take the country array from playQuiz and ask the three questions based on that country
   let currentCountryName = answers[0][0]
     // Title case function code used from: https://www.freecodecamp.org/news/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27/
     .split(" ")
     .map((word) => word.replace(word[0], word[0].toUpperCase()))
     .join(" ");
-  console.log(currentCountryName);
   nameQuestion(answers, currentCountryName);
 }
 
+// Function to ask question on country name
 function nameQuestion(answers, name) {
   newQuestion();
-  incrementProgress();
-  // Function to ask question on country name
   question.innerText = "What is the name of this country?";
   inputSubmit(answers[0], name);
-  nextButton.addEventListener("click", () => {
-    capitalQuestion(answers, name);
-  });
+  nextButton.addEventListener(
+    "click",
+    () => {
+      capitalQuestion(answers, name);
+    },
+    { once: true }
+  );
 }
 
+// Function to ask question on country capital
 function capitalQuestion(answers, name) {
   newQuestion();
-  incrementProgress();
-  // Function to ask question on country capital
+  let capital = answers[1]
+    .split(" ")
+    .map((word) => word.replace(word[0], word[0].toUpperCase()))
+    .join(" ");
   question.innerText = `What is the capital of ${name}?`;
-  inputSubmit(answers[1], name);
-  nextButton.addEventListener("click", () => {
-    populationQuestion(answers, name);
-  });
+  inputSubmit(answers[1], capital);
+  nextButton.addEventListener(
+    "click",
+    () => {
+      populationQuestion(answers, name);
+    },
+    { once: true }
+  );
 }
 
-function populationQuestion(answers) {
+// Function to ask question on country population
+function populationQuestion(answers, name) {
   newQuestion();
-  incrementProgress();
-  // Function to ask question on country population
+  answerInput.setAttribute("style", "display: none");
+  question.innerText = `What is the population of ${name}?`;
+  // create an array of possible population answers from the original correct population
+  let popOptions = [Math.round(answers[2] * 0.5), Math.round(answers[2] * 0.75), answers[2], Math.round(answers[2] * 1.25), Math.round(answers[2] * 1.5)];
+  // slice 3 random entries in order from the array (modifed from code at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+  let n = Math.floor(Math.random() * (3 - 0));
+  popOptions = popOptions.slice(n, n + 3);
+  // add text content and value of 3 population options to the three buttons
+  for (let i = 0; i < populationButtons.length; i++) {
+    populationButtons[i].textContent = popOptions[i].toLocaleString();
+    populationButtons[i].setAttribute("value", popOptions[i]);
+    populationButtons[i].setAttribute("style", "display: block");
+    populationButtons[i].addEventListener("click", (e) => (currentAnswer = e.target.value));
+  }
+  inputSubmit(answers[2], answers[2].toLocaleString());
+  console.log(popOptions, answers[2]);
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+      playQuiz(correctAnswers);
+    },
+    { once: true }
+  );
 }
 
-function inputSubmit(answer, name) {
-  // Function to add functionality for submit button on text input questions
+function inputSubmit(answer, displayAnswer) {
+  if (typeof answer === "string" || typeof answer === "object") {
+    submitButton.addEventListener(
+      "click",
+      () => {
+        currentAnswer = answerInput.value;
+      },
+      { once: true }
+    );
+  }
   submitButton.addEventListener("click", () => {
     currentAnswer = answerInput.value;
-    console.log(name);
-    correctAnswer.textContent = `The correct answer is ${name}`;
+    correctAnswer.textContent = `The correct answer is ${displayAnswer}`;
     isCorrect(answer);
     // disable submit button and enable next button to move to next question
     // credit for code = https://stackoverflow.com/a/11719987
@@ -199,6 +244,8 @@ function isCorrect(answer) {
     isCorrect = currentAnswer.toLowerCase() === answer;
   } else if (typeof answer === "object") {
     isCorrect = answer.includes(currentAnswer.toLowerCase());
+  } else if (typeof answer === "number") {
+    isCorrect = currentAnswer = answer.toString();
   }
   if (isCorrect) {
     //if answer is correct
@@ -212,16 +259,17 @@ function isCorrect(answer) {
   }
 }
 
-function incrementProgress() {
-  progress++;
-  progressCount.textContent = Math.ceil(progress / 3).toString();
-}
-
+//function to set up new Question on click of NEXT button
 function newQuestion() {
-  //function to clear results of previous question when asking each new question and reset submit/next buttong
+  // clear result text
   answerResult.setAttribute("style", "opacity: 0");
   correctAnswer.setAttribute("style", "opacity: 0");
+  // clear inputted answer
   answerInput.value = "";
+  //reset submit and next buttons
   submitButton.disabled = false;
   nextButton.disabled = true;
+  // increment progress
+  progress++;
+  progressCount.textContent = Math.ceil(progress / 3).toString();
 }
