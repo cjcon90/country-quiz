@@ -15,6 +15,10 @@ const populationButtons = document.querySelectorAll(".question__buttons--button"
 const correctAnswer = document.getElementById("correct-answer");
 const answerResult = document.getElementById("answer-result");
 const answerText = document.querySelector(".answer");
+const correctAudio = document.getElementById("correct-audio");
+const wrongAudio = document.getElementById("wrong-audio");
+const highScoreAudio = document.getElementById("high-score-audio");
+const perfectScoreAudio = document.getElementById("perfect-score-audio");
 const submitButton = document.getElementById("submit-button");
 const nextButton = document.getElementById("next-button");
 const endGameScreen = document.querySelector(".endgame");
@@ -309,6 +313,8 @@ function isCorrect(answer) {
       score += 5;
     }
     scoreCount.textContent = score;
+    // play correct sound
+    correctAudio.play();
   } else {
     // if answer is incorrect
     // change and style result text
@@ -316,6 +322,8 @@ function isCorrect(answer) {
     answerResult.setAttribute("style", "color: #ff0000; opacity: 1; transform: translateY(0%)");
     // display correct answer
     correctAnswer.setAttribute("style", "color: #ff0000; display: block");
+    //play incorrect sound
+    wrongAudio.play();
   }
 }
 
@@ -375,6 +383,7 @@ function scoreCheck() {
     highScore.textContent = score;
     highScoreText.textContent = "Perfect Score!!";
     highScoreText.setAttribute("style", "display: block");
+    perfectScoreAudio.play();
   } else {
     // Otherwise, get previously stored high score
     let savedHighScore = localStorage.getItem("savedHighScore");
@@ -385,6 +394,7 @@ function scoreCheck() {
       highScore.textContent = score;
       highScoreText.textContent = "New High Score!!";
       highScoreText.setAttribute("style", "display: block");
+      highScoreAudio.play();
     } else {
       //otherwise, display previously saved high score
       highScore.textContent = savedHighScore;
