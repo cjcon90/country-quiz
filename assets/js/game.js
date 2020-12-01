@@ -112,7 +112,7 @@ difficultySelectors.forEach((btn) =>
       selectedCountries = selectCountries(countryList);
       console.log("\nRandom 5 countries selected for game:");
       for (country of selectedCountries) {
-        console.log(`name: ${country.name}, population: ${country.population.toLocaleString()}`);
+        console.log(`name: ${country.name}, capital: ${country.capital}, population: ${country.population.toLocaleString()}`);
       }
       // Create array of correct answers
       correctAnswers = getAnswers(selectedCountries);
@@ -292,7 +292,7 @@ function submitAnswer(answer, displayAnswer) {
 function isCorrect(answer) {
   let isCorrect;
   if (typeof answer === "string") {
-    isCorrect = currentAnswer.toLowerCase() === answer;
+    isCorrect = currentAnswer.toLowerCase() === removeAccent(answer);
   } else if (typeof answer === "object") {
     isCorrect = answer.includes(currentAnswer.toLowerCase());
   } else if (typeof answer === "number") {
@@ -325,6 +325,28 @@ function isCorrect(answer) {
     //play incorrect sound
     wrongAudio.play();
   }
+}
+
+// Function to remove any accents for comparing capital city names
+// CREDIT: https://gist.github.com/marcelo-ribeiro/abd651b889e4a20e0bab558a05d38d77
+function removeAccent(str) {
+  var map = {
+    "-": " ",
+    "-": "_",
+    a: "á|à|ã|â|À|Á|Ã|Â",
+    e: "é|è|ê|É|È|Ê",
+    i: "í|ì|î|Í|Ì|Î",
+    o: "ó|ò|ô|õ|Ó|Ò|Ô|Õ",
+    u: "ú|ù|û|ü|Ú|Ù|Û|Ü",
+    c: "ç|Ç",
+    n: "ñ|Ñ",
+  };
+
+  for (var pattern in map) {
+    str = str.replace(new RegExp(map[pattern], "g"), pattern);
+  }
+
+  return str;
 }
 
 //function to set up new Question on click of NEXT button
