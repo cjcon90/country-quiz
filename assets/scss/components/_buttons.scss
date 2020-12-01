@@ -1,14 +1,23 @@
 .btn {
-  // DEFAULT BUTTON STYLING
-  display: block;
-  width: 17.5rem;
-  padding: 1.5rem;
+  display: inline-block;
+  font-size: 2rem;
   font-family: $font-default;
-  font-size: 1.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1rem;
-  word-spacing: 0.2rem;
-  text-transform: uppercase;
-  outline: none;
-  border: none;
+
+  text-align: center;
+  padding: 1.5rem 3rem;
+  letter-spacing: 0.3rem;
+  border-radius: 0.3rem;
+  text-transform: capitalize;
+  transition: all 0.2s;
+  color: $color-secondary;
+  background-color: $color-primary;
+  border: solid 0.2rem $color-white;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $color-primary;
+    background-color: $color-secondary;
+    border: solid 0.2rem $color-secondary;
+  }
 }

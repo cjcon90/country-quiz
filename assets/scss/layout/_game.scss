@@ -5,16 +5,18 @@
   &__section {
     position: relative;
     width: 100%;
-    max-width: 600px;
     margin: 0 auto;
     height: 100%;
-    background-color: $color-white;
+    background-color: $color-primary;
     &--heading {
       position: relative;
       height: 15%;
+      background-color: $color-secondary;
+      color: $color-primary;
       &-text {
         /* To center the text perfectly within the heading */
         @include absCenter;
+        text-transform: uppercase;
       }
     }
     // LAYOUT STYLING FOR REGION AND DIFFICULTY OPTIONS
@@ -24,6 +26,12 @@
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      max-width: 600px;
+      margin: auto;
+      & > button {
+        width: 20rem;
+        font-weight: 600;
+      }
     }
   }
 }
@@ -45,9 +53,15 @@
 .counters {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem;
   font-size: 2rem;
   font-family: $font-default;
+  background-color: $color-secondary;
+  color: $color-primary;
+  &__progress--text,
+  &__score--text {
+    font-weight: 600;
+  }
 
   &__score {
     text-align: right;
@@ -55,15 +69,19 @@
 }
 // STYLING FOR MAIN FLAG IMAGE
 .flag {
-  margin: 1rem auto;
-  height: 30vh;
+  margin: 0 auto;
+  height: 30%;
   width: 100%;
+  text-align: center;
+  padding: 1rem;
 
   &__img {
     object-fit: cover;
     margin: 0 auto;
     height: 100%;
-    width: 100%;
+    width: auto;
+    box-shadow: 0 0 1rem rgba($color-black, 0.4);
+    border: solid 0.2rem $color-white;
   }
 }
 // STYLING FOR QUESTION & ANSWER INPUT / SELECTION
@@ -71,22 +89,49 @@
   font-size: 2.5rem;
   font-family: $font-default;
   text-align: center;
+  color: $color-white;
+  font-weight: 500;
+  padding: 1rem;
 
   &__input {
     margin: 0 auto;
+    outline: none;
+    padding: 0.5rem 1rem;
     font-size: 2rem;
     font-family: $font-default;
-    width: 75%;
+    width: 85%;
+    background-color: $color-primary;
+    border: $color-secondary solid 0.2rem;
+    border-radius: 0.4rem;
+    color: $color-white;
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0.3rem $color-white;
+    }
   }
   &__buttons {
     display: flex;
     justify-content: center;
     &--button {
       display: none;
-      width: 32%;
-      font-size: 1.5rem;
-      border: solid black 0.1rem;
-      padding: 1rem;
+      outline: none;
+      border: solid 0.1rem $color-secondary;
+      background-color: $color-primary;
+      color: $color-white;
+      width: 33.33%;
+      font-family: $font-default;
+      font-size: 1.8rem;
+      padding: 0.5rem;
+      transition: all 0.2s;
+
+      //code for not last child from: https://www.geeksforgeeks.org/css-notlast-childafter-selector/#:~:text=The%20%3Anot()%20selector%20excludes,parent%20div%20from%20the%20selection.
+      &:active,
+      &:focus,
+      &:target {
+        background-color: $color-secondary;
+        color: $color-primary;
+        font-weight: 600;
+      }
     }
   }
 }
@@ -100,14 +145,18 @@
 
 .answer {
   &__result {
-    text-transform: capitalize;
+    font-family: $font-default;
+    font-weight: 700;
+    text-transform: uppercase;
     opacity: 0;
-    font-size: 5rem;
+    font-size: 3.5rem;
   }
   &__answer {
+    font-family: $font-default;
+    font-weight: 700;
     text-transform: none;
     opacity: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -119,5 +168,22 @@
 
   & > * {
     margin: 1rem;
+    width: 15rem;
+    color: $color-primary;
+    background-color: $color-secondary;
+    font-size: 2rem;
+    font-weight: 700;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-primary;
+      background-color: $color-white;
+    }
+    &:disabled {
+      color: $color-primary;
+      background-color: $color-secondary;
+      opacity: 0.4;
+      border: none;
+    }
   }
 }

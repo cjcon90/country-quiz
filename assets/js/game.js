@@ -157,7 +157,7 @@ function playQuiz(answers) {
 
 // Function to take the country array from playQuiz and initiate questions on each new country
 function playCountry(answers) {
-  getFlag();
+  getFlag(answers);
   // Store proper country name in title case for use during questions
   let currentCountryName = answers[0][0]
     // Title case function code used from: https://www.freecodecamp.org/news/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27/
@@ -272,7 +272,7 @@ function isCorrect(answer) {
     //if answer is correct
     // style and change result text
     answerResult.textContent = "Correct!!!";
-    answerResult.setAttribute("style", "color: green; opacity: 1; transform: translateY(40%)");
+    answerResult.setAttribute("style", "color: #98bf00; opacity: 1; transform: translateY(40%)");
     correctAnswer.setAttribute("style", "opacity: 0");
     // increment score
     score += 5;
@@ -286,9 +286,9 @@ function isCorrect(answer) {
     // if answer is incorrect
     // change and style result text
     answerResult.textContent = "Wrong...";
-    answerResult.setAttribute("style", "color: red; opacity: 1; transform: translateY(0%)");
+    answerResult.setAttribute("style", "color: #ff0d0d; opacity: 1; transform: translateY(0%)");
     // display correct answer
-    correctAnswer.setAttribute("style", "color: red; opacity: 1");
+    correctAnswer.setAttribute("style", "color: #ff0d0d; opacity: 1");
   }
 }
 
@@ -308,17 +308,15 @@ function newQuestion() {
 }
 
 // fucntion to retrieve and set the flag image
-function getFlag() {
+function getFlag(answers) {
   // get next country flag
   let flagImg = questionFlags.pop();
-  // find out whether flag is landscape or portrait (such as Nepal) and store as boolean
-  // source for naturalHeight & naturalWidth attributes: https://stackoverflow.com/a/623215
-  let landscape = flagImg.naturalHeight > flagImg.naturalWidth;
-  // if the flag is taller than it is wide (such as Nepal), set object-fit  to contain rather than cover
-  if (landscape) {
-    flag.setAttribute("style", "object-fit: cover");
+  // if the country is Nepal then set the flag to contain, to complensate for different aspect ratio
+  if (answers[0][0] === "nepal") {
+    flag.setAttribute("style", "object-fit: contain; border: none; box-shadow: none");
   } else {
-    flag.setAttribute("style", "object-fit: contain");
+    // else set the flag to cover
+    flag.setAttribute("style", "object-fit: cover; border: solid 0.2rem $color-white; box-shadow: 0 0 .8rem rgba(0,0,0,.5");
   }
   // set current country flag as main image
   flag.setAttribute("src", flagImg);

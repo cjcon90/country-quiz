@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -60,14 +58,14 @@
         <p class="question" id="question">Question</p>
         <input type="text" class="question__input" id="question-input" />
         <div class="question__buttons">
-          <button class="question__buttons--button btn" id="pop1">PopulationNum</button>
-          <button class="question__buttons--button btn" id="pop2">PopulationNum</button>
-          <button class="question__buttons--button btn" id="pop3">PopulationNum</button>
+          <button class="question__buttons--button" id="pop1">PopulationNum</button>
+          <button class="question__buttons--button" id="pop2">PopulationNum</button>
+          <button class="question__buttons--button" id="pop3">PopulationNum</button>
         </div>
-        <div class="answer">
-          <p class="answer__result heading-primary" id="answer-result">Correct!!</p>
-          <p class="answer__answer heading-secondary" id="correct-answer">The correct Answer is ${Country Name}</p>
-        </div>
+
+        <p class="answer__result heading-secondary" id="answer-result">Correct!!</p>
+        <p class="answer__answer heading-secondary" id="correct-answer">The correct Answer is ${Country Name}</p>
+
         <div class="game-buttons">
           <button class="game-buttons__submit btn" id="submit-button">Submit</button>
           <button class="game-buttons__next btn" id="next-button" disabled>Next</button>

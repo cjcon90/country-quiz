@@ -1,12 +1,19 @@
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: $color-white;
+  background-color: $color-primary;
   height: 4rem;
+  border-top: solid 0.2rem $color-secondary;
   &__text {
     font-size: 1.6rem;
+    font-family: $font-default;
+    font-weight: 600;
+    color: $color-white;
     text-align: center;
     padding-top: 1rem;
+  }
+  &--main {
+    animation: display-delay 1s 2.5s both linear;
   }
 }

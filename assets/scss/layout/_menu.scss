@@ -1,15 +1,41 @@
 .menu {
   /*  Styling for front-page menu of index.html */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 50%;
+  display: grid;
+  grid-template-rows: 45% 25%;
+  align-items: end;
+  justify-content: center;
+  //The bottom 50% of the page, minus the 4rem of the footer. This ensures that the link buttons are perfectly centered in their section
+  height: 65%;
+  background-color: transparent;
+  overflow: hidden;
+  background-image: url("../images/globe-blue.jpg");
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-color: $color-primary;
 
   // MAIN PLAY GAME & ABOUT BUTTON STYLING
+
   &__link {
-    margin: 0 auto;
-    background-color: $color-white;
-    text-align: center;
-    text-decoration: none;
+    font-weight: 600;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $color-secondary;
+    background-color: $color-primary;
+    border: solid 0.2rem $color-white;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: $color-primary;
+      background-color: $color-secondary;
+      border: solid 0.2rem $color-secondary;
+    }
+  }
+  #play-button {
+    animation: appear-left 1.25s 0.75s cubic-bezier(0.37, 0.2, 0.77, 1.15) both;
+  }
+  #about-button {
+    animation: appear-right 1.25s 1.25s cubic-bezier(0.37, 0.2, 0.77, 1.15) both;
   }
 }
