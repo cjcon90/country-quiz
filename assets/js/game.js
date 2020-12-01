@@ -292,9 +292,25 @@ function submitAnswer(answer, displayAnswer) {
 function isCorrect(answer) {
   let isCorrect;
   if (typeof answer === "string") {
-    isCorrect = currentAnswer.toLowerCase() === removeAccent(answer);
+    // add edge case fix for Washington DC
+    if (
+      (answer === "washington, d.c." && currentAnswer.toLowerCase() === "washington dc") ||
+      currentAnswer.toLowerCase() === "washington d.c." ||
+      currentAnswer.toLowerCase() === "washington"
+    ) {
+      isCorrect = true;
+    } else {
+      isCorrect = currentAnswer.toLowerCase() === removeAccent(answer);
+    }
   } else if (typeof answer === "object") {
-    isCorrect = answer.includes(currentAnswer.toLowerCase());
+    // Add edge case fixes for North Korea and South Korea, the input of which were showing as incorrect
+    if (answer[0] === "korea (democratic people's republic of)" && currentAnswer.toLowerCase() === "north korea") {
+      isCorrect = true;
+    } else if (answer[0] === "korea (republic of)" && currentAnswer.toLowerCase() === "south korea") {
+      isCorrect = true;
+    } else {
+      isCorrect = answer.includes(currentAnswer.toLowerCase());
+    }
   } else if (typeof answer === "number") {
     isCorrect = currentAnswer === answer.toString();
   }
