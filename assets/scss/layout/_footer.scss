@@ -9,10 +9,25 @@
   &__text {
     font-size: 1.6rem;
     font-family: $font-default;
-    font-weight: 600;
+    font-weight: 400;
     color: $color-white;
     text-align: center;
     padding-top: 1rem;
+    &--link {
+      font-weight: 600;
+      color: $color-secondary;
+      outline: none;
+      & :link,
+      :visited {
+        color: $color-secondary;
+      }
+      &:hover,
+      &:focus {
+        color: $color-white;
+        font-style: italic;
+        text-decoration: underline;
+      }
+    }
   }
   &--main {
     animation: display-delay 1s 2.5s both linear;

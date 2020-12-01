@@ -16,9 +16,9 @@
     position: fixed;
     @include absCenter;
     width: 90%;
-    height: 70%;
-    background-color: $color-white;
-    border: solid 2px black;
+    height: 50rem;
+    background-color: $color-primary;
+    border: solid 2px $color-white;
     z-index: 10;
   }
   // ========== SCORE & HIGH SCORE STYLING ==========
@@ -27,32 +27,54 @@
     justify-content: space-between;
     &-box {
       padding: 1rem;
+      & > * {
+        font-family: $font-default;
+        font-weight: 700;
+      }
       &--text {
         font-size: 2rem;
+        color: $color-white;
       }
       &--number {
-        font-size: 4rem;
+        font-size: 3rem;
+        color: $color-secondary;
       }
     }
   }
   &__high-score {
     &--text {
+      font-size: 3rem;
+      color: $color-secondary;
       display: none;
     }
   }
   // ========== PLAY AGAIN, CHANGE RULES & EXIT BUTTON STYLING==========
   &__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     &--btn {
-      background-color: lightgray;
       font-size: 1.5rem;
-      text-align: center;
-      width: 27.5rem;
-      padding: 1.5rem 0;
-      margin: 1rem auto;
-      color: black;
+      margin: 0 1.25rem 1rem 1.25rem;
+      border-radius: 0.4rem;
+      font-weight: 600;
+      padding: 1.5rem 0.5rem;
+      &:hover,
+      &:focus,
+      &:active {
+        font-weight: 700;
+      }
     }
   }
   // ========== FACEBOOK AND TWITTER LINKS STYLING ==========
+  &__social {
+    // SHARE YOUR SCORE text
+    &--text {
+      font-size: 3.5rem;
+      color: $color-white;
+    }
+  }
+
   &__social-links {
     display: flex;
     width: 100%;
@@ -70,6 +92,12 @@
       font-weight: 600;
       letter-spacing: 0.1rem;
       border-radius: 0.2rem;
+      border: 0.2rem solid transparent;
+      &:focus,
+      &:hover,
+      &:active {
+        border: solid 0.2rem $color-white;
+      }
 
       & > i {
         font-size: 2rem;

@@ -3,7 +3,7 @@
   display: inline-block;
   font-size: 2rem;
   font-family: $font-default;
-
+  outline: 0;
   text-align: center;
   padding: 1.5rem 3rem;
   letter-spacing: 0.3rem;
@@ -17,8 +17,8 @@
   &:active,
   &:focus,
   &:hover {
+    outline: 0;
     color: $color-primary;
     background-color: $color-secondary;
-    border: solid 0.2rem $color-secondary;
   }
 }
