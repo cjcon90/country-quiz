@@ -1,9 +1,12 @@
 .game {
   position: relative;
   height: 100%;
-  // GENERAL STYLING FOR GAME SECTIONS (REGION | DIFFICULTY | GAME)
+  // ========== GENERAL STYLING FOR GAME SECTIONS (REGION | DIFFICULTY | GAME) ==========
   &__section {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     margin: 0 auto;
     height: 100%;
@@ -19,7 +22,7 @@
         text-transform: uppercase;
       }
     }
-    // LAYOUT STYLING FOR REGION AND DIFFICULTY OPTIONS
+    // ========== LAYOUT STYLING FOR REGION AND DIFFICULTY OPTION BUTTONS ==========
     &--options {
       height: 85%;
       display: flex;
@@ -36,20 +39,13 @@
   }
 }
 
-#game {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 // Initially setting difficulty and game sections not to appear until region has been selected
-// game will revert to flex when activated
 #difficulty,
 #game {
   display: none;
 }
 
-// STYLING FOR PROGRESS AND SCORE COUNTERS
+// ========== STYLING FOR PROGRESS AND SCORE COUNTERS ==========
 .counters {
   display: flex;
   justify-content: space-between;
@@ -67,7 +63,7 @@
     text-align: right;
   }
 }
-// STYLING FOR MAIN FLAG IMAGE
+// ========== STYLING FOR MAIN FLAG IMAGE ==========
 .flag {
   margin: 0 auto;
   height: 20rem;
@@ -84,7 +80,7 @@
     border: solid 0.2rem $color-white;
   }
 }
-// STYLING FOR QUESTION & ANSWER INPUT / SELECTION
+// ========== STYLING FOR QUESTION & ANSWER INPUT / SELECTION ==========
 .question {
   font-size: 2.5rem;
   font-family: $font-default;
@@ -124,7 +120,6 @@
       padding: 0.5rem;
       transition: all 0.2s;
 
-      //code for not last child from: https://www.geeksforgeeks.org/css-notlast-childafter-selector/#:~:text=The%20%3Anot()%20selector%20excludes,parent%20div%20from%20the%20selection.
       &:active,
       &:focus,
       &:target {
@@ -135,13 +130,13 @@
     }
   }
 }
-// to remove the doubling of the border width in adjascent population buttons
+// to remove the doubling of the border on lef + right of middle population button
 #pop2 {
   border-left: none;
   border-right: none;
 }
 
-// STYLING FOR CORRECT / WRONG TEXT
+// ========== STYLING FOR CORRECT / WRONG TEXT ==========
 
 .answer {
   font-weight: 700;
@@ -165,7 +160,7 @@
   }
 }
 
-// STYLING FOR SUBMIT AND NEXT BUTTONS
+// ========== STYLING FOR SUBMIT AND NEXT BUTTONS ==========
 .game-buttons {
   width: 100%;
   display: flex;

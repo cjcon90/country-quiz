@@ -1,3 +1,4 @@
+// ========== ENDGAME / MODAL STYLING ==========
 .endgame {
   display: none;
   position: absolute;
@@ -7,6 +8,7 @@
   width: 100%;
   top: 0;
   left: 0;
+  // ========== MODAL ELEMENT STYLING ==========
   &__modal {
     display: flex;
     flex-direction: column;
@@ -19,7 +21,7 @@
     border: solid 2px black;
     z-index: 10;
   }
-
+  // ========== SCORE & HIGH SCORE STYLING ==========
   &__scores {
     display: flex;
     justify-content: space-between;
@@ -38,6 +40,7 @@
       display: none;
     }
   }
+  // ========== PLAY AGAIN, CHANGE RULES & EXIT BUTTON STYLING==========
   &__buttons {
     &--btn {
       background-color: lightgray;
@@ -49,6 +52,7 @@
       color: black;
     }
   }
+  // ========== FACEBOOK AND TWITTER LINKS STYLING ==========
   &__social-links {
     display: flex;
     width: 100%;
@@ -74,6 +78,7 @@
     }
   }
 }
+// Setting social media brand colors to buttons
 #facebook-share {
   background-color: #3b5998;
 }

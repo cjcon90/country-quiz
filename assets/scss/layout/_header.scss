@@ -1,31 +1,29 @@
+// ========== STYLING FOR MENU & ABOUT HEADERS ==========
 .header {
   position: relative;
   height: 30%;
   z-index: 10;
-  &--menu {
-    background-color: transparent;
-    /*background-image: url("../images/world-flags-banner-sm.jpg");
-    background-size: cover;
-    //Infinite scrolling background code from this post: https://stackoverflow.com/a/32405494
-    background-repeat: repeat-x;
-    animation: slideleft 40000s infinite linear;*/
-  }
-  &__title {
-    &--menu,
-    &--about {
-      /* To center the text perfectly within the heading */
-      @include absCenter;
-      text-transform: uppercase;
-    }
-    &--menu {
-      color: $color-secondary;
-      text-shadow: 1px 1px 2px $color-white;
-      padding-top: 10rem;
-    }
-  }
+  background-color: transparent;
+  // ========== ABOUT HEADER SPECIFIC STYLING ==========
   &--about {
     height: 15%;
     background-color: $color-secondary;
     color: $color-primary;
+  }
+
+  // ========== HEADER TITLES ==========
+  &__title {
+    &--menu,
+    &--about {
+      /* To center the text within the heading */
+      @include absCenter;
+      text-transform: uppercase;
+    }
+    // ========== MAIN MENU TITLE ==========
+    &--menu {
+      color: $color-secondary;
+      text-shadow: 1px 1px 2px $color-white;
+      padding-top: 5rem;
+    }
   }
 }

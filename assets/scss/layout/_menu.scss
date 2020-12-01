@@ -1,10 +1,9 @@
 .menu {
-  /*  Styling for front-page menu of index.html */
+  // ========== STYLING FOR FRONT-PAGE MENU OF APP ==========
   display: grid;
   grid-template-rows: 50% 25%;
   align-items: end;
   justify-content: center;
-  //The bottom 50% of the page, minus the 4rem of the footer. This ensures that the link buttons are perfectly centered in their section
   height: 70%;
   background-color: red;
   overflow: hidden;
@@ -14,7 +13,7 @@
   background-position: bottom;
   background-color: $color-primary;
 
-  // MAIN PLAY GAME & ABOUT BUTTON STYLING
+  // ========== "PLAY GAME" & "ABOUT" BUTTONs ==========
 
   &__link {
     font-weight: 600;
@@ -32,6 +31,7 @@
       border: solid 0.2rem $color-secondary;
     }
   }
+  // ========== ANIMATION ON APP / PAGE LOAD ==========
   #play-button {
     animation: appear-left 1.25s 0.75s cubic-bezier(0.37, 0.2, 0.77, 1.15) both;
   }

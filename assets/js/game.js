@@ -1,4 +1,4 @@
-// Define Selectors
+// ========== DEFINE SELECTORS ==========
 const regionPage = document.getElementById("region");
 const difficultyPage = document.getElementById("difficulty");
 const gamePage = document.getElementById("game");
@@ -25,6 +25,7 @@ const facebookShare = document.getElementById("facebook-share");
 const twitterShare = document.getElementById("twitter-share");
 const playAgain = document.getElementById("play-again");
 
+// ========== DEFINE VARIABLES ==========
 // create variable to store total countries available to play with
 let countryList;
 //variable to store correct answers and flags for each question
@@ -36,49 +37,18 @@ let currentAnswer;
 let progress = 0,
   score = 0,
   streak = 0;
-// store selected region and difficulty for use in playing game again with same settings
+// store selected region and difficulty settings
 let regionSetting, difficultySetting;
 
-//define function to select 5 random countries from full list of countries
-function selectCountries(list) {
-  let newList = [];
-  while (newList.length < 5) {
-    // code from https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/
-    let newCountry = list[Math.floor(Math.random() * list.length)];
-    if (newList.some((country) => country.name === newCountry.name)) {
-      continue;
-    } else {
-      newList.push(newCountry);
-    }
-  }
-  return newList;
-}
-// Define function to get list of correct answers from final 5 countries
-function getAnswers(list) {
-  let answers = [];
-  for (country of list) {
-    // create array of country flags for each question
-    questionFlags.push(country.flag);
-    // Create a names array of the official country name, the native country name, and alternative spellings
-    let names = [country.name.toLowerCase(), country.nativeName.toLowerCase()];
-    for (let altName of country.altSpellings) {
-      if (!names.includes(altName.toLowerCase())) names.push(altName.toLowerCase());
-    }
-    for (let translation of Object.values(country.translations)) {
-      if (translation && !names.includes(translation.toLowerCase())) names.push(translation.toLowerCase());
-    }
-    //return an answer array of 5 subarrays in format:
-    // [names, capital, population]
-    answers.push([names, country.capital.toLowerCase(), country.population]);
-  }
-  return answers;
-}
+// ========== SETTING UP GAME ==========
 
 // fetch full list of countries from REST Countries API && Filter to only countries that have a defined population and capital
 fetch("https://restcountries.eu/rest/v2/all")
   .then((res) => res.json())
   .then((data) => (countryList = data.filter((country) => country.population && country.capital)))
   .catch((error) => console.error("Error:", error));
+
+// ========== SELECTING REGION ==========
 
 // add a click event listener for each button in SELECT REGION page
 regionSelectors.forEach((btn) =>
@@ -108,6 +78,8 @@ regionSelectors.forEach((btn) =>
     console.log(`Countries After Region Select: ${countryList.length}`);
   })
 );
+
+// ========== SELECTING DIFFICULTY ==========
 
 //Define an object outlining population values for each difficulty
 const difficulty = { hard: 150000, medium: 5000000, easy: 20000000 };
@@ -147,13 +119,52 @@ difficultySelectors.forEach((btn) =>
   })
 );
 
+// ========== GAME FUNCTIONS ==========
+
+// function to select 5 random countries from the final list of countries
+function selectCountries(list) {
+  let newList = [];
+  while (newList.length < 5) {
+    // code from https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/
+    let newCountry = list[Math.floor(Math.random() * list.length)];
+    if (newList.some((country) => country.name === newCountry.name)) {
+      continue;
+    } else {
+      newList.push(newCountry);
+    }
+  }
+  return newList;
+}
+
+// Define function to get list of correct answers from the 5 selected countries for each game
+function getAnswers(list) {
+  let answers = [];
+  for (country of list) {
+    // create array of country flags for each question
+    questionFlags.push(country.flag);
+    // Create a names array of the official country name, the native country name, and alternative spellings
+    let names = [country.name.toLowerCase(), country.nativeName.toLowerCase()];
+    for (let altName of country.altSpellings) {
+      if (!names.includes(altName.toLowerCase())) names.push(altName.toLowerCase());
+    }
+    for (let translation of Object.values(country.translations)) {
+      if (translation && !names.includes(translation.toLowerCase())) names.push(translation.toLowerCase());
+    }
+    //return an answer array of 5 subarrays in format:
+    // [names answers, capital answer, population answer]
+    answers.push([names, country.capital.toLowerCase(), country.population]);
+  }
+  return answers;
+}
+
+// Function to start quiz & end quiz if all questions have been asked
 function playQuiz(answers) {
   //Function to check answers array for next country and slice name, capital and population from next country
   if (!correctAnswers.length) {
     endGame();
   } else {
     let currentCountry = correctAnswers.pop();
-    // remove population buttons and reinstate text input for each new country
+    // in each new round, remove buttons from population question and reinstate text input
     for (let button of populationButtons) {
       button.setAttribute("style", "display: none");
     }
@@ -162,7 +173,7 @@ function playQuiz(answers) {
   }
 }
 
-// Function to take the country array from playQuiz and initiate questions on each new country
+// Function to take the 3 answers array for each country and start the round
 function playCountry(answers) {
   getFlag(answers);
   // Store proper country name in title case for use during questions
@@ -229,6 +240,9 @@ function populationQuestion(answers, name) {
   console.log(`Actual Population is in options? ${popOptions.includes(answers[2]) ? "Yes" : "No"}`);
   console.log(`Index of actual population ${popOptions.indexOf(answers[2])}`);
 
+  // ========== SUBMIT ANSWER & PROGRESS GAME BUTTONS ==========
+
+  // move to next question and reset streak to 0 fornext country
   nextButton.addEventListener(
     "click",
     () => {
@@ -239,7 +253,9 @@ function populationQuestion(answers, name) {
   );
 }
 
+//  Submit button functionality
 function submitAnswer(answer, displayAnswer) {
+  // For name and capital questions, submit button sets current text input as user answer
   if (typeof answer === "string" || typeof answer === "object") {
     submitButton.addEventListener(
       "click",
@@ -249,10 +265,14 @@ function submitAnswer(answer, displayAnswer) {
       { once: true }
     );
   }
+
   submitButton.addEventListener(
     "click",
     () => {
+      // Set correct answer text
       correctAnswer.innerHTML = `The correct answer is <span class="answer__answer--country">${displayAnswer}</span>`;
+
+      // Check if answer is correct
       isCorrect(answer);
 
       // disable submit button and enable next button to move to next question
@@ -264,8 +284,8 @@ function submitAnswer(answer, displayAnswer) {
   );
 }
 
+// Function to check if current answer is correct
 function isCorrect(answer) {
-  // Function to check if current answer is correct
   let isCorrect;
   if (typeof answer === "string") {
     isCorrect = currentAnswer.toLowerCase() === answer;
@@ -314,27 +334,31 @@ function newQuestion() {
   progressCount.textContent = Math.ceil(progress / 3).toString();
 }
 
-// fucntion to retrieve and set the flag image
+// ========== FLAG IMAGE FUNCTIONALITY ==========
+
+// function to retrieve and set the flag image
 function getFlag(answers) {
-  // get next country flag
+  // get current country flag
   let flagImg = questionFlags.pop();
-  // if the country is Nepal then set the flag to contain, to complensate for different aspect ratio
+  // if the country is Nepal then set the flag object-fit to contain, to complensate for unique aspect ratio
   if (answers[0][0] === "nepal") {
     flag.setAttribute("style", "object-fit: contain; border: none; box-shadow: none");
   } else {
-    // else set the flag to cover
+    // else set the object-fit to cover
     flag.setAttribute("style", "object-fit: cover; border: solid 0.2rem $color-white; box-shadow: 0 0 .8rem rgba(0,0,0,.5");
   }
   // set current country flag as main image
   flag.setAttribute("src", flagImg);
 }
 
+// ========== ENDGAME / MODAL FUNCTIONALITY ==========
+
 function endGame() {
   //run check score function
   scoreCheck();
-  // set social links based on score
+  // set social links share quotes based on score
   setSocialLinks();
-  // Set Play Game Again functionality
+  // Set current game rules for "play again" functionality
   playGameAgain();
   // Make endgame screen visible
   endGameScreen.setAttribute("style", "display: block;");
@@ -367,7 +391,7 @@ function scoreCheck() {
     }
   }
 }
-
+// Fucntion to set current score in share quote for social sharing
 function setSocialLinks() {
   let shareText = `I just scored ${score} points in the Country Quiz Challenge! Can you do better?`;
   facebookShare.setAttribute("href", `https://www.facebook.com/sharer/sharer.php?u=https://cjcon90.github.io/country-quiz/&quote=${shareText}`);
@@ -378,6 +402,7 @@ function setSocialLinks() {
   );
 }
 
+// Function to play the game again under the current Region / Difficulty settings
 function playGameAgain() {
   //set playAgain button to correct region
   playAgain.textContent = `Play ${regionSetting} (${difficultySetting}) again`;
