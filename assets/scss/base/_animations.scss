@@ -46,3 +46,23 @@
     transform: translateX(0);
   }
 }
+
+@keyframes endgame-screen-blur {
+  0% {
+    backdrop-filter: none;
+  }
+  100% {
+    backdrop-filter: blur(2px);
+  }
+}
+
+@keyframes endgame-modal-appear {
+  0% {
+    opacity: 0;
+    left: -100%;
+  }
+  100% {
+    opacity: 1;
+    left: 50%;
+  }
+}

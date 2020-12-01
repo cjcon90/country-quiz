@@ -22,6 +22,8 @@ const perfectScoreAudio = document.getElementById("perfect-score-audio");
 const submitButton = document.getElementById("submit-button");
 const nextButton = document.getElementById("next-button");
 const endGameScreen = document.querySelector(".endgame");
+const endGameModal = document.querySelector(".endgame__modal");
+const endGameFooter = document.querySelector(".footer--endgame");
 const endScore = document.getElementById("new-score");
 const highScore = document.getElementById("high-score");
 const highScoreText = document.querySelector(".endgame__high-score--text");
@@ -412,7 +414,9 @@ function endGame() {
   // Set current game rules for "play again" functionality
   playGameAgain();
   // Make endgame screen visible
-  endGameScreen.setAttribute("style", "display: block;");
+  endGameScreen.setAttribute("style", "display: block; animation: endgame-screen-blur 2.5s ease both");
+  endGameModal.setAttribute("style", "display: flex; animation: endgame-modal-appear 1.5s ease both");
+  endGameFooter.setAttribute("style", "display: block; animation: display-delay 1.5s 1s ease both");
 }
 
 // Function to check score against high score, and result text appropraitely

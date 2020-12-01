@@ -32,4 +32,7 @@
   &--main {
     animation: display-delay 1s 2.5s both linear;
   }
+  &--footer {
+    display: none;
+  }
 }

@@ -13,7 +13,7 @@
     position: absolute;
     @include absCenter;
     z-index: 0;
-    animation: background-appear 5s ease both;
+    animation: background-appear 5s 0.25s ease both;
   }
 
   // ========== "PLAY GAME" & "ABOUT" BUTTONs ==========
@@ -36,9 +36,9 @@
   }
   // ========== ANIMATION ON APP / PAGE LOAD ==========
   #play-button {
-    animation: appear-left 1.75s 0.75s ease both;
+    animation: appear-left 1.75s 1s ease both;
   }
   #about-button {
-    animation: appear-right 1.75s 1.25s ease both;
+    animation: appear-right 1.75s 1.5s ease both;
   }
 }

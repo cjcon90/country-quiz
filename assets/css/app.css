@@ -29,6 +29,20 @@
   100% {
     transform: translateX(0); } }
 
+@keyframes endgame-screen-blur {
+  0% {
+    backdrop-filter: none; }
+  100% {
+    backdrop-filter: blur(2px); } }
+
+@keyframes endgame-modal-appear {
+  0% {
+    opacity: 0;
+    left: -100%; }
+  100% {
+    opacity: 1;
+    left: 50%; } }
+
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
@@ -129,6 +143,7 @@ a {
   top: 0;
   left: 0; }
   .endgame__modal {
+    opacity: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -139,7 +154,7 @@ a {
     transform: translate(-50%, -50%);
     width: 90%;
     height: 50rem;
-    background-color: #2d2b5a;
+    background-color: rgba(45, 43, 90, 0.9);
     border: solid 2px #fffff6;
     z-index: 10; }
   .endgame__scores {
@@ -169,7 +184,8 @@ a {
       margin: 0 1.25rem 1rem 1.25rem;
       border-radius: 0.4rem;
       font-weight: 600;
-      padding: 1.5rem 0.5rem; }
+      padding: 1.5rem 0.5rem;
+      background-color: rgba(45, 43, 90, 0.9); }
       .endgame__buttons--btn:hover, .endgame__buttons--btn:focus, .endgame__buttons--btn:active {
         font-weight: 700; }
   .endgame__social--text {
@@ -225,7 +241,7 @@ a {
     color: #9dbe39;
     text-shadow: 1px 1px 2px #fffff6;
     padding-top: 5rem;
-    animation: display-delay 4s both ease-in-out; }
+    animation: display-delay 4s 0.25s both ease-in-out; }
 
 .footer {
   position: absolute;
@@ -254,6 +270,8 @@ a {
         text-decoration: underline; }
   .footer--main {
     animation: display-delay 1s 2.5s both linear; }
+  .footer--footer {
+    display: none; }
 
 .game {
   position: relative;
@@ -419,7 +437,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
-    animation: background-appear 5s ease both; }
+    animation: background-appear 5s 0.25s ease both; }
   .menu__link {
     font-weight: 600;
     font-size: 3rem;
@@ -432,6 +450,6 @@ a {
       color: #2d2b5a;
       background-color: #9dbe39; }
   .menu #play-button {
-    animation: appear-left 1.75s 0.75s ease both; }
+    animation: appear-left 1.75s 1s ease both; }
   .menu #about-button {
-    animation: appear-right 1.75s 1.25s ease both; }
+    animation: appear-right 1.75s 1.5s ease both; }
