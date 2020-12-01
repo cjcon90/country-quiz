@@ -188,7 +188,7 @@ a {
 
 .header {
   position: relative;
-  height: 35%;
+  height: 30%;
   z-index: 10; }
   .header--menu {
     background-color: transparent;
@@ -206,7 +206,8 @@ a {
     text-transform: uppercase; }
   .header__title--menu {
     color: #9dbe39;
-    text-shadow: 1px 1px 2px #fffff6; }
+    text-shadow: 1px 1px 2px #fffff6;
+    padding-top: 10rem; }
   .header--about {
     height: 15%;
     background-color: #9dbe39;
@@ -286,7 +287,7 @@ a {
 
 .flag {
   margin: 0 auto;
-  height: 30%;
+  height: 20rem;
   width: 100%;
   text-align: center;
   padding: 1rem; }
@@ -341,19 +342,23 @@ a {
   border-left: none;
   border-right: none; }
 
-.answer__result {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  opacity: 0;
-  font-size: 3.5rem; }
-
-.answer__answer {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  text-transform: none;
-  opacity: 0;
-  font-size: 2rem; }
+.answer {
+  font-weight: 700; }
+  .answer__result {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0;
+    font-size: 3.5rem; }
+  .answer__answer {
+    font-family: "Roboto", sans-serif;
+    text-transform: none;
+    display: none;
+    font-size: 2rem; }
+    .answer__answer--country {
+      font-size: 2.5rem;
+      font-weight: 600;
+      font-style: italic; }
 
 .game-buttons {
   width: 100%;
@@ -378,14 +383,14 @@ a {
 .menu {
   /*  Styling for front-page menu of index.html */
   display: grid;
-  grid-template-rows: 45% 25%;
+  grid-template-rows: 50% 25%;
   align-items: end;
   justify-content: center;
-  height: 65%;
-  background-color: transparent;
+  height: 70%;
+  background-color: red;
   overflow: hidden;
   background-image: url("../images/globe-blue.jpg");
-  background-size: 110%;
+  background-size: 105%;
   background-repeat: no-repeat;
   background-position: bottom;
   background-color: #2d2b5a; }

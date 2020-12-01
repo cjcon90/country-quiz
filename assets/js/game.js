@@ -85,22 +85,26 @@ regionSelectors.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     regionSetting = e.target.value;
     console.log(`\nRegion selected: ${e.target.value}`);
-    if (e.target.value === "world") {
-      //keep country list the same, hide region page and move on to difficulty page
-      regionPage.setAttribute("style", "display: none;");
-      difficultyPage.setAttribute("style", "display: block;");
-    } else {
-      // filter the country list down to countries within the region of the button selected
-      countryList = countryList.filter((country) => country.region.toLowerCase() === e.target.value);
-      //hide region page and move on to difficulty page
-      regionPage.setAttribute("style", "display: none;");
-      difficultyPage.setAttribute("style", "display: block;");
-      //if the region selected is oceanie, then disable "easy" and "medium" modes for the next screen (as there are not enough countries to fit that filter)
-      if (e.target.value === "oceania") {
-        easyButton.setAttribute("disabled", "true");
-        mediumButton.setAttribute("disabled", "true");
+    // put it inside a setTimeout so there was some delay on changing to next page. Allows for button animation and is more aesthetically pleasing
+    setTimeout(() => {
+      if (e.target.value === "world") {
+        //keep country list the same, hide region page and move on to difficulty page
+        regionPage.setAttribute("style", "display: none;");
+        difficultyPage.setAttribute("style", "display: block;");
+      } else {
+        // filter the country list down to countries within the region of the button selected
+        countryList = countryList.filter((country) => country.region.toLowerCase() === e.target.value);
+        //hide region page and move on to difficulty page
+        regionPage.setAttribute("style", "display: none;");
+        difficultyPage.setAttribute("style", "display: block;");
+        //if the region selected is oceanie, then disable "easy" and "medium" modes for the next screen (as there are not enough countries to fit that filter)
+        if (e.target.value === "oceania") {
+          easyButton.setAttribute("disabled", "true");
+          mediumButton.setAttribute("disabled", "true");
+        }
       }
-    }
+    }, 200);
+
     console.log(`Countries After Region Select: ${countryList.length}`);
   })
 );
@@ -114,29 +118,32 @@ difficultySelectors.forEach((btn) =>
     difficultySetting = e.target.value;
     console.log(`\nDifficulty selected: ${e.target.value}`);
     e.target.value === "expert" ? console.log(`Minimum population: none`) : console.log(`Minimum population: ${difficulty[e.target.value].toLocaleString()}`);
-    if (e.target.value === "expert") {
-      // if difficulty selected is expert:
-      //keep country list the same, hide difficulty page and move on to game
-      difficultyPage.setAttribute("style", "display: none;");
-      gamePage.setAttribute("style", "display: flex;");
-    } else {
-      // otherwise, filter the country list to countries that have equal or greater the population outlined in each difficulty setting
-      countryList = countryList.filter((country) => country.population >= difficulty[e.target.value]);
-      difficultyPage.setAttribute("style", "display: none;");
-      gamePage.setAttribute("style", "display: flex;");
-    }
-    // TESTING LOG
-    console.log("Countries After Difficulty Select: " + countryList.length);
-    selectedCountries = selectCountries(countryList);
-    console.log("\nRandom 5 countries selected for game:");
-    for (country of selectedCountries) {
-      console.log(`name: ${country.name}, population: ${country.population.toLocaleString()}`);
-    }
-    // Create array of correct answers
-    correctAnswers = getAnswers(selectedCountries);
+    // put it inside a setTimeout so there was some delay on changing to next page. Allows for button animation and is more aesthetically pleasing
+    setTimeout(() => {
+      if (e.target.value === "expert") {
+        // if difficulty selected is expert:
+        //keep country list the same, hide difficulty page and move on to game
+        difficultyPage.setAttribute("style", "display: none;");
+        gamePage.setAttribute("style", "display: flex;");
+      } else {
+        // otherwise, filter the country list to countries that have equal or greater the population outlined in each difficulty setting
+        countryList = countryList.filter((country) => country.population >= difficulty[e.target.value]);
+        difficultyPage.setAttribute("style", "display: none;");
+        gamePage.setAttribute("style", "display: flex;");
+      }
+      // TESTING LOG
+      console.log("Countries After Difficulty Select: " + countryList.length);
+      selectedCountries = selectCountries(countryList);
+      console.log("\nRandom 5 countries selected for game:");
+      for (country of selectedCountries) {
+        console.log(`name: ${country.name}, population: ${country.population.toLocaleString()}`);
+      }
+      // Create array of correct answers
+      correctAnswers = getAnswers(selectedCountries);
 
-    //Initiatite Quiz Game Functions
-    playQuiz(correctAnswers);
+      //Initiatite Quiz Game Functions
+      playQuiz(correctAnswers);
+    }, 200);
   })
 );
 
@@ -245,7 +252,7 @@ function submitAnswer(answer, displayAnswer) {
   submitButton.addEventListener(
     "click",
     () => {
-      correctAnswer.textContent = `The correct answer is ${displayAnswer}`;
+      correctAnswer.innerHTML = `The correct answer is <span class="answer__answer--country">${displayAnswer}</span>`;
       isCorrect(answer);
 
       // disable submit button and enable next button to move to next question
@@ -272,8 +279,8 @@ function isCorrect(answer) {
     //if answer is correct
     // style and change result text
     answerResult.textContent = "Correct!!!";
-    answerResult.setAttribute("style", "color: #98bf00; opacity: 1; transform: translateY(40%)");
-    correctAnswer.setAttribute("style", "opacity: 0");
+    answerResult.setAttribute("style", "color: #98bf00; opacity: 1;");
+    correctAnswer.setAttribute("style", "display: none");
     // increment score
     score += 5;
     streak++;
@@ -285,10 +292,10 @@ function isCorrect(answer) {
   } else {
     // if answer is incorrect
     // change and style result text
-    answerResult.textContent = "Wrong...";
-    answerResult.setAttribute("style", "color: #ff0d0d; opacity: 1; transform: translateY(0%)");
+    answerResult.textContent = "Wrong";
+    answerResult.setAttribute("style", "color: #ff0000; opacity: 1; transform: translateY(0%)");
     // display correct answer
-    correctAnswer.setAttribute("style", "color: #ff0d0d; opacity: 1");
+    correctAnswer.setAttribute("style", "color: #ff0000; display: block");
   }
 }
 

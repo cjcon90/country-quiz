@@ -1,15 +1,15 @@
 .menu {
   /*  Styling for front-page menu of index.html */
   display: grid;
-  grid-template-rows: 45% 25%;
+  grid-template-rows: 50% 25%;
   align-items: end;
   justify-content: center;
   //The bottom 50% of the page, minus the 4rem of the footer. This ensures that the link buttons are perfectly centered in their section
-  height: 65%;
-  background-color: transparent;
+  height: 70%;
+  background-color: red;
   overflow: hidden;
   background-image: url("../images/globe-blue.jpg");
-  background-size: 110%;
+  background-size: 105%;
   background-repeat: no-repeat;
   background-position: bottom;
   background-color: $color-primary;
