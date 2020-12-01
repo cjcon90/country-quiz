@@ -2,11 +2,11 @@
 @keyframes background-appear {
   0% {
     opacity: 0;
-    background-size: 50%;
+    width: 50%;
   }
   100% {
     opacity: 1;
-    background-size: 105%;
+    width: 100%;
   }
 }
 
@@ -19,12 +19,15 @@
     opacity: 1;
   }
 }
+// Slide in animations inspired by Jonas Schmedtmann's Advanced CSS Udemy Course
 // ========== SLIDE IN FROM LEFT ANIMATION (PLAY GAME BUTTON) ==========
 @keyframes appear-left {
   0% {
     transform: translateX(-200%);
   }
-
+  75% {
+    transform: translateX(5%);
+  }
   100% {
     transform: translateX(0);
   }
@@ -33,6 +36,10 @@
 @keyframes appear-right {
   0% {
     transform: translateX(200%);
+  }
+
+  75% {
+    transform: translateX(-5%);
   }
 
   100% {

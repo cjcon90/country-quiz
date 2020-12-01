@@ -13,6 +13,14 @@
     <section class="menu">
       <a href="game.html" class="menu__link btn" id="play-button">Play Game</a>
       <a href="about.html" class="menu__link btn" id="about-button">About</a>
+      <picture>
+        <source srcset="assets/images/globe-blue-lg.jpg" media="(min-width: 1400px)" />
+        <!-- Size for large displays -->
+        <source srcset="assets/images/globe-blue-md.jpg" media="(min-width: 768px)" />
+        <!-- Size for medium displays -->
+        <img src="assets/images/globe-blue-sm.jpg" alt="illustration of earth in space" class="menu__img" />
+        <!-- Default size -->
+      </picture>
     </section>
     <footer class="footer footer--main">
       <p class="footer__text">Page Created by <a href="https://cjcon90.dev" target="_blank" class="footer__text--link">Ciaran Concannon</a></p>
