@@ -257,7 +257,7 @@ function populationQuestion(answers, name) {
   );
 }
 
-//  Submit button functionality
+//  Submitting button Functionality
 function submitAnswer(answer, displayAnswer) {
   // For name and capital questions, submit button sets current text input as user answer
   if (typeof answer === "string" || typeof answer === "object") {
@@ -273,19 +273,14 @@ function submitAnswer(answer, displayAnswer) {
   submitButton.addEventListener(
     "click",
     () => {
-      // Set correct answer text
-      correctAnswer.innerHTML = `The correct answer is <span class="answer__answer--country">${displayAnswer}</span>`;
-
       // Check if answer is correct
       isCorrect(answer);
-
-      // disable submit button and enable next button to move to next question
-      // credit for code = https://stackoverflow.com/a/11719987
-      submitButton.disabled = true;
-      nextButton.disabled = false;
     },
     { once: true }
   );
+
+  // Set correct answer text
+  correctAnswer.innerHTML = `The correct answer is <span class="answer__answer--country">${displayAnswer}</span>`;
 }
 
 // Function to check if current answer is correct
@@ -298,6 +293,9 @@ function isCorrect(answer) {
       currentAnswer.toLowerCase() === "washington d.c." ||
       currentAnswer.toLowerCase() === "washington"
     ) {
+      isCorrect = true;
+      // Add edge case fix for Victoria, Hong Kong
+    } else if (answer === "city of victoria" && (currentAnswer.toLowerCase() === "victoria" || currentAnswer.toLowerCase() === "victoria city")) {
       isCorrect = true;
     } else {
       isCorrect = currentAnswer.toLowerCase() === removeAccent(answer);
@@ -341,6 +339,11 @@ function isCorrect(answer) {
     //play incorrect sound
     wrongAudio.play();
   }
+
+  // disable submit button and enable next button to move to next question
+  // credit for code = https://stackoverflow.com/a/11719987
+  submitButton.disabled = true;
+  nextButton.disabled = false;
 }
 
 // Function to remove any accents for comparing capital city names
@@ -372,6 +375,8 @@ function newQuestion() {
   correctAnswer.setAttribute("style", "opacity: 0");
   // clear inputted answer
   answerInput.value = "";
+  //clear saved current user answer
+  currentAnswer = "";
   //reset submit and next buttons
   submitButton.disabled = false;
   nextButton.disabled = true;

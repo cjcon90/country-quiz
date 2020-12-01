@@ -8,10 +8,10 @@
   background-color: red;
   overflow: hidden;
   background-image: url("../images/globe-blue.jpg");
-  background-size: 105%;
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
   background-color: $color-primary;
+  animation: background-appear 3s both ease-in-out;
 
   // ========== "PLAY GAME" & "ABOUT" BUTTONs ==========
 

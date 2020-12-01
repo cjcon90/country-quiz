@@ -24,6 +24,7 @@
       color: $color-secondary;
       text-shadow: 1px 1px 2px $color-white;
       padding-top: 5rem;
+      animation: display-delay 3s both ease-in-out;
     }
   }
 }
