@@ -27,7 +27,7 @@ A link to the live website is [HERE](https://cjcon90.github.io/country-quiz/)
 
 CountryQuiz is a web app, built using the REST Countries API, that is focused on being both fun and educational.
 
-It provides varying levels of difficulty depending on which region of the world a user selects, and their own pre-existing knowledge of that region, and this provides continued enjoyment and learning through repeated playthroughs.
+It provides varying levels of difficulty depending on which region of the world a user selects and this provides continued enjoyment and learning and encourages repeated playthroughs.
 
 ---
 
@@ -70,10 +70,51 @@ It provides varying levels of difficulty depending on which region of the world 
 
 ### Design
 
+
+#### Imagery
+
+- The main game element of the app is based around the images of country flags on which the user is tested. These images are generated through the REST Countries API, and can represent any country in the world - based on which region or difficulty the user has selected.
+
+- For the landing page of the app, I wanted a single image that would symbolise the subject matter of the game whilst providing a fun visual effect that would excite users to play the game.
+
+- For this I chose an illustration of the earth by [Alfonso de Tomas, sourced on Shutterstock](https://www.shutterstock.com/image-vector/europe-map-africa-russia-asia-north-229383577)
+- This image is animated on loading the main menu of the page, growing in size which again brings life into the design of the app.
+
+
+
+![img](assets/images/globe-blue-sm.jpg)
+
+#### Colour Scheme
+
+- The main colour scheme for the app was structured around the selected main central image of the earth in space.
+
+	- **Primary Colour** | *Space Cadet* | #20503C | a dark, soft blue that works very well as a 'night mode' style background colour.
+
+	- **Secondary Colour** | *Android Green* | #9DBE39 | a bright green that contrasts nicely with the primary dark blue. It's brightness and vibrancy adds a touch of fun to the styling, a requirement as outlined in the user stories.
+
+	- **White Colour** | *Baby Powder* | #FFFFF6 | a soft white that does not appear sharp or overly bright against the two main app colours.
+
+	- **Black Colour** | *Rich Black FOGRA 29* | #0E1F2F | a soft black that again does not appear too sharp or overly dark against any of the app colours.
+
+- As the country flags appearing within the app will feature many bright colours throughout, I kept the amount of colours used in the app to a minimum, as too many additional colours would easily risk clashing against the flags or make the game page overwhelming in terms of colour content. 
+
+
+![image](docs/color-palette.png)
+
+#### Typography
+
+- I chose two fonts to use within the document.
+
+	- The default font for areas where legibility was the key factor, such as paragraphs and questions, I chose the popular [Roboto font](https://fonts.google.com/specimen/Roboto#standard-styles) that allows for a natural reading rhythm.
+
+	- For the headings, I wanted a font that was clearly legible but fit with the need of fun visuals, as outlined in the user stories. For this I chose [Racing Sans One](https://fonts.google.com/specimen/Racing+Sans+One), a unique font due to its high contrast sans that creates a fun visual effect.
+
 #### Wireframes
 
-Wireframes were created using Balsamiq:
+- Wireframes were created using Balsamiq:
 
-1. [Mobile Wireframes](https://github.com/cjcon90/country-quiz/blob/main/docs/wireframes/wireframe-mobile.pdf)
+	1. [Mobile Wireframes](https://github.com/cjcon90/country-quiz/blob/main/docs/wireframes/wireframe-mobile.pdf)
+
+
 
 ---
