@@ -12,6 +12,7 @@ A link to the live website is [HERE](https://cjcon90.github.io/country-quiz/)
 - [User Experience (UX)](#UX)
   - [User Stories](#Stories)
   - [Design](#Design)
+- [Features](#Features) 
 - [Technologies Used](#Technologies)
 - [Testing](#Testing)
 - [Bugs & Fixes](#Bugs)
@@ -109,12 +110,28 @@ It provides varying levels of difficulty depending on which region of the world 
 
 	- For the headings, I wanted a font that was clearly legible but fit with the need of fun visuals, as outlined in the user stories. For this I chose [Racing Sans One](https://fonts.google.com/specimen/Racing+Sans+One), a unique font due to its high contrast sans that creates a fun visual effect.
 
+#### Sound
+
+- There are sounds implemented within the app which were all sourced from [ZapSplat](https://www.zapsplat.com/)
+	1. [Correct answer](https://www.zapsplat.com/music/bell-chime-notification-high-pitched-metallic-good-for-apps-games-and-other-ui-3/) 
+	1. [Wrong Answer](https://www.zapsplat.com/music/game-error-tone-1/)
+	1. [High Score](https://www.zapsplat.com/music/game-tone-bright-and-warm-synth-win-award-1/)
+	1. [Perfect Score](https://www.zapsplat.com/music/game-tone-bright-warm-and-magical-win-award-or-level-up/)
+- The correct and wrong answer sounds were selected to be subtle and short in length as they would be heard multiple times in the app. They were also selected to be easily recognisable in terms of simulating achievement and error.
+- The High Score and Perfect Score sounds were selected to sound somewhat related to each other (both rising melodic tones), with the sound for a perfect score being more complex and higher in tone to give users an additional feeling of reward, in line with the user stories.
+
 #### Wireframes
 
 - Wireframes were created using Balsamiq:
 
 	1. [Mobile Wireframes](https://github.com/cjcon90/country-quiz/blob/main/docs/wireframes/wireframe-mobile.pdf)
 
-
-
 ---
+
+<a name="Features"></a>
+
+## Features
+
+- Clear navigation to go straight into playing the game.
+	- Important for returning users who do not need any explanation on the rules.
+- Clear navigation to  

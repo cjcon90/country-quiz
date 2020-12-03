@@ -2,10 +2,10 @@
 @keyframes background-appear {
   0% {
     opacity: 0;
-    width: 50%; }
+    width: 10rem; }
   100% {
     opacity: 1;
-    width: 100%; } }
+    width: 50rem; } }
 
 @keyframes display-delay {
   0% {
@@ -37,10 +37,8 @@
 
 @keyframes endgame-modal-appear {
   0% {
-    opacity: 0;
     left: -100%; }
   100% {
-    opacity: 1;
     left: 50%; } }
 
 html {
@@ -143,7 +141,6 @@ a {
   top: 0;
   left: 0; }
   .endgame__modal {
-    opacity: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
