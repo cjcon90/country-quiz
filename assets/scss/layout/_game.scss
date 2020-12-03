@@ -139,7 +139,6 @@
 // ========== STYLING FOR CORRECT / WRONG TEXT ==========
 
 .answer {
-  font-weight: 700;
   &__result {
     font-family: $font-default;
     font-weight: 700;
@@ -167,22 +166,23 @@
   justify-content: space-between;
 
   & > * {
+    // Unique styling for submit and next buttons
     margin: 1rem;
     width: 15rem;
     color: $color-primary;
     background-color: $color-secondary;
-    font-size: 2rem;
-    font-weight: 700;
+    border: solid 0.2rem transparent;
     &:hover,
     &:active,
     &:focus {
-      color: $color-primary;
-      background-color: $color-white;
+      border: solid 0.2rem $color-white;
+      color: $color-white;
+      font-weight: 700;
+      font-size: 2.1rem;
     }
     &:disabled {
       color: $color-primary;
       background-color: $color-secondary;
-      opacity: 0.4;
       border: none;
     }
   }

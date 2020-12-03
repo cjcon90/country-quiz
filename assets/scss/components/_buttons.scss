@@ -3,6 +3,7 @@
   display: inline-block;
   font-size: 2rem;
   font-family: $font-default;
+  font-weight: 600;
   outline: 0;
   text-align: center;
   padding: 1.5rem 3rem;
@@ -18,7 +19,13 @@
   &:focus,
   &:hover {
     outline: 0;
+    font-weight: 700;
     color: $color-primary;
     background-color: $color-secondary;
+  }
+  &:disabled {
+    color: $color-secondary;
+    background-color: $color-primary;
+    opacity: 0.4;
   }
 }

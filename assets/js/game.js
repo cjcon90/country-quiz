@@ -338,8 +338,6 @@ function isCorrect(answer) {
     } else {
       // else play regular correct answer sound
       correctAudio.play();
-      // hide 'answer' text
-      correctAnswer.setAttribute("style", "display: none");
     }
     scoreCount.textContent = score;
   } else {
@@ -385,7 +383,7 @@ function removeAccent(str) {
 function newQuestion() {
   // clear result text
   answerResult.setAttribute("style", "opacity: 0");
-  correctAnswer.setAttribute("style", "opacity: 0");
+  correctAnswer.setAttribute("style", "display: none");
   // clear inputted answer
   answerInput.value = "";
   //clear saved current user answer

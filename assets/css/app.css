@@ -101,6 +101,7 @@ a {
   display: inline-block;
   font-size: 2rem;
   font-family: "Roboto", sans-serif;
+  font-weight: 600;
   outline: 0;
   text-align: center;
   padding: 1.5rem 3rem;
@@ -113,8 +114,13 @@ a {
   border: solid 0.2rem #fffff6; }
   .btn:active, .btn:focus, .btn:hover {
     outline: 0;
+    font-weight: 700;
     color: #2d2b5a;
     background-color: #9dbe39; }
+  .btn:disabled {
+    color: #9dbe39;
+    background-color: #2d2b5a;
+    opacity: 0.4; }
 
 .about {
   height: calc(85% - 4rem);
@@ -124,10 +130,20 @@ a {
   justify-content: flex-start;
   padding-bottom: 5rem; }
   .about__text {
+    width: 90%;
+    margin: 1.5rem auto;
     color: #fffff6;
     font-family: "Roboto", sans-serif;
     font-size: 2rem;
-    margin: 2.5rem; }
+    line-height: 2.75rem; }
+    .about__text--link:link, .about__text--link:visited {
+      color: #9dbe39; }
+    .about__text--link:hover, .about__text--link:active, .about__text--link:focus {
+      color: #fffff6;
+      text-decoration: underline; }
+    .about__text:last-of-type {
+      text-align: center;
+      font-size: 2.2rem; }
   .about__link {
     align-self: center;
     margin-top: 1.5rem; }
@@ -179,12 +195,8 @@ a {
     .endgame__buttons--btn {
       font-size: 1.5rem;
       margin: 0 1.25rem 1rem 1.25rem;
-      border-radius: 0.4rem;
-      font-weight: 600;
       padding: 1.5rem 0.5rem;
       background-color: rgba(45, 43, 90, 0.9); }
-      .endgame__buttons--btn:hover, .endgame__buttons--btn:focus, .endgame__buttons--btn:active {
-        font-weight: 700; }
   .endgame__social--text {
     font-size: 3.5rem;
     color: #fffff6; }
@@ -250,12 +262,11 @@ a {
   .footer__text {
     font-size: 1.6rem;
     font-family: "Roboto", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     color: #fffff6;
     text-align: center;
     padding-top: 1rem; }
     .footer__text--link {
-      font-weight: 600;
       color: #9dbe39;
       outline: none; }
       .footer__text--link :link,
@@ -263,7 +274,7 @@ a {
         color: #9dbe39; }
       .footer__text--link:hover, .footer__text--link:focus {
         color: #fffff6;
-        font-style: italic;
+        font-weight: 700;
         text-decoration: underline; }
   .footer--main {
     animation: display-delay 1s 2.5s both linear; }
@@ -380,23 +391,22 @@ a {
   border-left: none;
   border-right: none; }
 
-.answer {
-  font-weight: 700; }
-  .answer__result {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    opacity: 0;
-    font-size: 3.5rem; }
-  .answer__answer {
-    font-family: "Roboto", sans-serif;
-    text-transform: none;
-    display: none;
-    font-size: 2rem; }
-    .answer__answer--country {
-      font-size: 2.5rem;
-      font-weight: 600;
-      font-style: italic; }
+.answer__result {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0;
+  font-size: 3.5rem; }
+
+.answer__answer {
+  font-family: "Roboto", sans-serif;
+  text-transform: none;
+  display: none;
+  font-size: 2rem; }
+  .answer__answer--country {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-style: italic; }
 
 .game-buttons {
   width: 100%;
@@ -407,15 +417,15 @@ a {
     width: 15rem;
     color: #2d2b5a;
     background-color: #9dbe39;
-    font-size: 2rem;
-    font-weight: 700; }
+    border: solid 0.2rem transparent; }
     .game-buttons > *:hover, .game-buttons > *:active, .game-buttons > *:focus {
-      color: #2d2b5a;
-      background-color: #fffff6; }
+      border: solid 0.2rem #fffff6;
+      color: #fffff6;
+      font-weight: 700;
+      font-size: 2.1rem; }
     .game-buttons > *:disabled {
       color: #2d2b5a;
       background-color: #9dbe39;
-      opacity: 0.4;
       border: none; }
 
 .menu {

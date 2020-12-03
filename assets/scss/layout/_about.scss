@@ -1,6 +1,8 @@
 // ========== ABOUT SECTION STYLING ==========
 .about {
+  // setting height to factor in footer (to better center the buttons)
   height: calc(85% - 4rem);
+  //credit for overflow code: https://css-tricks.com/almanac/properties/o/overflow/
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -8,10 +10,28 @@
   padding-bottom: 5rem;
   // ========== ABOUT SECTION PARAGRAPHS ==========
   &__text {
+    width: 90%;
+    margin: 1.5rem auto;
     color: $color-white;
     font-family: $font-default;
     font-size: 2rem;
-    margin: 2.5rem;
+    line-height: 2.75rem;
+    &--link {
+      &:link,
+      &:visited {
+        color: $color-secondary;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-white;
+        text-decoration: underline;
+      }
+    }
+    &:last-of-type {
+      text-align: center;
+      font-size: 2.2rem;
+    }
   }
   // ========== PLAY GAME BUTTON ==========
   &__link {

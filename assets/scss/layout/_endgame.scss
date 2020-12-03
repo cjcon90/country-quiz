@@ -55,17 +55,11 @@
     flex-direction: column;
     justify-content: space-between;
     &--btn {
+      // Unique Styling for endgame buttons
       font-size: 1.5rem;
       margin: 0 1.25rem 1rem 1.25rem;
-      border-radius: 0.4rem;
-      font-weight: 600;
       padding: 1.5rem 0.5rem;
       background-color: rgba($color-primary, 0.9);
-      &:hover,
-      &:focus,
-      &:active {
-        font-weight: 700;
-      }
     }
   }
   // ========== FACEBOOK AND TWITTER LINKS STYLING ==========

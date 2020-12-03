@@ -9,12 +9,11 @@
   &__text {
     font-size: 1.6rem;
     font-family: $font-default;
-    font-weight: 400;
+    font-weight: 500;
     color: $color-white;
     text-align: center;
     padding-top: 1rem;
     &--link {
-      font-weight: 600;
       color: $color-secondary;
       outline: none;
       & :link,
@@ -24,7 +23,7 @@
       &:hover,
       &:focus {
         color: $color-white;
-        font-style: italic;
+        font-weight: 700;
         text-decoration: underline;
       }
     }
