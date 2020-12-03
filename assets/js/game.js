@@ -16,6 +16,7 @@ const correctAnswer = document.getElementById("correct-answer");
 const answerResult = document.getElementById("answer-result");
 const answerText = document.querySelector(".answer");
 const correctAudio = document.getElementById("correct-audio");
+const bonusAudio = document.getElementById("bonus-audio");
 const wrongAudio = document.getElementById("wrong-audio");
 const highScoreAudio = document.getElementById("high-score-audio");
 const perfectScoreAudio = document.getElementById("perfect-score-audio");
@@ -299,6 +300,9 @@ function isCorrect(answer) {
       // Add edge case fix for Victoria, Hong Kong
     } else if (answer === "city of victoria" && (currentAnswer.toLowerCase() === "victoria" || currentAnswer.toLowerCase() === "victoria city")) {
       isCorrect = true;
+      // add edge case for Mongolian capital Ulaanbaatar
+    } else if (answer === "ulan bator" && currentAnswer.toLowerCase() === "ulaanbaatar") {
+      isCorrect = true;
     } else {
       isCorrect = currentAnswer.toLowerCase() === removeAccent(answer);
     }
@@ -317,20 +321,27 @@ function isCorrect(answer) {
   console.log({ currentAnswer }, answer.toString());
   if (isCorrect) {
     //if answer is correct
-    // style and change result text
+    // style and change result text appropriately
     answerResult.textContent = "Correct!!!";
     answerResult.setAttribute("style", "color: #98bf00; opacity: 1;");
-    correctAnswer.setAttribute("style", "display: none");
     // increment score
     score += 5;
     streak++;
     // if user reaches a streak of 3 correct answers within a country, add +5 bonus points
     if (streak === 3) {
       score += 5;
+      // & play bonus points sound
+      bonusAudio.play();
+      // show bonus points in place of answer text
+      correctAnswer.textContent = "+5 Bonus Points!!";
+      correctAnswer.setAttribute("style", "color: #98bf00; display: block;");
+    } else {
+      // else play regular correct answer sound
+      correctAudio.play();
+      // hide 'answer' text
+      correctAnswer.setAttribute("style", "display: none");
     }
     scoreCount.textContent = score;
-    // play correct sound
-    correctAudio.play();
   } else {
     // if answer is incorrect
     // change and style result text
