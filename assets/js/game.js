@@ -195,6 +195,8 @@ function playCountry(answers) {
 // Function to ask question on country name
 function nameQuestion(answers, name) {
   newQuestion();
+  //auto-focus code credit: https://www.w3schools.com/jsref/met_html_focus.asp
+  answerInput.focus();
   question.innerText = "What is the name of this country?";
   submitAnswer(answers[0], name);
   nextButton.addEventListener(
@@ -209,6 +211,8 @@ function nameQuestion(answers, name) {
 // Function to ask question on country capital
 function capitalQuestion(answers, name) {
   newQuestion();
+  //auto-focus code credit: https://www.w3schools.com/jsref/met_html_focus.asp
+  answerInput.focus();
   let capital = answers[1]
     .split(" ")
     .map((word) => word.replace(word[0], word[0].toUpperCase()))

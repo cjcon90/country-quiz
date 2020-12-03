@@ -363,33 +363,35 @@ a {
     font-family: "Roboto", sans-serif;
     width: 85%;
     background-color: #2d2b5a;
-    border: #9dbe39 solid 0.2rem;
+    border: solid 0.2rem rgba(157, 190, 57, 0.8);
     border-radius: 0.4rem;
-    color: #fffff6; }
+    color: #fffff6;
+    transition: all 0.2s; }
     .question__input:focus, .question__input:active {
-      box-shadow: 0 0 0.3rem #fffff6; }
+      background-color: rgba(255, 255, 246, 0.1);
+      border-color: #9dbe39;
+      box-shadow: 0 0 1rem rgba(255, 255, 246, 0.2); }
   .question__buttons {
     display: flex;
     justify-content: center; }
     .question__buttons--button {
       display: none;
       outline: none;
-      border: solid 0.1rem #9dbe39;
+      border: none;
+      border-right: 0.2rem solid #9dbe39;
       background-color: #2d2b5a;
       color: #fffff6;
-      width: 33.33%;
+      width: 33%;
       font-family: "Roboto", sans-serif;
-      font-size: 1.8rem;
-      padding: 0.5rem;
+      font-size: 1.6rem;
+      padding: 1rem 0.5rem;
       transition: all 0.2s; }
+      .question__buttons--button:last-of-type {
+        border: none; }
       .question__buttons--button:active, .question__buttons--button:focus, .question__buttons--button:target {
-        background-color: #9dbe39;
-        color: #2d2b5a;
+        color: #9dbe39;
+        background-color: rgba(255, 255, 246, 0.1);
         font-weight: 600; }
-
-#pop2 {
-  border-left: none;
-  border-right: none; }
 
 .answer__result {
   font-family: "Roboto", sans-serif;

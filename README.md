@@ -132,6 +132,7 @@ It provides varying levels of difficulty depending on which region of the world 
 
 ## Features
 
+#### Home Menu
 - Clear navigation to go straight into playing the game.
 	- Important for returning users who do not need any explanation on the rules.
 - Clear navigation to  
