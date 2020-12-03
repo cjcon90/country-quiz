@@ -26,7 +26,7 @@ A link to the live website is [HERE](https://cjcon90.github.io/country-quiz/)
 
 ## Overview
 
-CountryQuiz is a web app, built using the REST Countries API, that is focused on being both fun and educational.
+CountryQuiz is a web app, built using the REST Countries API, that tests users knowledge on country flags, capital city names and country populations; it is focused on being both fun and educational.
 
 It provides varying levels of difficulty depending on which region of the world a user selects and this provides continued enjoyment and learning and encourages repeated playthroughs.
 
@@ -112,13 +112,20 @@ It provides varying levels of difficulty depending on which region of the world 
 
 #### Sound
 
-- There are sounds implemented within the app which were all sourced from [ZapSplat](https://www.zapsplat.com/)
+- There are five sounds implemented within the app which were all sourced from [ZapSplat](https://www.zapsplat.com/)
 	1. [Correct answer](https://www.zapsplat.com/music/bell-chime-notification-high-pitched-metallic-good-for-apps-games-and-other-ui-3/) 
+	
 	1. [Wrong Answer](https://www.zapsplat.com/music/game-error-tone-1/)
+
+	1. [Bonus Points Awarded](https://www.zapsplat.com/music/notification-alert-bell-chime-good-for-alerting-user-of-event-or-message-etc-4/) 
+	
 	1. [High Score](https://www.zapsplat.com/music/game-tone-bright-and-warm-synth-win-award-1/)
+	
 	1. [Perfect Score](https://www.zapsplat.com/music/game-tone-bright-warm-and-magical-win-award-or-level-up/)
+
 - The correct and wrong answer sounds were selected to be subtle and short in length as they would be heard multiple times in the app. They were also selected to be easily recognisable in terms of simulating achievement and error.
-- The High Score and Perfect Score sounds were selected to sound somewhat related to each other (both rising melodic tones), with the sound for a perfect score being more complex and higher in tone to give users an additional feeling of reward, in line with the user stories.
+	- The addition of a unique sound for getting bonus points provides an extra reward to the user, and also makes the in-game sounds less repetitive
+- The High Score and Perfect Score sounds were selected to sound somewhat related to each other (both rising melodic tones), with the sound for a perfect score being more complex and higher in tone to also give users an additional feeling of reward, in line with the user stories.
 
 #### Wireframes
 
@@ -132,7 +139,45 @@ It provides varying levels of difficulty depending on which region of the world 
 
 ## Features
 
-#### Home Menu
-- Clear navigation to go straight into playing the game.
+#### Navigation
+- Clear navigation to go straight into playing the game on first loading the app
 	- Important for returning users who do not need any explanation on the rules.
-- Clear navigation to  
+- Clear navigation to the 'About' section on first loading the app
+	- Important for first-time players
+- All link text throughout the app is styled in a way that differentiates it from all non-interactive text
+- All link and interactive buttons have additional styles when the user hover over or interact with them
+- Any disabled buttons are clearly styled so users are not drawn to click on them
+- Page auto-focuses to the text input on each question, to create less clicks for the user to progress through the game
+- At the end of game user is presented with a list of navigation options
+	- Repeat the game under the current region / difficulty settings
+	- Play again but choose different region / difficulty settings 
+	- Exit the game and return to the main menu
+		- This is useful for players who need to revisit the About section for any extra clarity
+
+#### About Section
+
+- The About section explains the game to new players:
+	- The subject of the game
+	- What questions are asked
+	- How the region / difficulty selectors work
+	- How points & bonus points are scored 
+	- Where the data comes from
+	- How to report any inaccurate data
+- Following the explanation there is a link to continue into the game without having to go back to the main menu
+
+#### Game Mode Selection
+
+- Any countries that do not have a population or a capital city name are automatically filtered out before any selection
+- Users are given 6 filters for what region they want to play with:
+	1. Africa
+	2. Asia
+	3. Americas
+	4. Europe
+	5. Oceania
+	6. The World
+- Users are then given a choice of 4 difficulties, that will filter the remaining countries based on population
+	1. Easy (20,000,000+ population) 
+	2. Medium (5,000,000+ population)
+	3. Hard (150,000+ population)
+	4. Expert ()
+		- The specific population numbers that determine the difficulty are not given in the app's About section, as this could reveal some of the in-game answers for the user. 
