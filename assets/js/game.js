@@ -286,6 +286,9 @@ function submitAnswer(answer, displayAnswer) {
     // Store functionality in separate function to avoid stacking answer checks
     // Source for this solution: Eloquent JavaScript, Chapter 14
     function inputFunc() {
+      // Scroll window to bottom so that 'Submit' button is not hidden by mobile soft keyboard
+      // credit for code: https://stackoverflow.com/a/54575955
+      window.scrollTo(0, document.body.scrollHeight);
       answerInput.addEventListener(
         "keyup",
         (e) => {
