@@ -95,7 +95,8 @@ a {
 
 .heading-secondary {
   font-size: 4rem;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  line-height: 4rem; }
 
 .btn {
   display: inline-block;
@@ -166,7 +167,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    height: 50rem;
+    height: 47.5rem;
     background-color: rgba(45, 43, 90, 0.9);
     border: solid 2px #fffff6;
     z-index: 10; }
@@ -182,7 +183,7 @@ a {
         font-size: 2rem;
         color: #fffff6; }
       .endgame__scores-box--number {
-        font-size: 3rem;
+        font-size: 3.5rem;
         color: #9dbe39; }
   .endgame__high-score--text {
     font-size: 3rem;

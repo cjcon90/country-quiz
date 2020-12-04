@@ -16,7 +16,7 @@
     position: fixed;
     @include absCenter;
     width: 90%;
-    height: 50rem;
+    height: 47.5rem;
     // Add a glass effect to end game modal
     background-color: rgba($color-primary, 0.9);
     border: solid 2px $color-white;
@@ -37,7 +37,7 @@
         color: $color-white;
       }
       &--number {
-        font-size: 3rem;
+        font-size: 3.5rem;
         color: $color-secondary;
       }
     }

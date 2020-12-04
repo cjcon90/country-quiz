@@ -266,25 +266,52 @@ function populationQuestion(answers, name) {
 
 //  Submitting button Functionality
 function submitAnswer(answer, displayAnswer) {
-  // For name and capital questions, submit button sets current text input as user answer
-  if (typeof answer === "string" || typeof answer === "object") {
+  if (typeof answer === "number") {
+    // For population questions
     submitButton.addEventListener(
       "click",
       () => {
-        currentAnswer = answerInput.value;
+        // Check if answer is correct
+        isCorrect(answer);
       },
       { once: true }
     );
-  }
+  } else if (typeof answer === "string" || typeof answer === "object") {
+    // For name and capital questions
+    // ===== Enter Key functionality =====
 
-  submitButton.addEventListener(
-    "click",
-    () => {
-      // Check if answer is correct
+    // Add an eventListener to detect keypresses on answer Input
+    answerInput.addEventListener("keydown", inputFunc);
+
+    // Store functionality in separate function to avoid stacking answer checks
+    // Source for this solution: Eloquent JavaScript, Chapter 14
+    function inputFunc() {
+      answerInput.addEventListener(
+        "keyup",
+        (e) => {
+          // if key pressed = Enter, check code and remove eventListener to avoid stacking
+          if (e.code === "Enter") {
+            submitFunc();
+          }
+        },
+        { once: true }
+      );
+    }
+
+    // Submit button functionality
+    submitButton.addEventListener("click", submitFunc);
+
+    // Store another separate submitAnswer function that can be removed from *both* text input and submit button eventListeners, as only one of them will be used
+    function submitFunc() {
+      currentAnswer = answerInput.value;
       isCorrect(answer);
-    },
-    { once: true }
-  );
+      // remove all event Listeners
+      answerInput.removeEventListener("keydown", inputFunc);
+      submitButton.removeEventListener("click", submitFunc);
+      // set tab focus on nextButton to reduce needing tab or mouse to advance page
+      nextButton.focus();
+    }
+  }
 
   // Set correct answer text
   correctAnswer.innerHTML = `The correct answer is <span class="answer__answer--country">${displayAnswer}</span>`;
