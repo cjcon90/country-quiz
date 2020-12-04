@@ -288,7 +288,11 @@ function submitAnswer(answer, displayAnswer) {
     function inputFunc() {
       // Scroll window to bottom so that 'Submit' button is not hidden by mobile soft keyboard
       // credit for code: https://stackoverflow.com/a/54575955
-      window.scrollTo(0, document.body.scrollHeight);
+      window.scrollTo({
+        left: 0,
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
       answerInput.addEventListener(
         "keyup",
         (e) => {
