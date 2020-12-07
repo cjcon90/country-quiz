@@ -7,7 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "compile:sass": "node-sass --watch assets/scss/app.scss -o assets/css"
+    "watch:sass": "node-sass assets/scss/app.scss assets/css/app.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,8 @@
   },
   "homepage": "https://github.com/cjcon90/country-quiz#readme",
   "dependencies": {
-    "node-sass": "^5.0.0"
-  }
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "devDependencies": {}
 }

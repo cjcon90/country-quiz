@@ -287,7 +287,7 @@ function submitAnswer(answer, displayAnswer) {
     // Source for this solution: Eloquent JavaScript, Chapter 14
     function inputFunc() {
       // Scroll window to bottom so that 'Submit' button is not hidden by mobile soft keyboard
-      // credit for code: https://stackoverflow.com/a/54575955
+      // credit for code: https://stackoverflow.com/a/54575955 & https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
       window.scrollTo({
         left: 0,
         top: document.body.scrollHeight,
