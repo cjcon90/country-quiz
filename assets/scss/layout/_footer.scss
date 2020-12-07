@@ -13,9 +13,6 @@
     color: $color-white;
     text-align: center;
     padding-top: 1rem;
-    @include respond(tablet) {
-      font-size: 2rem;
-    }
     &--link {
       color: $color-secondary;
       outline: none;
@@ -36,8 +33,5 @@
   }
   &--footer {
     display: none;
-  }
-  @include respond(tablet) {
-    height: 5rem;
   }
 }

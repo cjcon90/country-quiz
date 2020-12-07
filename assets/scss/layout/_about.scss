@@ -11,9 +11,11 @@
   @include respond(tablet) {
     padding-bottom: 5rem;
   }
+
   // ========== ABOUT SECTION PARAGRAPHS ==========
   &__text {
     width: 90%;
+    max-width: 900px;
     margin: 1.5rem auto;
     color: $color-white;
     font-family: $font-default;

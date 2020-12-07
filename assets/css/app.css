@@ -124,7 +124,7 @@ a {
   border: solid 0.2rem #fffff6; }
   @media only screen and (min-width: 37.5em) {
     .btn {
-      font-size: 2.5rem; } }
+      font-size: 2.25rem; } }
   .btn:active, .btn:focus, .btn:hover {
     outline: 0;
     font-weight: 700;
@@ -147,6 +147,7 @@ a {
       padding-bottom: 5rem; } }
   .about__text {
     width: 90%;
+    max-width: 900px;
     margin: 1.5rem auto;
     color: #fffff6;
     font-family: "Roboto", sans-serif;
@@ -285,6 +286,9 @@ a {
   height: 35%;
   z-index: 10;
   background-color: transparent; }
+  @media only screen and (min-width: 56.25em) {
+    .header {
+      height: 25%; } }
   .header--about {
     height: 15%;
     background-color: #9dbe39;
@@ -316,9 +320,6 @@ a {
     color: #fffff6;
     text-align: center;
     padding-top: 1rem; }
-    @media only screen and (min-width: 37.5em) {
-      .footer__text {
-        font-size: 2rem; } }
     .footer__text--link {
       color: #9dbe39;
       outline: none; }
@@ -333,9 +334,6 @@ a {
     animation: display-delay 1s 2.5s both linear; }
   .footer--footer {
     display: none; }
-  @media only screen and (min-width: 37.5em) {
-    .footer {
-      height: 5rem; } }
 
 .game {
   position: relative;
@@ -387,7 +385,7 @@ a {
   color: #2d2b5a; }
   @media only screen and (min-width: 37.5em) {
     .counters {
-      font-size: 2.5rem; } }
+      font-size: 2.25rem; } }
   .counters__progress--text, .counters__score--text {
     font-weight: 600; }
   .counters__score {
@@ -416,8 +414,8 @@ a {
   padding: 1rem; }
   @media only screen and (min-width: 37.5em) {
     .question {
-      font-size: 2.75rem;
-      line-height: 3.75rem; } }
+      font-size: 2.5rem;
+      line-height: 3.5rem; } }
   .question__input {
     margin: 0 auto;
     outline: none;
@@ -432,7 +430,7 @@ a {
     transition: all 0.2s; }
     @media only screen and (min-width: 37.5em) {
       .question__input {
-        font-size: 2.25rem; } }
+        font-size: 2rem; } }
     .question__input:focus, .question__input:active {
       background-color: rgba(255, 255, 246, 0.1);
       border-color: #9dbe39;
@@ -454,7 +452,7 @@ a {
       transition: all 0.2s; }
       @media only screen and (min-width: 37.5em) {
         .question__buttons--button {
-          font-size: 2rem;
+          font-size: 1.8rem;
           letter-spacing: 0.1rem; } }
       .question__buttons--button:last-of-type {
         border: none; }
@@ -471,7 +469,7 @@ a {
   font-size: 3.5rem; }
   @media only screen and (min-width: 37.5em) {
     .answer__result {
-      font-size: 5rem;
+      font-size: 4.5rem;
       margin-bottom: 1rem; } }
 
 .answer__answer {
@@ -481,14 +479,14 @@ a {
   font-size: 2rem; }
   @media only screen and (min-width: 37.5em) {
     .answer__answer {
-      font-size: 3rem; } }
+      font-size: 2.5rem; } }
   .answer__answer--country {
     font-size: 2.5rem;
     font-weight: 600;
     font-style: italic; }
     @media only screen and (min-width: 37.5em) {
       .answer__answer--country {
-        font-size: 3.5rem; } }
+        font-size: 3rem; } }
 
 .game-buttons {
   width: 100%;
@@ -517,12 +515,15 @@ a {
 .menu {
   position: relative;
   display: grid;
-  grid-template-rows: 40% 27.5%;
-  align-items: end;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  align-items: center;
   justify-content: center;
   height: 65%;
   background-color: #2d2b5a;
   overflow: hidden; }
+  @media only screen and (min-width: 56.25em) {
+    .menu {
+      height: 75%; } }
   .menu__img {
     position: absolute;
     position: absolute;
@@ -543,6 +544,8 @@ a {
       color: #2d2b5a;
       background-color: #9dbe39; }
   .menu #play-button {
-    animation: appear-left 1.75s 1s ease both; }
+    animation: appear-left 1.75s 1s ease both;
+    grid-row: 2/3; }
   .menu #about-button {
-    animation: appear-right 1.75s 1.5s ease both; }
+    animation: appear-right 1.75s 1.5s ease both;
+    grid-row: 3/4; }

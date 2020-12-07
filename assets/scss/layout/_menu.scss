@@ -2,12 +2,15 @@
   // ========== STYLING FOR FRONT-PAGE MENU OF APP ==========
   position: relative;
   display: grid;
-  grid-template-rows: 40% 27.5%;
-  align-items: end;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  align-items: center;
   justify-content: center;
   height: 65%;
   background-color: $color-primary;
   overflow: hidden;
+  @include respond(small-desk) {
+    height: 75%;
+  }
 
   &__img {
     position: absolute;
@@ -38,8 +41,10 @@
   // ========== ANIMATION ON APP / PAGE LOAD ==========
   #play-button {
     animation: appear-left 1.75s 1s ease both;
+    grid-row: 2/3;
   }
   #about-button {
     animation: appear-right 1.75s 1.5s ease both;
+    grid-row: 3/4;
   }
 }

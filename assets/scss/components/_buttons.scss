@@ -15,7 +15,7 @@
   background-color: $color-primary;
   border: solid 0.2rem $color-white;
   @include respond(tablet) {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   &:active,

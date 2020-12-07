@@ -55,7 +55,7 @@
   background-color: $color-secondary;
   color: $color-primary;
   @include respond(tablet) {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   &__progress--text,
   &__score--text {
@@ -92,8 +92,8 @@
   font-weight: 500;
   padding: 1rem;
   @include respond(tablet) {
-    font-size: 2.75rem;
-    line-height: 3.75rem;
+    font-size: 2.5rem;
+    line-height: 3.5rem;
   }
 
   // TEXT INPUT STYLING
@@ -110,7 +110,7 @@
     color: $color-white;
     transition: all 0.2s;
     @include respond(tablet) {
-      font-size: 2.25rem;
+      font-size: 2rem;
     }
     &:focus,
     &:active {
@@ -136,7 +136,7 @@
       padding: 1rem 0.5rem;
       transition: all 0.2s;
       @include respond(tablet) {
-        font-size: 2rem;
+        font-size: 1.8rem;
         letter-spacing: 0.1rem;
       }
       &:last-of-type {
@@ -163,7 +163,7 @@
     opacity: 0;
     font-size: 3.5rem;
     @include respond(tablet) {
-      font-size: 5rem;
+      font-size: 4.5rem;
       margin-bottom: 1rem;
     }
   }
@@ -173,14 +173,14 @@
     display: none;
     font-size: 2rem;
     @include respond(tablet) {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     &--country {
       font-size: 2.5rem;
       font-weight: 600;
       font-style: italic;
       @include respond(tablet) {
-        font-size: 3.5rem;
+        font-size: 3rem;
       }
     }
   }

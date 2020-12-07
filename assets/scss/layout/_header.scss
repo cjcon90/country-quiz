@@ -4,6 +4,9 @@
   height: 35%;
   z-index: 10;
   background-color: transparent;
+  @include respond(small-desk) {
+    height: 25%;
+  }
   // ========== ABOUT HEADER SPECIFIC STYLING ==========
   &--about {
     height: 15%;
