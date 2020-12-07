@@ -2,16 +2,17 @@
   // ========== STYLING FOR FRONT-PAGE MENU OF APP ==========
   position: relative;
   display: grid;
-  grid-template-rows: 45% 25%;
+  grid-template-rows: 40% 27.5%;
   align-items: end;
   justify-content: center;
-  height: 70%;
+  height: 65%;
   background-color: $color-primary;
   overflow: hidden;
 
   &__img {
     position: absolute;
-    @include absCenter;
+    @include xCenter;
+    top: 0;
     z-index: 0;
     animation: background-appear 5s 0.25s ease both;
   }

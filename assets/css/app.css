@@ -233,7 +233,7 @@ a {
 
 .header {
   position: relative;
-  height: 30%;
+  height: 35%;
   z-index: 10;
   background-color: transparent; }
   .header--about {
@@ -434,18 +434,18 @@ a {
 .menu {
   position: relative;
   display: grid;
-  grid-template-rows: 45% 25%;
+  grid-template-rows: 40% 27.5%;
   align-items: end;
   justify-content: center;
-  height: 70%;
+  height: 65%;
   background-color: #2d2b5a;
   overflow: hidden; }
   .menu__img {
     position: absolute;
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    top: 0;
     z-index: 0;
     animation: background-appear 5s 0.25s ease both; }
   .menu__link {
