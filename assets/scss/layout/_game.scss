@@ -54,6 +54,9 @@
   font-family: $font-default;
   background-color: $color-secondary;
   color: $color-primary;
+  @include respond(tablet) {
+    font-size: 2.5rem;
+  }
   &__progress--text,
   &__score--text {
     font-weight: 600;
@@ -66,7 +69,7 @@
 // ========== STYLING FOR MAIN FLAG IMAGE ==========
 .flag {
   margin: 0 auto;
-  height: 20rem;
+  height: 27.5rem;
   width: 100%;
   text-align: center;
   padding: 1rem;
@@ -88,6 +91,10 @@
   color: $color-white;
   font-weight: 500;
   padding: 1rem;
+  @include respond(tablet) {
+    font-size: 2.75rem;
+    line-height: 3.75rem;
+  }
 
   // TEXT INPUT STYLING
   &__input {
@@ -102,6 +109,9 @@
     border-radius: 0.4rem;
     color: $color-white;
     transition: all 0.2s;
+    @include respond(tablet) {
+      font-size: 2.25rem;
+    }
     &:focus,
     &:active {
       background-color: rgba($color-white, 0.1);
@@ -125,6 +135,10 @@
       font-size: 1.6rem;
       padding: 1rem 0.5rem;
       transition: all 0.2s;
+      @include respond(tablet) {
+        font-size: 2rem;
+        letter-spacing: 0.1rem;
+      }
       &:last-of-type {
         border: none;
       }
@@ -148,16 +162,26 @@
     text-transform: uppercase;
     opacity: 0;
     font-size: 3.5rem;
+    @include respond(tablet) {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
   }
   &__answer {
     font-family: $font-default;
     text-transform: none;
     display: none;
     font-size: 2rem;
+    @include respond(tablet) {
+      font-size: 3rem;
+    }
     &--country {
       font-size: 2.5rem;
       font-weight: 600;
       font-style: italic;
+      @include respond(tablet) {
+        font-size: 3.5rem;
+      }
     }
   }
 }
@@ -175,6 +199,10 @@
     color: $color-primary;
     background-color: $color-secondary;
     border: solid 0.2rem transparent;
+    @include respond(tablet) {
+      margin: 3rem;
+      width: 20rem;
+    }
     &:hover,
     &:active,
     &:focus {

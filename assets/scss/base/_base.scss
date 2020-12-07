@@ -3,6 +3,9 @@ html {
   box-sizing: border-box;
   // Setting default font to 62.5% so that 1rem = 10px inspired by Jonas Schmedtmann Advanced CSS & Sass Udemy Course
   font-size: 62.5%;
+  @include respond(tablet) {
+    font-size: 75%;
+  }
 }
 
 body {

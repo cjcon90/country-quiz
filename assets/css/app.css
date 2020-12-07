@@ -44,6 +44,9 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (min-width: 37.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   /* Fix for height changes in mobile browsers from: https://css-tricks.com/the-trick-to-viewport-units-on-mobile*/
@@ -92,11 +95,17 @@ a {
 .heading-primary {
   text-transform: uppercase;
   font-size: 6rem; }
+  @media only screen and (min-width: 37.5em) {
+    .heading-primary {
+      font-size: 7rem; } }
 
 .heading-secondary {
   font-size: 4rem;
   text-transform: capitalize;
   line-height: 4rem; }
+  @media only screen and (min-width: 37.5em) {
+    .heading-secondary {
+      font-size: 5.5rem; } }
 
 .btn {
   display: inline-block;
@@ -113,6 +122,9 @@ a {
   color: #9dbe39;
   background-color: #2d2b5a;
   border: solid 0.2rem #fffff6; }
+  @media only screen and (min-width: 37.5em) {
+    .btn {
+      font-size: 2.5rem; } }
   .btn:active, .btn:focus, .btn:hover {
     outline: 0;
     font-weight: 700;
@@ -130,6 +142,9 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   padding-bottom: 5rem; }
+  @media only screen and (min-width: 37.5em) {
+    .about {
+      padding-bottom: 5rem; } }
   .about__text {
     width: 90%;
     margin: 1.5rem auto;
@@ -137,6 +152,11 @@ a {
     font-family: "Roboto", sans-serif;
     font-size: 2rem;
     line-height: 2.75rem; }
+    @media only screen and (min-width: 37.5em) {
+      .about__text {
+        font-size: 2rem;
+        line-height: 4rem;
+        text-align: justify; } }
     .about__text--link:link, .about__text--link:visited {
       color: #9dbe39; }
     .about__text--link:hover, .about__text--link:active, .about__text--link:focus {
@@ -171,6 +191,11 @@ a {
     background-color: rgba(45, 43, 90, 0.9);
     border: solid 2px #fffff6;
     z-index: 10; }
+    @media only screen and (min-width: 37.5em) {
+      .endgame__modal {
+        height: 65rem;
+        justify-content: space-between;
+        padding: 2rem; } }
   .endgame__scores {
     display: flex;
     justify-content: space-between; }
@@ -182,9 +207,15 @@ a {
       .endgame__scores-box--text {
         font-size: 2rem;
         color: #fffff6; }
+        @media only screen and (min-width: 37.5em) {
+          .endgame__scores-box--text {
+            font-size: 2.75rem; } }
       .endgame__scores-box--number {
         font-size: 3.5rem;
         color: #9dbe39; }
+        @media only screen and (min-width: 37.5em) {
+          .endgame__scores-box--number {
+            font-size: 4.5rem; } }
   .endgame__high-score--text {
     font-size: 3rem;
     color: #9dbe39;
@@ -198,9 +229,18 @@ a {
       margin: 0 1.25rem 1rem 1.25rem;
       padding: 1.5rem 0.5rem;
       background-color: rgba(45, 43, 90, 0.9); }
+      @media only screen and (min-width: 37.5em) {
+        .endgame__buttons--btn {
+          width: 80%;
+          margin: 2rem auto;
+          font-size: 2rem; } }
   .endgame__social--text {
     font-size: 3.5rem;
     color: #fffff6; }
+    @media only screen and (min-width: 37.5em) {
+      .endgame__social--text {
+        font-size: 4rem;
+        margin-bottom: 3rem; } }
   .endgame__social-links {
     display: flex;
     width: 100%;
@@ -219,11 +259,20 @@ a {
       letter-spacing: 0.1rem;
       border-radius: 0.2rem;
       border: 0.2rem solid transparent; }
+      @media only screen and (min-width: 37.5em) {
+        .endgame__social-links--link {
+          font-size: 2.25rem; } }
       .endgame__social-links--link:focus, .endgame__social-links--link:hover, .endgame__social-links--link:active {
         border: solid 0.2rem #fffff6; }
       .endgame__social-links--link > i {
         font-size: 2rem;
         margin: 0.5rem; }
+        @media only screen and (min-width: 37.5em) {
+          .endgame__social-links--link > i {
+            font-size: 3rem; } }
+    @media only screen and (min-width: 37.5em) {
+      .endgame__social-links {
+        justify-content: space-between; } }
 
 #facebook-share {
   background-color: #3b5998; }
@@ -267,6 +316,9 @@ a {
     color: #fffff6;
     text-align: center;
     padding-top: 1rem; }
+    @media only screen and (min-width: 37.5em) {
+      .footer__text {
+        font-size: 2rem; } }
     .footer__text--link {
       color: #9dbe39;
       outline: none; }
@@ -281,6 +333,9 @@ a {
     animation: display-delay 1s 2.5s both linear; }
   .footer--footer {
     display: none; }
+  @media only screen and (min-width: 37.5em) {
+    .footer {
+      height: 5rem; } }
 
 .game {
   position: relative;
@@ -330,6 +385,9 @@ a {
   font-family: "Roboto", sans-serif;
   background-color: #9dbe39;
   color: #2d2b5a; }
+  @media only screen and (min-width: 37.5em) {
+    .counters {
+      font-size: 2.5rem; } }
   .counters__progress--text, .counters__score--text {
     font-weight: 600; }
   .counters__score {
@@ -337,7 +395,7 @@ a {
 
 .flag {
   margin: 0 auto;
-  height: 20rem;
+  height: 27.5rem;
   width: 100%;
   text-align: center;
   padding: 1rem; }
@@ -356,6 +414,10 @@ a {
   color: #fffff6;
   font-weight: 500;
   padding: 1rem; }
+  @media only screen and (min-width: 37.5em) {
+    .question {
+      font-size: 2.75rem;
+      line-height: 3.75rem; } }
   .question__input {
     margin: 0 auto;
     outline: none;
@@ -368,6 +430,9 @@ a {
     border-radius: 0.4rem;
     color: #fffff6;
     transition: all 0.2s; }
+    @media only screen and (min-width: 37.5em) {
+      .question__input {
+        font-size: 2.25rem; } }
     .question__input:focus, .question__input:active {
       background-color: rgba(255, 255, 246, 0.1);
       border-color: #9dbe39;
@@ -387,6 +452,10 @@ a {
       font-size: 1.6rem;
       padding: 1rem 0.5rem;
       transition: all 0.2s; }
+      @media only screen and (min-width: 37.5em) {
+        .question__buttons--button {
+          font-size: 2rem;
+          letter-spacing: 0.1rem; } }
       .question__buttons--button:last-of-type {
         border: none; }
       .question__buttons--button:active, .question__buttons--button:focus, .question__buttons--button:target {
@@ -400,16 +469,26 @@ a {
   text-transform: uppercase;
   opacity: 0;
   font-size: 3.5rem; }
+  @media only screen and (min-width: 37.5em) {
+    .answer__result {
+      font-size: 5rem;
+      margin-bottom: 1rem; } }
 
 .answer__answer {
   font-family: "Roboto", sans-serif;
   text-transform: none;
   display: none;
   font-size: 2rem; }
+  @media only screen and (min-width: 37.5em) {
+    .answer__answer {
+      font-size: 3rem; } }
   .answer__answer--country {
     font-size: 2.5rem;
     font-weight: 600;
     font-style: italic; }
+    @media only screen and (min-width: 37.5em) {
+      .answer__answer--country {
+        font-size: 3.5rem; } }
 
 .game-buttons {
   width: 100%;
@@ -421,6 +500,10 @@ a {
     color: #2d2b5a;
     background-color: #9dbe39;
     border: solid 0.2rem transparent; }
+    @media only screen and (min-width: 37.5em) {
+      .game-buttons > * {
+        margin: 3rem;
+        width: 20rem; } }
     .game-buttons > *:hover, .game-buttons > *:active, .game-buttons > *:focus {
       border: solid 0.2rem #fffff6;
       color: #fffff6;

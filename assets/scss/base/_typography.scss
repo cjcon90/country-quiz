@@ -10,10 +10,16 @@
 .heading-primary {
   text-transform: uppercase;
   font-size: 6rem;
+  @include respond(tablet) {
+    font-size: 7rem;
+  }
 }
 
 .heading-secondary {
   font-size: 4rem;
   text-transform: capitalize;
   line-height: 4rem;
+  @include respond(tablet) {
+    font-size: 5.5rem;
+  }
 }

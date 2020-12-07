@@ -1,5 +1,6 @@
 // Centering and breakpoint mixins inspired from Jonas Schmedtmann Advanced CSS & Sass Udemy Course
 
+// =====Centering Mixins=====
 @mixin absCenter {
   // Centers an object absolutely within its parent element
   position: absolute;
@@ -20,4 +21,29 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+// =====Breakpoint Mixins=====
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
 }
