@@ -16,6 +16,7 @@
       height: 15%;
       background-color: $color-secondary;
       color: $color-primary;
+      width: 100%;
       &-text {
         /* To center the text perfectly within the heading */
         @include absCenter;
@@ -54,6 +55,11 @@
   font-family: $font-default;
   background-color: $color-secondary;
   color: $color-primary;
+  //Make all siblings of the counters have a max width of 900px. Source for code: https://www.w3schools.com/css/css_combinators.asp
+  & ~ * {
+    max-width: 900px;
+    margin: 0 auto;
+  }
   @include respond(tablet) {
     font-size: 2.25rem;
   }
@@ -73,6 +79,9 @@
   width: 100%;
   text-align: center;
   padding: 1rem;
+  @include respond(tablet) {
+    height: 30rem;
+  }
 
   &__img {
     object-fit: cover;
@@ -138,6 +147,10 @@
       @include respond(tablet) {
         font-size: 1.8rem;
         letter-spacing: 0.1rem;
+        padding: 1rem 3rem;
+      }
+      @include respond(small-desk) {
+        padding: 1rem 5rem;
       }
       &:last-of-type {
         border: none;
@@ -202,6 +215,9 @@
     @include respond(tablet) {
       margin: 3rem;
       width: 20rem;
+    }
+    @include respond(small-desk) {
+      margin: 2rem 0;
     }
     &:hover,
     &:active,

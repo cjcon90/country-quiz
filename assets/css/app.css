@@ -46,7 +46,7 @@ html {
   font-size: 62.5%; }
   @media only screen and (min-width: 37.5em) {
     html {
-      font-size: 75%; } }
+      font-size: 70%; } }
 
 body {
   /* Fix for height changes in mobile browsers from: https://css-tricks.com/the-trick-to-viewport-units-on-mobile*/
@@ -351,7 +351,8 @@ a {
       position: relative;
       height: 15%;
       background-color: #9dbe39;
-      color: #2d2b5a; }
+      color: #2d2b5a;
+      width: 100%; }
       .game__section--heading-text {
         /* To center the text perfectly within the heading */
         position: absolute;
@@ -383,6 +384,9 @@ a {
   font-family: "Roboto", sans-serif;
   background-color: #9dbe39;
   color: #2d2b5a; }
+  .counters ~ * {
+    max-width: 900px;
+    margin: 0 auto; }
   @media only screen and (min-width: 37.5em) {
     .counters {
       font-size: 2.25rem; } }
@@ -397,6 +401,9 @@ a {
   width: 100%;
   text-align: center;
   padding: 1rem; }
+  @media only screen and (min-width: 37.5em) {
+    .flag {
+      height: 30rem; } }
   .flag__img {
     object-fit: cover;
     margin: 0 auto;
@@ -453,7 +460,11 @@ a {
       @media only screen and (min-width: 37.5em) {
         .question__buttons--button {
           font-size: 1.8rem;
-          letter-spacing: 0.1rem; } }
+          letter-spacing: 0.1rem;
+          padding: 1rem 3rem; } }
+      @media only screen and (min-width: 56.25em) {
+        .question__buttons--button {
+          padding: 1rem 5rem; } }
       .question__buttons--button:last-of-type {
         border: none; }
       .question__buttons--button:active, .question__buttons--button:focus, .question__buttons--button:target {
@@ -502,6 +513,9 @@ a {
       .game-buttons > * {
         margin: 3rem;
         width: 20rem; } }
+    @media only screen and (min-width: 56.25em) {
+      .game-buttons > * {
+        margin: 2rem 0; } }
     .game-buttons > *:hover, .game-buttons > *:active, .game-buttons > *:focus {
       border: solid 0.2rem #fffff6;
       color: #fffff6;
