@@ -22,7 +22,7 @@
     font-size: 2rem;
     line-height: 2.75rem;
     @include respond(tablet) {
-      font-size: 2rem;
+      font-size: 2.25rem;
       line-height: 4rem;
       text-align: justify;
     }
@@ -41,6 +41,9 @@
     &:last-of-type {
       text-align: center;
       font-size: 2.2rem;
+      @include respond(tablet) {
+        font-size: 2.75rem;
+      }
     }
   }
   // ========== PLAY GAME BUTTON ==========
