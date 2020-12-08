@@ -375,6 +375,7 @@ function isCorrect(answer) {
       correctAnswer.setAttribute("style", "color: #98bf00; display: block;");
     } else {
       // else play regular correct answer sound
+      correctAudio.currentTime = 0;
       correctAudio.play();
     }
     scoreCount.textContent = score;
@@ -386,6 +387,7 @@ function isCorrect(answer) {
     // display correct answer
     correctAnswer.setAttribute("style", "color: #ff0000; display: block");
     //play incorrect sound
+    wrongAudio.currentTime = 0;
     wrongAudio.play();
   }
 
