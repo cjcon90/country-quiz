@@ -80,9 +80,8 @@ regionSelectors.forEach((btn) =>
           mediumButton.setAttribute("disabled", "true");
         }
       }
+      console.log(`Countries After Region Select: ${countryList.length}`);
     }, 200);
-
-    console.log(`Countries After Region Select: ${countryList.length}`);
   })
 );
 

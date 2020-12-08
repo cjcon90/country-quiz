@@ -126,9 +126,17 @@ It provides varying levels of difficulty depending on which region of the world 
 
 #### Wireframes
 
-- Wireframes were created using Balsamiq:
+- Wireframes were created using Balsamiq
+- The website was designed mobile-first
 
-  1.  [Mobile Wireframes](https://github.com/cjcon90/country-quiz/blob/main/docs/wireframes/wireframe-mobile.pdf)
+  1.  [Mobile Wireframes](docs/wireframes/wireframe-mobile.pdf)
+  2.  [Tablet Wireframes](docs/wireframes/wireframe-tablet.pdf)
+  3.  [Desktop Wireframes](docs/wireframes/wireframe-desktop.pdf)
+
+##### Variation from Wireframes
+
+- The wireframes were initally created with a scrolling image of all the country flags acting as the header background.
+- When applying this in practice, the end result looked dated and garish so I changed the primary menu design to a single image of a globe, and placed it behind the main menu buttons rather than behind the title.
 
 ---
 
@@ -190,17 +198,47 @@ It provides varying levels of difficulty depending on which region of the world 
   - What is the country's population
     - To generate the population options, an array of 5 populations is generated in the format: `[0.5x, 0.75x, 1x, 1.25x, 1.5x]`
     - Three options are then sliced from this array, so the options always contain the actual population, and appear in ascending order
-- Each correct answer is worth 5 points, and players earn a bonus 5 points for answering all questions correctly on an individual country
+- Each correct answer is worth 5 points
+	- Players earn a bonus 5 points for answering all questions correctly on an individual country
 - If a user gets an answer incorrect, the correct answer is displayed on screen.
 - The user's progress in the game is displayed showing how many countries they have answered out of 5
 - The user's score is always visible and updated as they progress through the game
+- For text input questions, the user's keyboard is auto-focused to reduce necessary clicks and increase ease of play
+	- Text answers can also be inputted via the Enter key, to make it easier for desktop players
+	- For mobile players, the page automatically scrolls to the bottom on input of text, to prevent 'Submit' and 'Next' buttons being hidden by soft keyboard  
 
 #### End Game Screen
 
 - The user's final score and high score are displayed
-  - `localStorage()` is used to keep track of a user's high score
+- `localStorage()` is used to keep track of a user's high score
 - If a user gets a new high score, they are notified with text and sound
 - If a user scores 100/100, the text will display "Perfect Score", and a different tone will play
 - There are navigation buttons as outlined above
 - There is an option for the user to share their score with a link to the game in both Twitter and Facebook
   - The shared link will display: "_I just scored ${score} points in the Country Quiz Challenge! Can you do better? [https://cjcon90.github.io/country-quiz/](https://cjcon90.github.io/country-quiz/)_"
+
+<a name="Technologies"></a>
+## Technologies Used
+
+### Languages Used
+
+- HTML5
+- CSS3
+- JavaScript
+
+### Frameworks, Libraries and Programs Used
+
+- [Sass](https://sass-lang.com/) - Technology to organise and compile CSS from separate .scss files, and make use of Sass variables and functionalities
+- [Node Package Manager](https://www.npmjs.com/) - Used to install the following packages through the Node.js runtime environment:
+	- [Node-Sass](https://www.npmjs.com/package/node-sass) - to natively compile SCSS files to CSS
+	- [Live Server](https://www.npmjs.com/package/live-server) - to launcha  development server and view live changes to project
+	- [npm-run-all](https://www.npmjs.com/package/npm-run-all) -  to run node-sass and live-server concurrently with a single command
+	- [PostCSS CLI](https://www.npmjs.com/package/postcss-cli) - a tool to install CSS tools and plugins, such as:
+		- [Autoprefixer](https://www.npmjs.com/package/autoprefixer) - a Post CSS plugin to parse CSS and adds vendor prefixes
+- [Font Awesome](https://fontawesome.com/) - Used to add facebook and twitter icons
+- [Google Fonts](https://fonts.google.com/) - Used to import Racing Sans One and Roboto fonts for use in project
+- [VSCode](https://code.visualstudio.com/) - Chosen IDE for writing code
+- [Balsamiq](https://balsamiq.com/) - For creating wireframes
+- [ImageMagick](https://imagemagick.org/index.php) - For resizing images through command line
+- [Shutterstock](https://www.shutterstock.com/home) - For sourcing primary 'globe' image
+- 

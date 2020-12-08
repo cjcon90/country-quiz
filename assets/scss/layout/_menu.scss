@@ -10,7 +10,7 @@
   overflow: hidden;
 
   @include respond(small-desk) {
-    height: 80%;
+    height: 85%;
   }
 
   &__img {
@@ -26,7 +26,7 @@
       top: 0;
     }
     @include respond(desktop) {
-      top: 12.5%;
+      top: 17.5%;
     }
   }
 
