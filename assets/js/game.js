@@ -464,7 +464,7 @@ function endGame() {
   playGameAgain();
   // Make endgame screen visible
   endGameScreen.setAttribute("style", "display: block; animation: endgame-screen-blur 2.5s ease both");
-  endGameModal.setAttribute("style", "display: flex; animation: endgame-modal-appear 1.5s ease both");
+  endGameModal.setAttribute("style", "display: flex; animation: endgame-modal-appear 2s ease both");
   endGameFooter.setAttribute("style", "display: block; animation: display-delay 1.5s 1s ease both");
 }
 

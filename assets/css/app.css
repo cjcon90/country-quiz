@@ -188,7 +188,9 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
+    max-width: 900px;
     height: 47.5rem;
+    max-height: 85%;
     background-color: rgba(45, 43, 90, 0.9);
     border: solid 2px #fffff6;
     z-index: 10; }
@@ -235,6 +237,9 @@ a {
           width: 80%;
           margin: 2rem auto;
           font-size: 2rem; } }
+      @media only screen and (min-width: 56.25em) {
+        .endgame__buttons--btn {
+          width: 60%; } }
   .endgame__social--text {
     font-size: 3.5rem;
     color: #fffff6; }
@@ -274,6 +279,9 @@ a {
     @media only screen and (min-width: 37.5em) {
       .endgame__social-links {
         justify-content: space-between; } }
+    @media only screen and (min-width: 56.25em) {
+      .endgame__social-links {
+        padding: 0 3rem; } }
 
 #facebook-share {
   background-color: #3b5998; }
@@ -321,6 +329,9 @@ a {
     color: #fffff6;
     text-align: center;
     padding-top: 1rem; }
+    @media only screen and (min-width: 37.5em) {
+      .footer__text {
+        font-size: 1.8rem; } }
     .footer__text--link {
       color: #9dbe39;
       outline: none; }

@@ -16,7 +16,9 @@
     position: fixed;
     @include absCenter;
     width: 90%;
+    max-width: 900px;
     height: 47.5rem;
+    max-height: 85%;
     // Add a glass effect to end game modal
     background-color: rgba($color-primary, 0.9);
     border: solid 2px $color-white;
@@ -76,6 +78,9 @@
         margin: 2rem auto;
         font-size: 2rem;
       }
+      @include respond(small-desk) {
+        width: 60%;
+      }
     }
   }
   // ========== FACEBOOK AND TWITTER LINKS STYLING ==========
@@ -128,6 +133,9 @@
     }
     @include respond(tablet) {
       justify-content: space-between;
+    }
+    @include respond(small-desk) {
+      padding: 0 3rem;
     }
   }
 }

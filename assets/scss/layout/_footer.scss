@@ -13,6 +13,9 @@
     color: $color-white;
     text-align: center;
     padding-top: 1rem;
+    @include respond(tablet) {
+      font-size: 1.8rem;
+    }
     &--link {
       color: $color-secondary;
       outline: none;
