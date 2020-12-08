@@ -15,7 +15,7 @@
 
 @keyframes appear-left {
   0% {
-    transform: translateX(-200%); }
+    transform: translateX(-1000%); }
   75% {
     transform: translateX(5%); }
   100% {
@@ -23,7 +23,7 @@
 
 @keyframes appear-right {
   0% {
-    transform: translateX(200%); }
+    transform: translateX(1000%); }
   75% {
     transform: translateX(-5%); }
   100% {
@@ -97,7 +97,7 @@ a {
   font-size: 6rem; }
   @media only screen and (min-width: 37.5em) {
     .heading-primary {
-      font-size: 7rem; } }
+      font-size: 8.5rem; } }
 
 .heading-secondary {
   font-size: 4rem;
@@ -288,7 +288,7 @@ a {
   background-color: transparent; }
   @media only screen and (min-width: 56.25em) {
     .header {
-      height: 25%; } }
+      height: 20%; } }
   .header--about {
     height: 15%;
     background-color: #9dbe39;
@@ -304,7 +304,8 @@ a {
     color: #9dbe39;
     text-shadow: 1px 1px 2px #fffff6;
     padding-top: 5rem;
-    animation: display-delay 4s 0.25s both ease-in-out; }
+    animation: display-delay 4s 0.25s both ease-in-out;
+    width: min-content; }
 
 .footer {
   position: absolute;
@@ -537,7 +538,7 @@ a {
   overflow: hidden; }
   @media only screen and (min-width: 56.25em) {
     .menu {
-      height: 75%; } }
+      height: 80%; } }
   .menu__img {
     position: absolute;
     position: absolute;
@@ -546,6 +547,15 @@ a {
     top: 0;
     z-index: 0;
     animation: background-appear 5s 0.25s ease both; }
+    @media only screen and (min-width: 37.5em) {
+      .menu__img {
+        top: 12.5%; } }
+    @media only screen and (min-width: 56.25em) {
+      .menu__img {
+        top: 0; } }
+    @media only screen and (min-width: 75em) {
+      .menu__img {
+        top: 12.5%; } }
   .menu__link {
     font-weight: 600;
     font-size: 3rem;
@@ -558,8 +568,8 @@ a {
       color: #2d2b5a;
       background-color: #9dbe39; }
   .menu #play-button {
-    animation: appear-left 1.75s 1s ease both;
+    animation: appear-left 2.5s 1s ease both;
     grid-row: 2/3; }
   .menu #about-button {
-    animation: appear-right 1.75s 1.5s ease both;
+    animation: appear-right 2.5s 1.5s ease both;
     grid-row: 3/4; }

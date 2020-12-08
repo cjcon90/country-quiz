@@ -399,8 +399,8 @@ function isCorrect(answer) {
 // CREDIT: https://gist.github.com/marcelo-ribeiro/abd651b889e4a20e0bab558a05d38d77
 function removeAccent(str) {
   var map = {
-    "-": " ",
-    "-": "_",
+    " ": "-",
+    "": "'",
     a: "á|à|ã|â|À|Á|Ã|Â",
     e: "é|è|ê|É|È|Ê",
     i: "í|ì|î|Í|Ì|Î",

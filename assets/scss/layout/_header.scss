@@ -4,8 +4,9 @@
   height: 35%;
   z-index: 10;
   background-color: transparent;
+
   @include respond(small-desk) {
-    height: 25%;
+    height: 20%;
   }
   // ========== ABOUT HEADER SPECIFIC STYLING ==========
   &--about {
@@ -28,6 +29,7 @@
       text-shadow: 1px 1px 2px $color-white;
       padding-top: 5rem;
       animation: display-delay 4s 0.25s both ease-in-out;
+      width: min-content;
     }
   }
 }

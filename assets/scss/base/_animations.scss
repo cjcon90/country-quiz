@@ -23,7 +23,7 @@
 // ========== SLIDE IN FROM LEFT ANIMATION (PLAY GAME BUTTON) ==========
 @keyframes appear-left {
   0% {
-    transform: translateX(-200%);
+    transform: translateX(-1000%);
   }
   75% {
     transform: translateX(5%);
@@ -35,7 +35,7 @@
 // ========== SLIDE IN FROM LEFT ANIMATION (ABOUT BUTTON) ==========
 @keyframes appear-right {
   0% {
-    transform: translateX(200%);
+    transform: translateX(1000%);
   }
 
   75% {
