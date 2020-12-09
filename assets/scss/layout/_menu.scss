@@ -22,12 +22,6 @@
     @include respond(tablet) {
       top: 12.5%;
     }
-    @include respond(small-desk) {
-      top: 0;
-    }
-    @include respond(desktop) {
-      top: 17.5%;
-    }
   }
 
   // ========== "PLAY GAME" & "ABOUT" BUTTONs ==========
