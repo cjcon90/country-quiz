@@ -55,10 +55,13 @@
   font-family: $font-default;
   background-color: $color-secondary;
   color: $color-primary;
-  //Make all siblings of the counters have a max width of 900px. Source for code: https://www.w3schools.com/css/css_combinators.asp
+  //Make all siblings of the counters have a set max-width. Source for code: https://www.w3schools.com/css/css_combinators.asp
   & ~ * {
-    max-width: 900px;
     margin: 0 auto;
+    max-width: 700px;
+    @include respond(desktop) {
+      max-width: 900px;
+    }
   }
   @include respond(tablet) {
     font-size: 2.25rem;
@@ -75,33 +78,41 @@
 // ========== STYLING FOR MAIN FLAG IMAGE ==========
 .flag {
   margin: 0 auto;
-  height: 27.5rem;
+  height: 35vh;
   width: 100%;
   text-align: center;
   padding: 1rem;
   @include respond(tablet) {
-    height: 30rem;
+    height: 35rem;
+  }
+  @include respond(small-desk) {
+    height: 25rem;
+    max-width: 500px;
+  }
+  @include respond(desktop) {
+    height: 40rem;
+    max-width: 900px;
   }
 
   &__img {
     object-fit: cover;
     margin: 0 auto;
     height: 100%;
-    width: auto;
+    width: 100%;
     box-shadow: 0 0 1rem rgba($color-black, 0.4);
     border: solid 0.2rem $color-white;
   }
 }
 // ========== STYLING FOR QUESTION & ANSWER INPUT / SELECTION ==========
 .question {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: $font-default;
   text-align: center;
   color: $color-white;
   font-weight: 500;
   padding: 1rem;
   @include respond(tablet) {
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: 3.5rem;
   }
 
@@ -110,7 +121,7 @@
     margin: 0 auto;
     outline: none;
     padding: 0.5rem 1rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-family: $font-default;
     width: 85%;
     background-color: $color-primary;
@@ -131,7 +142,7 @@
   // POPULATION BUTTON SELECTION STYLING
   &__buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     &--button {
       display: none;
       outline: none;
@@ -142,10 +153,10 @@
       width: 33%;
       font-family: $font-default;
       font-size: 1.6rem;
-      padding: 1rem 0.5rem;
+      padding: 1rem 2.5vw;
       transition: all 0.2s;
       @include respond(tablet) {
-        font-size: 1.8rem;
+        font-size: 2rem;
         letter-spacing: 0.1rem;
         padding: 1rem 3rem;
       }
@@ -174,7 +185,7 @@
     font-weight: 700;
     text-transform: uppercase;
     opacity: 0;
-    font-size: 3.5rem;
+    font-size: 3rem;
     @include respond(tablet) {
       font-size: 4.5rem;
       margin-bottom: 1rem;
@@ -189,7 +200,7 @@
       font-size: 2.5rem;
     }
     &--country {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       font-weight: 600;
       font-style: italic;
       @include respond(tablet) {
