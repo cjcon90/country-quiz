@@ -59,6 +59,7 @@
   & ~ * {
     margin: 0 auto;
     max-width: 700px;
+
     @include respond(desktop) {
       max-width: 900px;
     }
@@ -78,14 +79,13 @@
 // ========== STYLING FOR MAIN FLAG IMAGE ==========
 .flag {
   margin: 0 auto;
-  height: 20rem;
-  width: auto;
+  height: auto;
+  width: 100%;
   text-align: center;
   padding: 1rem;
   @include respond(tablet) {
     height: 35rem;
     width: 100%;
-    margin-bottom: 5rem;
   }
   @include respond(small-desk) {
     height: 25rem;
@@ -99,7 +99,7 @@
   &__img {
     object-fit: cover;
     margin: 0 auto;
-    width: 95%;
+    width: 80%;
     box-shadow: 0 0 1rem rgba($color-black, 0.4);
     border: solid 0.2rem $color-white;
   }

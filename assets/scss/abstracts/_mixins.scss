@@ -32,7 +32,7 @@
     } //600px
   }
   @if $breakpoint == small-desk {
-    @media only screen and (min-width: 56.25em) {
+    @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
       @content;
     } //900px
   }

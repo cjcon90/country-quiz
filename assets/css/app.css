@@ -240,7 +240,7 @@ a {
           width: 80%;
           margin: 2rem auto;
           font-size: 2rem; } }
-      @media only screen and (min-width: 56.25em) {
+      @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
         .endgame__buttons--btn {
           width: 60%; } }
   .endgame__social--text {
@@ -282,7 +282,7 @@ a {
     @media only screen and (min-width: 37.5em) {
       .endgame__social-links {
         justify-content: space-between; } }
-    @media only screen and (min-width: 56.25em) {
+    @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
       .endgame__social-links {
         padding: 0 3rem; } }
 
@@ -297,7 +297,7 @@ a {
   height: 35%;
   z-index: 10;
   background-color: transparent; }
-  @media only screen and (min-width: 56.25em) {
+  @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
     .header {
       height: 15%; } }
   .header--about {
@@ -414,16 +414,15 @@ a {
 
 .flag {
   margin: 0 auto;
-  height: 20rem;
-  width: auto;
+  height: auto;
+  width: 100%;
   text-align: center;
   padding: 1rem; }
   @media only screen and (min-width: 37.5em) {
     .flag {
       height: 35rem;
-      width: 100%;
-      margin-bottom: 5rem; } }
-  @media only screen and (min-width: 56.25em) {
+      width: 100%; } }
+  @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
     .flag {
       height: 25rem;
       max-width: 500px; } }
@@ -434,7 +433,7 @@ a {
   .flag__img {
     object-fit: cover;
     margin: 0 auto;
-    width: 95%;
+    width: 80%;
     box-shadow: 0 0 1rem rgba(14, 31, 47, 0.4);
     border: solid 0.2rem #fffff6; }
 
@@ -488,7 +487,7 @@ a {
           font-size: 2rem;
           letter-spacing: 0.1rem;
           padding: 1rem 3rem; } }
-      @media only screen and (min-width: 56.25em) {
+      @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
         .question__buttons--button {
           padding: 1rem 5rem; } }
       .question__buttons--button:last-of-type {
@@ -539,7 +538,7 @@ a {
       .game-buttons > * {
         margin: 3rem;
         width: 20rem; } }
-    @media only screen and (min-width: 56.25em) {
+    @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
       .game-buttons > * {
         margin: 2rem 0; } }
     .game-buttons > *:hover, .game-buttons > *:active, .game-buttons > *:focus {
@@ -561,7 +560,7 @@ a {
   height: 65%;
   background-color: #2d2b5a;
   overflow: hidden; }
-  @media only screen and (min-width: 56.25em) {
+  @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
     .menu {
       height: 85%; } }
   .menu__img {
@@ -575,7 +574,7 @@ a {
     @media only screen and (min-width: 37.5em) {
       .menu__img {
         top: 12.5%; } }
-    @media only screen and (min-width: 56.25em) {
+    @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
       .menu__img {
         top: 0; } }
     @media only screen and (min-width: 87.5em) {
