@@ -78,12 +78,14 @@
 // ========== STYLING FOR MAIN FLAG IMAGE ==========
 .flag {
   margin: 0 auto;
-  height: 35vh;
-  width: 100%;
+  height: 20rem;
+  width: auto;
   text-align: center;
   padding: 1rem;
   @include respond(tablet) {
     height: 35rem;
+    width: 100%;
+    margin-bottom: 5rem;
   }
   @include respond(small-desk) {
     height: 25rem;
@@ -97,8 +99,7 @@
   &__img {
     object-fit: cover;
     margin: 0 auto;
-    height: 100%;
-    width: 100%;
+    width: 95%;
     box-shadow: 0 0 1rem rgba($color-black, 0.4);
     border: solid 0.2rem $color-white;
   }
