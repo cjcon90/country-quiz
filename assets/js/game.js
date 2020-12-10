@@ -61,21 +61,21 @@ fetch("https://restcountries.eu/rest/v2/all")
 regionSelectors.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     regionSetting = e.target.value;
-    console.log(`\nRegion selected: ${e.target.value}`);
+    console.log(`\nRegion selected: ${regionSetting}`);
     // put it inside a setTimeout so there was some delay on changing to next page. Allows for button animation and is more aesthetically pleasing
     setTimeout(() => {
-      if (e.target.value === "world") {
+      if (regionSetting === "world") {
         //keep country list the same, hide region page and move on to difficulty page
         regionPage.setAttribute("style", "display: none;");
         difficultyPage.setAttribute("style", "display: block;");
       } else {
         // filter the country list down to countries within the region of the button selected
-        countryList = countryList.filter((country) => country.region.toLowerCase() === e.target.value);
+        countryList = countryList.filter((country) => country.region.toLowerCase() === regionSetting);
         //hide region page and move on to difficulty page
         regionPage.setAttribute("style", "display: none;");
         difficultyPage.setAttribute("style", "display: block;");
         //if the region selected is oceanie, then disable "easy" and "medium" modes for the next screen (as there are not enough countries to fit that filter)
-        if (e.target.value === "oceania") {
+        if (regionSetting === "oceania") {
           easyButton.setAttribute("disabled", "true");
           mediumButton.setAttribute("disabled", "true");
         }
@@ -94,18 +94,20 @@ const difficulty = { hard: 150000, medium: 5000000, easy: 20000000 };
 difficultySelectors.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     difficultySetting = e.target.value;
-    console.log(`\nDifficulty selected: ${e.target.value}`);
-    e.target.value === "expert" ? console.log(`Minimum population: none`) : console.log(`Minimum population: ${difficulty[e.target.value].toLocaleString()}`);
+    console.log(`\nDifficulty selected: ${difficultySetting}`);
+    difficultySetting === "expert"
+      ? console.log(`Minimum population: none`)
+      : console.log(`Minimum population: ${difficulty[difficultySetting].toLocaleString()}`);
     // put it inside a setTimeout so there was some delay on changing to next page. Allows for button animation and is more aesthetically pleasing
     setTimeout(() => {
-      if (e.target.value === "expert") {
+      if (difficultySetting === "expert") {
         // if difficulty selected is expert:
         //keep country list the same, hide difficulty page and move on to game
         difficultyPage.setAttribute("style", "display: none;");
         gamePage.setAttribute("style", "display: flex;");
       } else {
         // otherwise, filter the country list to countries that have equal or greater the population outlined in each difficulty setting
-        countryList = countryList.filter((country) => country.population >= difficulty[e.target.value]);
+        countryList = countryList.filter((country) => country.population >= difficulty[difficultySetting]);
         difficultyPage.setAttribute("style", "display: none;");
         gamePage.setAttribute("style", "display: flex;");
       }
@@ -120,7 +122,7 @@ difficultySelectors.forEach((btn) =>
       correctAnswers = getAnswers(selectedCountries);
 
       //Initiatite Quiz Game Functions
-      playQuiz(correctAnswers);
+      playQuiz();
     }, 200);
   })
 );
@@ -132,10 +134,8 @@ function selectCountries(list) {
   let newList = [];
   while (newList.length < 5) {
     // code from https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/
-    let newCountry = list[Math.floor(Math.random() * list.length)];
-    if (newList.some((country) => country.name === newCountry.name)) {
-      continue;
-    } else {
+    const newCountry = list[Math.floor(Math.random() * list.length)];
+    if (!newList.some((country) => country.name === newCountry.name)) {
       newList.push(newCountry);
     }
   }
@@ -164,7 +164,7 @@ function getAnswers(list) {
 }
 
 // Function to start quiz & end quiz if all questions have been asked
-function playQuiz(answers) {
+function playQuiz() {
   //Function to check answers array for next country and slice name, capital and population from next country
   if (!correctAnswers.length) {
     endGame();
@@ -257,7 +257,7 @@ function populationQuestion(answers, name) {
     "click",
     () => {
       streak = 0;
-      playQuiz(correctAnswers);
+      playQuiz();
     },
     { once: true }
   );
@@ -328,29 +328,23 @@ function isCorrect(answer) {
   let isCorrect;
   if (typeof answer === "string") {
     // add edge case fix for Washington DC
-    if (
-      (answer === "washington, d.c." && currentAnswer.toLowerCase() === "washington dc") ||
-      currentAnswer.toLowerCase() === "washington d.c." ||
-      currentAnswer.toLowerCase() === "washington"
-    ) {
-      isCorrect = true;
-      // Add edge case fix for Victoria, Hong Kong
-    } else if (answer === "city of victoria" && (currentAnswer.toLowerCase() === "victoria" || currentAnswer.toLowerCase() === "victoria city")) {
-      isCorrect = true;
-      // add edge case for Mongolian capital Ulaanbaatar
-    } else if (answer === "ulan bator" && currentAnswer.toLowerCase() === "ulaanbaatar") {
-      isCorrect = true;
-    } else {
-      isCorrect = currentAnswer.toLowerCase() === removeAccent(answer);
+    //credit for switch statement code: https://stackoverflow.com/a/9055603
+    switch (true) {
+      case "washington, d.c." && ["washington dc", "washington d.c.", "washington"].includes(currentAnswer.toLowerCase()):
+      case "city of victoria" && ["victoria", "victoria city"].includes(currentAnswer.toLowerCase()):
+      case "ulan bator" && currentAnswer.toLowerCase() === "ulaanbaatar":
+      case (isCorrect = currentAnswer.toLowerCase() === removeAccent(answer)):
+        isCorrect = true;
+        break;
     }
   } else if (typeof answer === "object") {
     // Add edge case fixes for North Korea and South Korea, the input of which were showing as incorrect
-    if (answer[0] === "korea (democratic people's republic of)" && currentAnswer.toLowerCase() === "north korea") {
-      isCorrect = true;
-    } else if (answer[0] === "korea (republic of)" && currentAnswer.toLowerCase() === "south korea") {
-      isCorrect = true;
-    } else {
-      isCorrect = answer.includes(currentAnswer.toLowerCase());
+    switch (true) {
+      case answer[0] === "korea (democratic people's republic of)" && currentAnswer.toLowerCase() === "north korea":
+      case answer[0] === "korea (republic of)" && currentAnswer.toLowerCase() === "south korea":
+      case answer.includes(currentAnswer.toLowerCase()):
+        isCorrect = true;
+        break;
     }
   } else if (typeof answer === "number") {
     isCorrect = currentAnswer === answer.toString();
@@ -472,28 +466,21 @@ function endGame() {
 function scoreCheck() {
   // Display final score
   endScore.textContent = score;
-  if (score === 100) {
-    // if it's a perfect score, set highScore in locla storage and display PERFECT SCORE
+  // CHeck previously saved high score
+  let savedHighScore = localStorage.getItem("savedHighScore");
+  // if there is none stored / new score is higher / current score is perfect
+  if (savedHighScore === "null" || score > savedHighScore || score === 100) {
+    // then save new score
     localStorage.setItem("savedHighScore", score);
     highScore.textContent = score;
-    highScoreText.textContent = "Perfect Score!!";
+    // change text to High Score or Perfect Score if 100 points
+    highScoreText.textContent = score === 100 ? "Perfect Score!!!" : "New High Score!!";
     highScoreText.setAttribute("style", "display: block");
-    perfectScoreAudio.play();
+    // play high score or perfect score sound
+    score === 100 ? perfectScoreAudio.play() : highScoreAudio.play();
   } else {
-    // Otherwise, get previously stored high score
-    let savedHighScore = localStorage.getItem("savedHighScore");
-    // if there is none stored or new score is higher...
-    if (savedHighScore === "null" || score > savedHighScore) {
-      // then save new score and display NEW HIGH SCORE text
-      localStorage.setItem("savedHighScore", score);
-      highScore.textContent = score;
-      highScoreText.textContent = "New High Score!!";
-      highScoreText.setAttribute("style", "display: block");
-      highScoreAudio.play();
-    } else {
-      //otherwise, display previously saved high score
-      highScore.textContent = savedHighScore;
-    }
+    //otherwise, display previously saved high score
+    highScore.textContent = savedHighScore;
   }
 }
 // Fucntion to set current score in share quote for social sharing
@@ -521,7 +508,7 @@ function playGameAgain() {
       // Create array of correct answers
       correctAnswers = getAnswers(selectedCountries);
       //Initiatite Quiz Game Functions
-      playQuiz(correctAnswers);
+      playQuiz();
       endGameScreen.setAttribute("style", "display: none");
     },
     { once: true }
