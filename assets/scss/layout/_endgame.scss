@@ -17,8 +17,8 @@
     @include absCenter;
     width: 90%;
     max-width: 900px;
-    height: 47.5rem;
-    max-height: 85%;
+    height: 50rem;
+    max-height: 80%;
     // Add a glass effect to end game modal
     background-color: rgba($color-primary, 0.9);
     border: solid 2px $color-white;
@@ -27,6 +27,9 @@
       height: 65rem;
       justify-content: space-between;
       padding: 2rem;
+    }
+    @include respond(desktop) {
+      height: 80rem;
     }
   }
   // ========== SCORE & HIGH SCORE STYLING ==========

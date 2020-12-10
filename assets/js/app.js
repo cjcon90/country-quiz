@@ -1,4 +1,5 @@
-// Fix for height changes in mobile browsers from: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+// Fix to make viewport height compensate for address bar in mobile browsers. This prevents any scrolling on page
+// Code from: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 // Get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
 // S the value in the --vh custom property to the root of the document

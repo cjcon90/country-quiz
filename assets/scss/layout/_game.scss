@@ -66,6 +66,9 @@
     @include respond(desktop) {
       max-width: 900px;
     }
+    @include respond(big-desktop) {
+      max-width: 1400px;
+    }
   }
   @include respond(tablet) {
     font-size: 2.25rem;
@@ -86,6 +89,9 @@
   width: 100%;
   text-align: center;
   padding: 1rem;
+  // to place items perfectly within flag div. code source: https://dev.to/cjcon90/the-art-of-centering-3epe
+  display: grid;
+  place-items: center;
   @include respond(tablet) {
     height: 35rem;
     width: 100%;
@@ -97,6 +103,10 @@
   @include respond(desktop) {
     height: 40rem;
     max-width: 900px;
+  }
+  @include respond(big-desktop) {
+    height: 50rem;
+    max-width: 1400px;
   }
 
   &__img {
@@ -234,6 +244,9 @@
     }
     @include respond(small-desk) {
       margin: 2rem 0;
+    }
+    @include respond(desktop) {
+      margin: 3rem 0;
     }
     &:hover,
     &:active,
