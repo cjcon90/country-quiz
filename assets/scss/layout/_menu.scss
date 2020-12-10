@@ -22,6 +22,9 @@
     @include respond(tablet) {
       top: 12.5%;
     }
+    @include respond(desktop) {
+      top: 5%;
+    }
   }
 
   // ========== "PLAY GAME" & "ABOUT" BUTTONs ==========

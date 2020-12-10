@@ -433,7 +433,8 @@ a {
   .flag__img {
     object-fit: cover;
     margin: 0 auto;
-    width: 80%;
+    max-width: 80%;
+    max-height: 100%;
     box-shadow: 0 0 1rem rgba(14, 31, 47, 0.4);
     border: solid 0.2rem #fffff6; }
 

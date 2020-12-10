@@ -5,7 +5,7 @@
     width: 10rem; }
   100% {
     opacity: 1;
-    width: 45rem; } }
+    width: 55rem; } }
 
 @keyframes display-delay {
   0% {
@@ -398,6 +398,9 @@ a {
   font-family: "Roboto", sans-serif;
   background-color: #9dbe39;
   color: #2d2b5a; }
+  @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
+    .counters {
+      padding: 1rem 15%; } }
   .counters ~ * {
     margin: 0 auto;
     max-width: 700px; }
@@ -575,6 +578,9 @@ a {
     @media only screen and (min-width: 37.5em) {
       .menu__img {
         top: 12.5%; } }
+    @media only screen and (min-width: 87.5em) {
+      .menu__img {
+        top: 5%; } }
   .menu__link {
     font-weight: 600;
     font-size: 3rem;

@@ -56,6 +56,9 @@
   background-color: $color-secondary;
   color: $color-primary;
   //Make all siblings of the counters have a set max-width. Source for code: https://www.w3schools.com/css/css_combinators.asp
+  @include respond(small-desk) {
+    padding: 1rem 15%;
+  }
   & ~ * {
     margin: 0 auto;
     max-width: 700px;
