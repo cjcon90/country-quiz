@@ -342,6 +342,7 @@ function isCorrect(answer) {
     switch (true) {
       case answer[0] === "korea (democratic people's republic of)" && currentAnswer.toLowerCase() === "north korea":
       case answer[0] === "korea (republic of)" && currentAnswer.toLowerCase() === "south korea":
+      case answer[0] === "syrian arab republic" && currentAnswer.toLowerCase() === "syria":
       case answer.includes(currentAnswer.toLowerCase()):
         isCorrect = true;
         break;
@@ -457,7 +458,7 @@ function endGame() {
   playGameAgain();
   // Make endgame screen visible
   endGameScreen.setAttribute("style", "display: block; animation: endgame-screen-blur 2.5s ease both");
-  endGameModal.setAttribute("style", "display: flex; animation: endgame-modal-appear 2s ease both");
+  endGameModal.setAttribute("style", "display: flex; animation: endgame-modal-appear 2.5s ease both");
   endGameFooter.setAttribute("style", "display: block; animation: display-delay 1.5s 1s ease both");
 }
 
