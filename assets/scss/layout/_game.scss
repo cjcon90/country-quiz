@@ -116,6 +116,10 @@
     max-height: 100%;
     box-shadow: 0 0 1rem rgba($color-black, 0.4);
     border: solid 0.2rem $color-white;
+    // fix for Nepal on small desktop screens
+    @include respond(small-desk) {
+      height: 100%;
+    }
   }
 }
 // ========== STYLING FOR QUESTION & ANSWER INPUT / SELECTION ==========

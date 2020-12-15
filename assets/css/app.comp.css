@@ -455,6 +455,9 @@ a {
     max-height: 100%;
     box-shadow: 0 0 1rem rgba(14, 31, 47, 0.4);
     border: solid 0.2rem #fffff6; }
+    @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
+      .flag__img {
+        height: 100%; } }
 
 .question {
   font-size: 2rem;
