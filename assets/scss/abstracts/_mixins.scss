@@ -36,6 +36,11 @@
       @content;
     } //900px
   }
+  @if $breakpoint == small-desk-plus {
+    @media only screen and (min-width: 56.25em) {
+      @content;
+    } //900px
+  }
   @if $breakpoint == desktop {
     @media only screen and (min-width: 87.5em) {
       @content;

@@ -55,10 +55,10 @@
   font-family: $font-default;
   background-color: $color-secondary;
   color: $color-primary;
-  //Make all siblings of the counters have a set max-width. Source for code: https://www.w3schools.com/css/css_combinators.asp
-  @include respond(small-desk) {
-    padding: 1rem 15%;
+  @include respond(small-desk-plus) {
+    padding: 1rem 25%;
   }
+  //Make all siblings of the counters have a set max-width. Source for code: https://www.w3schools.com/css/css_combinators.asp
   & ~ * {
     margin: 0 auto;
     max-width: 700px;

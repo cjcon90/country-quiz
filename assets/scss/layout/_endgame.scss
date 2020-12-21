@@ -31,6 +31,10 @@
     @include respond(desktop) {
       height: 80rem;
     }
+    @include respond(big-desktop) {
+      max-width: 1400px;
+      height: 60rem;
+    }
   }
   // ========== SCORE & HIGH SCORE STYLING ==========
   &__scores {
@@ -81,8 +85,8 @@
         margin: 2rem auto;
         font-size: 2rem;
       }
-      @include respond(small-desk) {
-        width: 60%;
+      @include respond(small-desk-plus) {
+        width: 50%;
       }
     }
   }
