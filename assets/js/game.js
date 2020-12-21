@@ -314,8 +314,6 @@ function submitAnswer(answer, displayAnswer) {
       // remove all event Listeners
       answerInput.removeEventListener("keydown", inputFunc);
       submitButton.removeEventListener("click", submitFunc);
-      // set tab focus on nextButton to reduce needing tab or mouse to advance page
-      nextButton.focus();
     }
   }
 
@@ -396,6 +394,8 @@ function isCorrect(answer) {
   // credit for code = https://stackoverflow.com/a/11719987
   submitButton.disabled = true;
   nextButton.disabled = false;
+  // set tab focus on nextButton to reduce needing tab or mouse to advance page
+  nextButton.focus();
 }
 
 // Function to remove any accents for comparing capital city names
