@@ -359,9 +359,14 @@ function isCorrect(answer) {
     // increment score
     score += 5;
     streak++;
+    //log streak increment
+    console.log(`${streak}/3 on country`);
+
     // if user reaches a streak of 3 correct answers within a country, add +5 bonus points
     if (streak === 3) {
       score += 5;
+      //log score increase for testing
+      console.log(`Score +10!`);
       // & play bonus points sound
       bonusAudio.play();
       // show bonus points in place of answer text
@@ -371,6 +376,8 @@ function isCorrect(answer) {
       // else play regular correct answer sound
       correctAudio.currentTime = 0;
       correctAudio.play();
+      //log score increase for testing
+      console.log(`Score +5!`);
     }
     scoreCount.textContent = score;
   } else {
@@ -397,8 +404,8 @@ function removeAccent(str) {
   var map = {
     " ": "-",
     "": "'",
-    a: "á|à|ã|â|À|Á|Ã|Â",
-    e: "é|è|ê|É|È|Ê",
+    a: "á|à|ã|â|å|À|Á|Ã|Â|Å",
+    e: "é|è|ê|ē|É|È|Ê|Ē",
     i: "í|ì|î|Í|Ì|Î",
     o: "ó|ò|ô|õ|Ó|Ò|Ô|Õ",
     u: "ú|ù|û|ü|Ú|Ù|Û|Ü",
@@ -452,6 +459,8 @@ function getFlag(answers) {
 function endGame() {
   //run check score function
   scoreCheck();
+  // display score for testing purposes
+  console.log(`Final score: ${score}`);
   // set social links share quotes based on score
   setSocialLinks();
   // Set current game rules for "play again" functionality
