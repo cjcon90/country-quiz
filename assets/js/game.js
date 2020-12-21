@@ -443,12 +443,12 @@ function newQuestion() {
 function getFlag(answers) {
   // get current country flag
   let flagImg = questionFlags.pop();
-  // if the country is Nepal then set the flag object-fit to contain, to complensate for unique aspect ratio
+  // if the country is Nepal then set the flag object-fit to contain, to compensate for unique aspect ratio
   if (answers[0][0] === "nepal") {
-    flag.setAttribute("style", "object-fit: contain; border: none; box-shadow: none");
+    flag.setAttribute("style", "object-fit: contain; border: none; box-shadow: none; height: 100%");
   } else {
     // else set the object-fit to cover
-    flag.setAttribute("style", "object-fit: cover; border: solid 0.2rem $color-white; box-shadow: 0 0 .8rem rgba(0,0,0,.5");
+    flag.setAttribute("style", "object-fit: cover; border: solid 0.2rem $color-white; box-shadow: 0 0 .8rem rgba(0,0,0,.5); height: auto;");
   }
   // set current country flag as main image
   flag.setAttribute("src", flagImg);

@@ -443,11 +443,11 @@ a {
   @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
     .flag {
       height: 25rem;
-      max-width: 500px; } }
+      max-width: 700px; } }
   @media only screen and (min-width: 87.5em) {
     .flag {
       height: 40rem;
-      max-width: 800px; } }
+      max-width: 900px; } }
   @media only screen and (min-width: 150em) {
     .flag {
       height: 50rem;
