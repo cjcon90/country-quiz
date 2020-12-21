@@ -231,7 +231,7 @@ It provides varying levels of difficulty depending on which region of the world 
 - [Sass](https://sass-lang.com/) - Technology to organise and compile CSS from separate .scss files, and make use of Sass variables and functionalities
 - [Node Package Manager](https://www.npmjs.com/) - Used to install the following packages through the Node.js runtime environment:
 	- [Node-Sass](https://www.npmjs.com/package/node-sass) - to natively compile SCSS files to CSS
-	- [Live Server](https://www.npmjs.com/package/live-server) - to launcha  development server and view live changes to project
+	- [Live Server](https://www.npmjs.com/package/live-server) - to launch a development server and view live changes to project
 	- [npm-run-all](https://www.npmjs.com/package/npm-run-all) -  to run node-sass and live-server concurrently with a single command
 	- [PostCSS CLI](https://www.npmjs.com/package/postcss-cli) - a tool to install CSS tools and plugins, such as:
 		- [Autoprefixer](https://www.npmjs.com/package/autoprefixer) - a Post CSS plugin to parse CSS and adds vendor prefixes
@@ -244,5 +244,69 @@ It provides varying levels of difficulty depending on which region of the world 
 - [ZapSplat](https://www.zapsplat.com/) - For sourcing game sounds
 
 ## Testing
+
+### Functionality Testing
+
+- **Home Page / Main Menu**
+	- Both links lead to correct destination
+	- Both links give visual feedback when hovered over or pressed
+	- It is possible to navigate to both links via the Tab key
+	- The main manu animation is centered, with the globe falling behind the main menu buttons in all the tested viewports
+	- The main menu screen starts with a blank screen of the primary color with none of the elements on the page visible before coming into view via their animation
+
+- **About Section**
+	- All links lead to correct destination
+	- All links give visual feedback when hovered over or pressed
+	- It is possible to navigate to all linksvia the Tab key
+	- All external links open in a new tab
+	- The 'mailto' link opens an email to cjcon90@pm.me in the user's default email application
+	- The "How to Play" header stays at the top of page on all devices, taking up 100% of viewport width
+	- Vertical overflow in the about section text scrolls to ensure that the web page height = 100% of the viewport height on all devices.
+
+- **Game Section**
+	- I added a list of console outputs throughout the game to ensure that the game was functioning as expected:
+		- Region selection:
+			- ``console.log(`\nRegion selected: ${regionSetting}`)`` 
+			- ``console.log(`Countries After Region Select: ${countryList.length}`);``
+		- Difficulty selection & minimum population:
+			- ``console.log(`\nDifficulty selected: ${difficultySetting}`);`` 
+			- ``difficultySetting === "expert" ? console.log(`Minimum population: none`) : console.log(`Minimum population: ${difficulty[difficultySetting].toLocaleString()}`);``
+			- ``console.log("Countries After Difficulty Select: " + countryList.length);``
+		- Details of final countries selected
+			- ``console.log("\nRandom 5 countries selected for game:");`` 
+			- ``for (country of selectedCountries) {console.log(`name: ${country.name}, capital: ${country.capital}, population: ${country.population.toLocaleString()}`);}`` 
+		- Population testing: ensuring that actual population is featured in answer options and placed at a random index
+			- ``console.log(`\nPopulation options: ${popOptions}`);``
+			- ``console.logconsole.log(`Actual population: ${answers[2]}`);``
+			- ``console.log(`Actual Population is in options? ${popOptions.includes(answers[2]) ? "Yes" : "No"}`);``
+			- ``console.log(`Actual Population is in options? ${popOptions.includes(answers[2]) ? "Yes" : "No"}`);``
+		- Correct answer testing
+			- ``console.log({ currentAnswer }, answer.toString());``
+			- `if(isCorrect)`
+				- ``console.log(`${streak}/3 on country`);``
+				- `if (streak === 3)`
+					- ``console.log(`Score +10!`);``
+				- `else`
+					- ``console.log(`Score +5!`);``
+		- Final score testing
+			- ``console.log(`Final score: ${score}`);``
+- **Game counters**
+	- Progress counter updates successfully
+		- Shows progress as n/5 countries, and increments after each completed population question
+	- Score counter updates successfully and is accurate to expected game score 
+- **Country Flag**
+	- Flag is always visible and is accurate to the country being tested
+	- Entire flag is visible on all viewports
+	- Image properties adjust accordingly to make Nepal fit on all viewports:
+```javascript
+// if the country is Nepal then set the flag object-fit to contain, to compensate for unique aspect ratio
+  if (answers[0][0] === "nepal") {
+    flag.setAttribute("style", "object-fit: contain; border: none; box-shadow: none; height: 100%");
+  } else {
+    // else set the object-fit to cover
+    flag.setAttribute("style", "object-fit: cover; border: solid 0.2rem $color-white; box-shadow: 0 0 .8rem rgba(0,0,0,.5); height: auto;");
+  }
+```
+
 
 

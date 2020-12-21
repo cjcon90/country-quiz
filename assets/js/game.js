@@ -448,7 +448,9 @@ function getFlag(answers) {
     flag.setAttribute("style", "object-fit: contain; border: none; box-shadow: none; height: 100%");
   } else {
     // else set the object-fit to cover
-    flag.setAttribute("style", "object-fit: cover; border: solid 0.2rem $color-white; box-shadow: 0 0 .8rem rgba(0,0,0,.5); height: auto;");
+    flag.setAttribute("style", "object-fit: cover; border: solid 0.2rem $color-white; box-shadow: 0 0 .8rem rgba(0,0,0,.5);");
+    // Set a separate remove attribute instruction, as setting height: auto on flag element was causing issues on small desktop view
+    flag.removeAttribute("style", "height: 100%");
   }
   // set current country flag as main image
   flag.setAttribute("src", flagImg);
