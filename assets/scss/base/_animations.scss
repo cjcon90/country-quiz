@@ -10,7 +10,7 @@
   }
 }
 
-// ========== GRADUAL APPEAR ANIMATION (FOOTER) ==========
+// ========== GRADUAL APPEAR ANIMATION (FOOTER & MENU TITLE) ==========
 @keyframes display-delay {
   0% {
     opacity: 0;
@@ -19,6 +19,7 @@
     opacity: 1;
   }
 }
+
 // Slide in animations inspired by Jonas Schmedtmann's Advanced CSS Udemy Course
 // ========== SLIDE IN FROM LEFT ANIMATION (PLAY GAME BUTTON) ==========
 @keyframes appear-left {
