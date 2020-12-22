@@ -95,9 +95,8 @@ difficultySelectors.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     difficultySetting = e.target.value;
     console.log(`\nDifficulty selected: ${difficultySetting}`);
-    difficultySetting === "expert"
-      ? console.log(`Minimum population: none`)
-      : console.log(`Minimum population: ${difficulty[difficultySetting].toLocaleString()}`);
+    let minPop = difficultySetting === "expert" ? `Minimum population: none` : `Minimum population: ${difficulty[difficultySetting].toLocaleString()}`;
+    console.log(minPop);
     // put it inside a setTimeout so there was some delay on changing to next page. Allows for button animation and is more aesthetically pleasing
     setTimeout(() => {
       if (difficultySetting === "expert") {
@@ -115,7 +114,7 @@ difficultySelectors.forEach((btn) =>
       console.log("Countries After Difficulty Select: " + countryList.length);
       selectedCountries = selectCountries(countryList);
       console.log("\nRandom 5 countries selected for game:");
-      for (country of selectedCountries) {
+      for (let country of selectedCountries) {
         console.log(`name: ${country.name}, capital: ${country.capital}, population: ${country.population.toLocaleString()}`);
       }
       // Create array of correct answers
@@ -145,7 +144,7 @@ function selectCountries(list) {
 // Define function to get list of correct answers from the 5 selected countries for each game
 function getAnswers(list) {
   let answers = [];
-  for (country of list) {
+  for (let country of list) {
     // create array of country flags for each question
     questionFlags.push(country.flag);
     // Create a names array of the official country name, the native country name, and alternative spellings
@@ -238,12 +237,12 @@ function populationQuestion(answers, name) {
   let n = Math.floor(Math.random() * (3 - 0));
   popOptions = popOptions.slice(n, n + 3);
   // add text content and value of 3 population options to the three buttons
-  for (let i = 0; i < populationButtons.length; i++) {
-    populationButtons[i].textContent = popOptions[i].toLocaleString();
-    populationButtons[i].setAttribute("value", popOptions[i]);
-    populationButtons[i].setAttribute("style", "display: block");
-    populationButtons[i].addEventListener("click", (e) => (currentAnswer = e.target.value));
-  }
+  populationButtons.forEach((button, i) => {
+    button.textContent = popOptions[i].toLocaleString();
+    button.setAttribute("value", popOptions[i]);
+    button.setAttribute("style", "display: block");
+    button.addEventListener("click", (e) => (currentAnswer = e.target.value));
+  });
   submitAnswer(answers[2], answers[2].toLocaleString());
   console.log(`\nPopulation options: ${popOptions}`);
   console.log(`Actual population: ${answers[2]}`);
@@ -489,7 +488,8 @@ function scoreCheck() {
     highScoreText.textContent = score === 100 ? "Perfect Score!!!" : "New High Score!!";
     highScoreText.setAttribute("style", "display: block");
     // play high score or perfect score sound
-    score === 100 ? perfectScoreAudio.play() : highScoreAudio.play();
+    let sound = score === 100 ? perfectScoreAudio : highScoreAudio;
+    sound.play();
   } else {
     //otherwise, display previously saved high score
     highScore.textContent = savedHighScore;

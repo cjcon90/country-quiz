@@ -263,7 +263,7 @@ It provides varying levels of difficulty depending on which region of the world 
 	- The "How to Play" header stays at the top of page on all devices, taking up 100% of viewport width
 	- Vertical overflow in the about section text scrolls to ensure that the web page height = 100% of the viewport height on all devices.
 
-- **Game Section**
+- **Region/DIfficulty Selectors**
 	- I added a list of console outputs throughout the game to ensure that the game was functioning as expected:
 		- Region selection:
 			- ``console.log(`\nRegion selected: ${regionSetting}`)`` 
@@ -295,9 +295,10 @@ It provides varying levels of difficulty depending on which region of the world 
 		- Shows progress as n/5 countries, and increments after each completed population question
 	- Score counter updates successfully and is accurate to expected game score 
 - **Country Flag**
-	- Flag is always visible and is accurate to the country being tested
+	- Flag is always visible
+	- Flag is always accurate to the country being tested
 	- Entire flag is visible on all viewports
-	- Image properties adjust accordingly to make Nepal fit on all viewports:
+	- Image properties adjust accordingly to make Nepal fit on all viewports (and reverts afterwards):
 ```javascript
 // if the country is Nepal then set the flag object-fit to contain, to compensate for unique aspect ratio
   if (answers[0][0] === "nepal") {
@@ -308,5 +309,126 @@ It provides varying levels of difficulty depending on which region of the world 
   }
 ```
 
+- **Question Text**
+	-  Every third question asks "What is the name of this country?"
+	-  The following question will ask "What is the capital of (country)?", with the country name being capitalised and accurate to the country being asked
+	-  The following question will ask "What is the population of (country)?", with the country name being capitalised and accurate to the country being asked
 
+- **Text Input**
+	- For the country name and capital city questions, a text input is visible
+	- The text input is auto focused so the user can begin inputting text without having to click on the input
+	- The text input gives visual feedback that it is currently active
+	- On desktops, users can input their answer via the Enter key
+	- Typing in the text input will scroll to the bottom of the page so that the Submit and Next buttons are not hidden behind mobile soft keyboard
+	- Population selection buttons are not visible when the text input is shown
 
+- **Population Buttons**
+	- Population buttons appear for the population question for each country
+	- Text input is not visible when population buttons are shown
+	- Button gives visual feedback when selected
+	- Selected button corresponds to answer given when "Submit" button is pressed
+	- User can change their mind, and selecting another button will change their stored answer
+	- Buttons always feature three different options to select
+	- The correct answer ia always featured in the options
+	- Options are given in ascending order
+	- The correct answer randomly appears as the 1st, 2nd or 3rd option
+	- Populations are clearly legible and thousands/millions are separated by commas
+	- Populations fit within their buttons, and buttons fit within the page, on all viewports
+
+- **Answer Text**
+	- Text is invisible until user submits answer
+	- Text disappears when user moves to next question
+	- Text displays "CORRECT" or "WRONG" depending on whether user is correct or incorrect
+	- Text displays as green is user is correct
+	- Text displays as red if user is incorrect
+	- if user is incorrect, a subparagraph will display "The correct answer is (answer)"
+	- The displayed answer is correct for the question being asked
+
+- **Submit/Next Buttons**
+	- Buttons give visual feedback when hovered over or pressed
+	- On question load, submit button is enabled and next button is disabled
+	- When a user submits an answer (whether via submit button or Enter key):
+		- The submit button is disabled
+		- The next button is enabled
+		- The next button is auto-focused
+	- On pressing the Next button:
+		- The Next button is disabled
+		- The Submit button is enabled
+		- The next question is loaded
+		- If all questions have been asked, the final score modal appears
+- **End Game Screen/Modal**
+	- Animations (modal appering from left and background blur) work on all devices
+	- End Game Scores
+		- High Score is recorded in the browser from previous sessions
+		- High Score is reset to zero when playing in incognito mode or a new browser
+		- Beating the previous high score successfully plays a sound and shows "New High Score" text in all browsers
+		- Getting a score of 100 successfully plays a separate sound and shows "Perfect Score" text ina all browsers
+	- Links & Buttons  
+		- All links/buttons give feedback when pressed or hovered over
+		- *Play Again* button repeats the quiz with 5 random countries and brings user to Q1
+		- Change Region / Difficulty and Exit Game buttons bring user to game menu or main menu accordingly
+		- Facebook and twitter buttons both successfully bring user to the respective social media website with a pre-prepared post, featuring a link to the app
+			- On mobiles, this successfully opens a post in the default facebook/twitter app (if installed) 
+
+### Validators
+
+#### HTML5
+
+Tested with [W3C Markup Validation Service](https://validator.w3.org/)
+
+- 1 error (in 4 locations throughout app): **Section lacks heading**
+	- Not relevant as game sections do not require heading in this use case
+
+#### CSS
+
+Tested with [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator)
+
+- **Error: Value Error : height Parse Error 100)** 
+	- This is related to the body height of `height: calc(var(--vh, 1vh) * 100);` which fixes viewport width issues on mobile browsers.
+	- Code was sourced from [this CSS Tricks article](https://css-tricks.com/the-trick-to-viewport-units-on-mobile)
+	- I also included a fallback of `height: 100vh;` within the code for browsers that do not support Custom Properties 
+- **Error: Property backdrop-filter doesn't exist : none**
+- **Error: Property backdrop-filter doesn't exist : blur(2px)**
+	- These errors are related to my endgame modal animation, whereby the background underneath the modal is blurred
+	- use of `backdrop-filter` is following guidance in [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
+	- Despite errors, the animation works on all tested browsers. other than Firefox
+	- [CanIUse.com](https://caniuse.com/?search=backdrop-filter) confirmed that backdrop-filter is not yet supported in Firefox, [is currently under consideration](https://platform-status.mozilla.org/#css-backdrop-filter)
+- **Webkit Errors**
+	- Any code with `-webkit` prefix (inserted by auto-prefixer) fails in CSS validation  
+
+#### JavaScript
+
+Tested with JSHint NPM Package](https://www.npmjs.com/package/jshint)
+
+- Installed JSSHint **globally** using: `npm install -g jshint`
+- To specify my JS document as ECMAScript version 6, I followed [this StackOverflow Post](https://stackoverflow.com/a/40620967), I added a `.jshintrc` file in the root of my app wiht the rule:
+```javascript
+{
+  "esversion": 6
+}
+```
+##### app.js
+- No errors
+##### game.js
+- **Error: Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.**
+	- This error is in relation to the `submitFunc()` and `inputFunc()` functions that are both found within the `submitAnswer()` function
+	- The reason these functions are used *inside* the larger submitAnswer() function is that I needed them to access the `answer` and `answerInput` variables, but also needed to keep both functions free of arguments, so that I could easily remove them using `removeEventListener` 
+	- Attempts to remove these functions brought bugs such as either the text input or submit button stacking answers from previous questions.
+
+### Usability
+
+- Web page was extensively tested in various browsers:
+	- Google Chrome (desktop | Linux)
+	- Firefox (desktop | Linux)
+	- Samsung Internet (mobile | Android)
+	- Chrome (mobile | Android)
+	- Brave (mobile | Android)
+- Responsiveness was tested extensively in both [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Responsive Design Checker](https://responsivedesignchecker.com/)
+- Devices tested within DevTools were:
+	- ![docs/devtool-sizes.png](docs/devtool-sizes.png)
+	- Custom viewport sizes I created for testing purposes were:
+		- 4k: 3840 x 2160
+		- Macbook Pro 15: 2880 x 1800
+		- Small laptop: 1366 x 768
+
+        
