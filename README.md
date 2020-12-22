@@ -153,8 +153,8 @@ It provides varying levels of difficulty depending on which region of the world 
 
 To preview the app in full, I have provided recordings of a full playthrough on both Desktop and Mobile (using Chrome browser in both cases)
 
-1. [**Desktop Playthrough Video**](docs/wireframes/video/desktop_playthrough.webm)
-2. [**Mobile Playthrough Video**](docs/wireframes/video/mobile_playthrough.mp4)
+1. [**Desktop Playthrough Video**](https://res.cloudinary.com/cjcon90/video/upload/v1608666800/codeinstitute/country-quiz/desktop_playthrough_wg2oc6.webm)
+2. [**Mobile Playthrough Video**](https://res.cloudinary.com/cjcon90/video/upload/v1608666804/codeinstitute/country-quiz/mobile_playthrough_z7zazm.mp4)
 
 ## Features
 
@@ -655,10 +655,41 @@ If you wish to clone or download this repository to your local device you can fo
 5. Open your Terminal and go to a directory where you want the cloned directory to be copied in.
 6. Type `Git Clone` and paste the text you copied from the GitHub (CTRL + Shift + C to paste within a terminal window) and press `Enter`
 
-### Node Dependencies
+### Installing Node & Dependencies
 
 To install the NPM dependencies used wihtin this document after cloning the project:
 
-1. Download the [Node.js installer for your OS](https://nodejs.org/en/download/) and follow the install instructions
-	- For Linux systems, follow the [installation via a package manager instructions here](https://nodejs.org/en/download/package-manager/)
-2. 
+1. Download the [Node.js installer for your OS](https://nodejs.org/en/download/) and follow the install instructions. For Linux systems, follow the [installation via a package manager instructions here](https://nodejs.org/en/download/package-manager/)
+2. Verify your installation by opening a terminal window and entering `node –v` which will display the Node.js version installed on your system. You can do the same for NPM with `npm -v`
+3. To install all the NPM packages and dependencies within the project, open a terminal within the projects root folder and enter `npm install`. This will install all modules listed as dependencies in package.json
+
+### Live Server and Sass
+
+- Note that within the project's package.json file under "scripts" there is the following entries:
+```javascript
+"scripts": {
+    "watch:sass": "node-sass assets/scss/app.scss assets/css/app.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass assets/scss/app.scss assets/css/app.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 4 versions' assets/css/app.comp.css -o assets/css/app.prefix.css",
+    "compress:css": "node-sass assets/css/app.prefix.css assets/css/app.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  }
+```
+#### Running a development Server
+
+While in the project's root folder, you can enter the following terminal commands:
+- `npm run watch:sass` watches for changes in the project and compiles SCSS code into the project's main CSS file on save
+- `npm run devserver` will run a live development server
+- **`npm run start` will run these two processes in a single terminal command**
+
+#### Building CSS File for deployment
+While in the project's root folder, you can enter the following terminal commands:
+- `npm run compile:sass` compile's the project's SCSS code into a separate **app.comp.css** file
+- `npm run prefix:css` parses the previously compiled CSS file and adds vendor prefixes to CSS rules, and saves as a new **app.prefix.css** file
+- `npm run compress:css` compiles and compresses the prefixed and outputs it into the project's main CSS file, to minify CSS file size.
+- **`npm run build:css` will run these above processes in order to fully compile and compress the project's CSS, ready for deployment**
+
+## Credits
+
