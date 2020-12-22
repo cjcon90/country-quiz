@@ -25,7 +25,7 @@ A link to the live website is [HERE](https://cjcon90.github.io/country-quiz/)
   - [User Story Testing](#StoryTesting)
 - [Bugs & Fixes](#Bugs)
 - [Deployment](#Deployment)
-- [Credits & Resources](#Credits)
+- [Credits](#Credits)
 
 ---
 
@@ -665,7 +665,7 @@ To install the NPM dependencies used wihtin this document after cloning the proj
 
 ### Live Server and Sass
 
-- Note that within the project's package.json file under "scripts" there is the following entries:
+Note that within the project's package.json file under "scripts" there is the following entries:
 ```javascript
 "scripts": {
     "watch:sass": "node-sass assets/scss/app.scss assets/css/app.css -w",
@@ -691,5 +691,23 @@ While in the project's root folder, you can enter the following terminal command
 - `npm run compress:css` compiles and compresses the prefixed and outputs it into the project's main CSS file, to minify CSS file size.
 - **`npm run build:css` will run these above processes in order to fully compile and compress the project's CSS, ready for deployment**
 
+<a name="Bugs"></a>
 ## Credits
+
+- Using `srcset` to create responsive images of different sizes found on [CSS Tricks](https://css-tricks.com/responsive-images-css/)
+- Updating site metadata following [Open Graph Protocol](https://ogp.me/) guide.
+- Marcelo Ribeiro for their [remove accents function](https://gist.github.com/marcelo-ribeiro/abd651b889e4a20e0bab558a05d38d77)
+- Marijn Haverbeke for successfully removing event listeners, as in Chapter 15 of his book [Eloquent Javascript](https://eloquentjavascript.net/15_event.html)
+- Jonas Schmedtmann for his [*Advanced CSS and Sass: Flexbox, Grid, Animations and More!* Udemy course](https://www.udemy.com/course/advanced-css-and-sass/) which inspired:
+	- My sass setup and file organisation
+	- My package.json scripts for compiling SCSS into CSS
+	- Using mixins for centering content and as breakpoint media queries
+	- My animations used within the project
+- DigitalOcean for [this minimal CSS reset](https://www.digitalocean.com/community/tutorials/css-minimal-css-reset)
+- CSS Tricks for [using custom properties to disregard address bar when calculating vh on mobile browsers](https://css-tricks.com/the-trick-to-viewport-units-on-mobile)
+- Sonya Moisset for [sentence case function code](https://www.freecodecamp.org/news/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27/)
+- This StackOverflow post for [auto-scrolling to bottom of page o text input](https://stackoverflow.com/a/54575955)
+- This StackOverflow post for [adding a high score to local storage](https://stackoverflow.com/questions/29370017/adding-a-high-score-to-local-storage)
+- My CodeInstitute mentor Maranatha Ilesanmi for assisting in planning and preparing for milestone-project and optimizing code
+- Codeinstitute Slack channel for peer code review
 
