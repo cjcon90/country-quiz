@@ -61,6 +61,7 @@ fetch("https://restcountries.eu/rest/v2/all")
 regionSelectors.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     regionSetting = e.target.value;
+    console.log(`\nRegion selected: ${regionSetting}`);
     // put it inside a setTimeout so there was some delay on changing to next page. Allows for button animation and is more aesthetically pleasing
     setTimeout(() => {
       if (regionSetting === "world") {
@@ -79,6 +80,7 @@ regionSelectors.forEach((btn) =>
           mediumButton.setAttribute("disabled", "true");
         }
       }
+      console.log(`Countries After Region Select: ${countryList.length}`);
     }, 200);
   })
 );
@@ -92,6 +94,9 @@ const difficulty = { hard: 150000, medium: 5000000, easy: 20000000 };
 difficultySelectors.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     difficultySetting = e.target.value;
+    console.log(`\nDifficulty selected: ${difficultySetting}`);
+    let minPop = difficultySetting === "expert" ? `Minimum population: none` : `Minimum population: ${difficulty[difficultySetting].toLocaleString()}`;
+    console.log(minPop);
     // put it inside a setTimeout so there was some delay on changing to next page. Allows for button animation and is more aesthetically pleasing
     setTimeout(() => {
       if (difficultySetting === "expert") {
@@ -105,7 +110,13 @@ difficultySelectors.forEach((btn) =>
         difficultyPage.setAttribute("style", "display: none;");
         gamePage.setAttribute("style", "display: flex;");
       }
+      // TESTING LOG
+      console.log("Countries After Difficulty Select: " + countryList.length);
       selectedCountries = selectCountries(countryList);
+      console.log("\nRandom 5 countries selected for game:");
+      for (let country of selectedCountries) {
+        console.log(`name: ${country.name}, capital: ${country.capital}, population: ${country.population.toLocaleString()}`);
+      }
       // Create array of correct answers
       correctAnswers = getAnswers(selectedCountries);
 
@@ -233,6 +244,10 @@ function populationQuestion(answers, name) {
     button.addEventListener("click", (e) => (currentAnswer = e.target.value));
   });
   submitAnswer(answers[2], answers[2].toLocaleString());
+  console.log(`\nPopulation options: ${popOptions}`);
+  console.log(`Actual population: ${answers[2]}`);
+  console.log(`Actual Population is in options? ${popOptions.includes(answers[2]) ? "Yes" : "No"}`);
+  console.log(`Index of actual population ${popOptions.indexOf(answers[2])}`);
 
   // ========== SUBMIT ANSWER & PROGRESS GAME BUTTONS ==========
 
@@ -332,6 +347,7 @@ function isCorrect(answer) {
   } else if (typeof answer === "number") {
     isCorrect = currentAnswer === answer.toString();
   }
+  console.log({ currentAnswer }, answer.toString());
   if (isCorrect) {
     //if answer is correct
     // style and change result text appropriately
@@ -340,11 +356,15 @@ function isCorrect(answer) {
     // increment score
     score += 5;
     streak++;
+    //log streak increment
+    console.log(`${streak}/3 on country`);
 
     // if user reaches a streak of 3 correct answers within a country, add +5 bonus points
     if (streak === 3) {
       score += 5;
-      // Play bonus points sound
+      //log score increase for testing
+      console.log(`Score +10!`);
+      // & play bonus points sound
       bonusAudio.play();
       // show bonus points in place of answer text
       correctAnswer.textContent = "+5 Bonus Points!!";
@@ -353,6 +373,8 @@ function isCorrect(answer) {
       // else play regular correct answer sound
       correctAudio.currentTime = 0;
       correctAudio.play();
+      //log score increase for testing
+      console.log(`Score +5!`);
     }
     scoreCount.textContent = score;
   } else {
@@ -438,6 +460,8 @@ function getFlag(answers) {
 function endGame() {
   //run check score function
   scoreCheck();
+  // display score for testing purposes
+  console.log(`Final score: ${score}`);
   // set social links share quotes based on score
   setSocialLinks();
   // Set current game rules for "play again" functionality

@@ -313,6 +313,9 @@ To preview the app in full, I have provided recordings of a full playthrough on 
           - `` console.log(`Score +5!`); ``
     - Final score testing
       - `` console.log(`Final score: ${score}`); ``
+
+**A JS file featuring the above console logs has been left in the project folder as "gameWithTestLogs.js" for reference purposes. They have since been removed from the app's main JS file**
+
 - **Game counters**
   - Progress counter updates successfully
     - Shows progress as n/5 countries, and increments after each completed population question
