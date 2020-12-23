@@ -151,7 +151,7 @@ It provides varying levels of difficulty depending on which region of the world 
 
 ### Previews
 
-To preview the app in full, I have provided recordings of a full playthrough on both Desktop and Mobile (using Chrome browser in both cases)
+As opposed to creating screenshots of the app, in order to preview the app as clearly as posible and demonstrate alignment to the User Stories as outlined earlier, I have provided recordings of a full playthrough on both Desktop and Mobile (using Chrome browser in both cases)
 
 1. [**Desktop Playthrough Video**](https://res.cloudinary.com/cjcon90/video/upload/v1608666800/codeinstitute/country-quiz/desktop_playthrough_wg2oc6.webm)
 2. [**Mobile Playthrough Video**](https://res.cloudinary.com/cjcon90/video/upload/v1608666804/codeinstitute/country-quiz/mobile_playthrough_z7zazm.mp4)
