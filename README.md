@@ -87,7 +87,7 @@ It provides varying levels of difficulty depending on which region of the world 
 - For this I chose an illustration of the earth by [Alfonso de Tomas, sourced on Shutterstock](https://www.shutterstock.com/image-vector/europe-map-africa-russia-asia-north-229383577)
 - This image is animated on loading the main menu of the page, growing in size which again brings life into the design of the app.
 
-![img](assets/images/globe-blue-sm.jpg)
+<img align="left" width="500" height="500" src="assets/images/globe-blue-sm.jpg">
 
 #### Colour Scheme
 
@@ -103,15 +103,14 @@ It provides varying levels of difficulty depending on which region of the world 
 
 - As the country flags appearing within the app will feature many bright colours throughout, I kept the amount of colours used in the app to a minimum, as too many additional colours would easily risk clashing against the flags or make the game page overwhelming in terms of colour content.
 
-![image](docs/color-palette.png)
+<img align="left" height="300" src="docs/color-palette.png">
 
 #### Typography
 
 - I chose two fonts to use within the document.
 
-  - The default font for areas where legibility was the key factor, such as paragraphs and questions, I chose the popular [Roboto font](https://fonts.google.com/specimen/Roboto#standard-styles) that allows for a natural reading rhythm.
-
   - For the headings, I wanted a font that was clearly legible but fit with the need of fun visuals, as outlined in the user stories. For this I chose [Racing Sans One](https://fonts.google.com/specimen/Racing+Sans+One), a unique font due to its high contrast sans that creates a fun visual effect.
+  - The default font for areas where legibility was the key factor, such as paragraphs and questions, I chose the popular [Roboto font](https://fonts.google.com/specimen/Roboto#standard-styles) that allows for a natural reading rhythm.
 
 #### Sound
 
@@ -465,7 +464,7 @@ Tested with JSHint NPM Package](https://www.npmjs.com/package/jshint)
   - Brave (mobile | Android)
 - Responsiveness was tested extensively in both [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Responsive Design Checker](https://responsivedesignchecker.com/)
 - Devices tested within DevTools were:
-  - ![docs/devtool-sizes.png](docs/devtool-sizes.png)
+  - <img align="left" src="docs/devtool-sizes.png">
   - Custom viewport sizes I created for testing purposes were:
     - 4k: 3840 x 2160
     - Macbook Pro 15: 2880 x 1800
@@ -476,8 +475,10 @@ Tested with JSHint NPM Package](https://www.npmjs.com/package/jshint)
 ### Performance
 
 - Every page of the app was tested in [Lighthouse](https://developers.google.com/web/tools/lighthouse), achieving high scores for Performance, Accessibility, Best Practices and SEO across the board.
+  - Accessibility points were lost on main menu page, due to heading animation, whereby Lighthouse did not detect the heading as having sufficient contrast
+  - Once animation was complete - heading had contrast of **6.14**
 
-![Home Page Desktop Results](docs/testing/lighthouse/home_desktop.png)
+![Lighthouse Desktop Home Results](docs/testing/lighthouse/home_desktop.png)
 
 - [Home Page Desktop Results](docs/testing/lighthouse/home_desktop.pdf)
 - [About Page Desktop Results](docs/testing/lighthouse/about_desktop.pdf)
@@ -485,9 +486,6 @@ Tested with JSHint NPM Package](https://www.npmjs.com/package/jshint)
 - [Home Page Mobile Results](docs/testing/lighthouse/home_mobile.pdf)
 - [About Page Mobile Results](docs/testing/lighthouse/about_mobile.pdf)
 - [Game Mobile Results](docs/testing/lighthouse/game_mobile.pdf)
-
-  - Accessibility points were lost on main menu page, due to heading animation, whereby Lighthouse did not detect the heading as having sufficient contrast
-  - Once animation was complete - heading had contrast of **6.14**
 
 <a name="StoryTesting"></a>
 
@@ -709,7 +707,7 @@ While in the project's root folder, you can enter the following terminal command
 - DigitalOcean for [this minimal CSS reset](https://www.digitalocean.com/community/tutorials/css-minimal-css-reset)
 - CSS Tricks for [using custom properties to disregard address bar when calculating vh on mobile browsers](https://css-tricks.com/the-trick-to-viewport-units-on-mobile)
 - Sonya Moisset for [sentence case function code](https://www.freecodecamp.org/news/three-ways-to-title-case-a-sentence-in-javascript-676a9175eb27/)
-- This StackOverflow post for [auto-scrolling to bottom of page o text input](https://stackoverflow.com/a/54575955)
+- This StackOverflow post for [auto-scrolling to bottom of page on text input](https://stackoverflow.com/a/54575955)
 - This StackOverflow post for [adding a high score to local storage](https://stackoverflow.com/questions/29370017/adding-a-high-score-to-local-storage)
 - My CodeInstitute mentor Maranatha Ilesanmi for assisting in planning and preparing for milestone-project and optimizing code
 - Codeinstitute Slack channel for peer code review
