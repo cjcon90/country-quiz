@@ -98,11 +98,11 @@
   }
   @include respond(small-desk) {
     height: 25rem;
-    max-width: 700px;
+    max-width: 600px;
   }
   @include respond(desktop) {
     height: 40rem;
-    max-width: 900px;
+    max-width: 800px;
   }
   @include respond(big-desktop) {
     height: 50rem;
@@ -119,6 +119,9 @@
     // fix for Nepal on small desktop screens
     @include respond(small-desk) {
       height: 100%;
+    }
+    @include respond(big-desktop) {
+      max-width: 100%;
     }
   }
 }

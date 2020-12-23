@@ -49,7 +49,7 @@ html {
       font-size: 70%; } }
   @media only screen and (min-width: 150em) {
     html {
-      font-size: 110%; } }
+      font-size: 130%; } }
 
 body {
   /* Fix for height changes in mobile browsers from: https://css-tricks.com/the-trick-to-viewport-units-on-mobile*/
@@ -210,8 +210,8 @@ a {
         height: 80rem; } }
     @media only screen and (min-width: 150em) {
       .endgame__modal {
-        max-width: 1400px;
-        height: 60rem; } }
+        height: 70rem;
+        max-width: 1400px; } }
   .endgame__scores {
     display: flex;
     justify-content: space-between; }
@@ -443,11 +443,11 @@ a {
   @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
     .flag {
       height: 25rem;
-      max-width: 700px; } }
+      max-width: 600px; } }
   @media only screen and (min-width: 87.5em) {
     .flag {
       height: 40rem;
-      max-width: 900px; } }
+      max-width: 800px; } }
   @media only screen and (min-width: 150em) {
     .flag {
       height: 50rem;
@@ -462,6 +462,9 @@ a {
     @media only screen and (min-width: 56.25em) and (max-height: 56.25em) {
       .flag__img {
         height: 100%; } }
+    @media only screen and (min-width: 150em) {
+      .flag__img {
+        max-width: 100%; } }
 
 .question {
   font-size: 2rem;

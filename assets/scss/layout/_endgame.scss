@@ -32,8 +32,8 @@
       height: 80rem;
     }
     @include respond(big-desktop) {
+      height: 70rem;
       max-width: 1400px;
-      height: 60rem;
     }
   }
   // ========== SCORE & HIGH SCORE STYLING ==========
