@@ -151,7 +151,7 @@ It provides varying levels of difficulty depending on which region of the world 
 
 ### Previews
 
-As opposed to creating screenshots of the app, in order to preview the app as clearly as posible and demonstrate alignment to the User Stories as outlined earlier, I have provided recordings of a full playthrough on both Desktop and Mobile (using Chrome browser in both cases)
+As opposed to creating screenshots of the app, in order to preview the app as clearly as possible and demonstrate alignment to the User Stories as outlined earlier, I have provided recordings of a full playthrough on both Desktop and Mobile (using Chrome browser in both cases)
 
 1. [**Desktop Playthrough Video**](https://res.cloudinary.com/cjcon90/video/upload/v1608666800/codeinstitute/country-quiz/desktop_playthrough_wg2oc6.webm)
 2. [**Mobile Playthrough Video**](https://res.cloudinary.com/cjcon90/video/upload/v1608666804/codeinstitute/country-quiz/mobile_playthrough_z7zazm.mp4)
@@ -201,7 +201,7 @@ As opposed to creating screenshots of the app, in order to preview the app as cl
   3.  Hard (150,000+ population)
   4.  Expert ()
       - The specific population numbers that determine the difficulty are not given in the app's About section, as this could reveal some of the in-game answers for the user.
-      - 'Easy' and 'Medium' mode are disabled for Oceania, as there is not enough countries with a population of 5,000,000+
+      - 'Easy' and 'Medium' modes are disabled for Oceania, as there is not enough countries with a population of 5,000,000+
 
 #### Game Functionality
 
@@ -273,14 +273,14 @@ As opposed to creating screenshots of the app, in order to preview the app as cl
   - Both links lead to correct destination
   - Both links give visual feedback when hovered over or pressed
   - It is possible to navigate to both links via the Tab key
-  - The main manu animation is centered, with the globe falling behind the main menu buttons in all the tested viewports
+  - The main menu animation is centered, with the globe falling behind the main menu buttons in all the tested viewports
   - The main menu screen starts with a blank screen of the primary color with none of the elements on the page visible before coming into view via their animation
 
 - **About Section**
 
   - All links lead to correct destination
   - All links give visual feedback when hovered over or pressed
-  - It is possible to navigate to all linksvia the Tab key
+  - It is possible to navigate to all links via the Tab key
   - All external links open in a new tab
   - The 'mailto' link opens an email to cjcon90@pm.me in the user's default email application
   - The "How to Play" header stays at the top of page on all devices, taking up 100% of viewport width
@@ -359,7 +359,7 @@ if (answers[0][0] === "nepal") {
   - Selected button corresponds to answer given when "Submit" button is pressed
   - User can change their mind, and selecting another button will change their stored answer
   - Buttons always feature three different options to select
-  - The correct answer ia always featured in the options
+  - The correct answer is always featured in the options
   - Options are given in ascending order
   - The correct answer randomly appears as the 1st, 2nd or 3rd option
   - Populations are clearly legible and thousands/millions are separated by commas
@@ -388,17 +388,17 @@ if (answers[0][0] === "nepal") {
     - The next question is loaded
     - If all questions have been asked, the final score modal appears
 - **End Game Screen/Modal**
-  - Animations (modal appering from left and background blur) work on all devices
+  - Animations (modal appearing from left and background blur) work on all devices
   - End Game Scores
     - High Score is recorded in the browser from previous sessions
     - High Score is reset to zero when playing in incognito mode or a new browser
     - Beating the previous high score successfully plays a sound and shows "New High Score" text in all browsers
-    - Getting a score of 100 successfully plays a separate sound and shows "Perfect Score" text ina all browsers
+    - Getting a score of 100 successfully plays a separate sound and shows "Perfect Score" text in all browsers
   - Links & Buttons
     - All links/buttons give feedback when pressed or hovered over
     - _Play Again_ button repeats the quiz with 5 random countries and brings user to Q1
     - Change Region / Difficulty and Exit Game buttons bring user to game menu or main menu accordingly
-    - Facebook and twitter buttons both successfully bring user to the respective social media website with a pre-prepared post, featuring a link to the app
+    - Facebook and twitter buttons both successfully bring user to the respective social media website with a preprepared post, featuring a link to the app
       - On mobiles, this successfully opens a post in the default facebook/twitter app (if installed)
 
 <a name="Validators"></a>
@@ -433,7 +433,7 @@ Tested with [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/val
 
 Tested with JSHint NPM Package](https://www.npmjs.com/package/jshint)
 
-- Installed JSSHint **globally** using: `npm install -g jshint`
+- Installed JSHint **globally** using: `npm install -g jshint`
 - To specify my JS document as ECMAScript version 6, I followed [this StackOverflow Post](https://stackoverflow.com/a/40620967), I added a `.jshintrc` file in the root of my app wiht the rule:
 
 ```javascript
@@ -516,13 +516,13 @@ Tested with JSHint NPM Package](https://www.npmjs.com/package/jshint)
   - I want my previous high score to be saved
     - :heavy_check_mark: **Score successfully saves in localStorage on all tested browsers**
   - I was there to be a large pool of questions so that my playing experience is different on each playthrough
-    - :heavy_check_mark: **A total pool of 245 countries and various regions and diffiuclties guarantee long-term replayability**
+    - :heavy_check_mark: **A total pool of 245 countries and various regions and difficulties guarantee long-term replayability**
   - I want to be able to increase the difficulty and take on new challenges as I get better at the game
-    - :heavy_check_mark: **On the hardest difficulty, the game tests on countries with mico-populations as small as 30 people, ensuring difficulty for even the most knowledgeable players**
+    - :heavy_check_mark: **On the hardest difficulty, the game tests on countries with micro-populations as small as 30 people, ensuring difficulty for even the most knowledgeable players**
 
 - **As the site owner**
   - I want to encourage new users to play the game for the first time
-    - :heavy_check_mark: **Fun animations, colours, sounds and wlecoming explanation in the About section achieve this**
+    - :heavy_check_mark: **Fun animations, colours, sounds and welcoming explanation in the About section achieve this**
   - I do not want first time players to be confused by the game in any way
     - :heavy_check_mark: **An explanatory About page is clearly labelled, accessible in one-click on loading the app and explains the game in full for new users**
   - I want there to be an option for users to share the app through their social media networks
@@ -531,7 +531,7 @@ Tested with JSHint NPM Package](https://www.npmjs.com/package/jshint)
   - I want the website to be both fun and educational, increasing the likelihood that:
     - users will enjoy the app
     - users will share the app
-      - :heavy_check_mark: **User testing feedback wa sposityive across the board. When sharing the app within the CodeInstitute Slack channel, one user described the app as "addictive"**
+      - :heavy_check_mark: **User testing feedback was positive across the board. When sharing the app within the CodeInstitute Slack channel, one user described the app as "addictive"**
       - :heavy_check_mark: **User feedback also commented that the game was difficult, even for their own region. The difficulty and variety ensures educational aspect of the app**
   - I want the app to work without any errors in terms of the questions asked or the scoring system
     - :heavy_check_mark: **Thorough testing throughout the app ensured that it is an error free experience for all users**
@@ -558,7 +558,7 @@ if (answers[0][0] === "nepal") {
 
 ---
 
-**Bug:** Progress increment event listeners were stacking, and incrementing by amoutns up to 12 every time the "Next" button was clicked.
+**Bug:** Progress increment event listeners were stacking, and incrementing by amounts up to 12 every time the "Next" button was clicked.
 
 **Fix:** After checking the button event listeners in Chrome Dev Tools, I noticed the 'once' parameter for event listeners listed.
 
@@ -593,9 +593,9 @@ for (let country of list) {
 
 ---
 
-**Bug:** Capital cities with accented or hyphonated names were not being accepted as correct answers. Example: 'Brasilia' was not acceptedfor 'Brasília' because of the accented letter i.
+**Bug:** Capital cities with accented or hyphenated names were not being accepted as correct answers. Example: 'Brasilia' was not accepted for 'Brasília' because of the accented letter i.
 
-**Fix:** I modified [this code by Marcelo Ribeiro](https://gist.github.com/marcelo-ribeiro/abd651b889e4a20e0bab558a05d38d77) to create a function that would disregard any accents, hyphons or apostrophes in Capital City names:
+**Fix:** I modified [this code by Marcelo Ribeiro](https://gist.github.com/marcelo-ribeiro/abd651b889e4a20e0bab558a05d38d77) to create a function that would disregard any accents, hyphens or apostrophes in Capital City names:
 
 ```javascript
 function removeAccent(str) {
@@ -622,7 +622,7 @@ function removeAccent(str) {
 
 **Bug:** A user in the CodeInstitute Slack channel identified that the Population Buttons did not give visual feedback when pressed. Browser being used was Safari.
 
-**Fix:** After researching the issue, this appeared to be an issue with the `:focus` pseudo class in Safari, [as outlined here](https://www.xspdf.com/resolution/53073516.html#:~:text=Css%20%3Afocus%20not%20working%20in%20safari&text=Just%20use%20tabindex.,the%20href%20just%20in%20case). Problem weas fixed by adding `tabindex="0"` to each of the poulation buttons.
+**Fix:** After researching the issue, this appeared to be an issue with the `:focus` pseudo class in Safari, [as outlined here](https://www.xspdf.com/resolution/53073516.html#:~:text=Css%20%3Afocus%20not%20working%20in%20safari&text=Just%20use%20tabindex.,the%20href%20just%20in%20case). Problem was fixed by adding `tabindex="0"` to each of the population buttons.
 
 ## Deployment
 
@@ -634,7 +634,7 @@ This website was published using [GitHub Pages](https://pages.github.com/). The 
 2. Within the project you wish to deploy, go to 'Settings'
 3. Scroll down till you see 'GitHub Pages' heading.
 4. Under the 'Source' click on the dropdown and select 'main branch'
-5. You will now see the link for your GitHub Pages deployment on the right hand side of your respoitory page under "Environments"
+5. You will now see the link for your GitHub Pages deployment on the right hand side of your repository page under "Environments"
 6. Your GitHub Pages deployment is always located at https://[github-username].github.io/[repository-name]
 
 ### Forking
@@ -645,7 +645,7 @@ If you wish to contribute to this website you can Fork it without affecting the 
 2. Locate the [Repository](https://github.com/cjcon90/country-quiz) used for this project.
 3. On the right-hand side of the Repository name, you'll see the 'Fork' button.
 4. This will create a copy in your personal repository.
-5. Once you're finished making changes, return to original respository and press 'New Pull Request' to request your changes ot be merged into the original project.
+5. Once you're finished making changes, return to original repository and press 'New Pull Request' to request your changes to be merged into the original project.
 
 ### Cloning
 
@@ -653,14 +653,14 @@ If you wish to clone or download this repository to your local device you can fo
 
 1. Login to your account on [Github](https://github.com/).
 2. Locate the [Repository](https://github.com/cjcon90/country-quiz) used for this project.
-3. Under the Repository name, click the green 'Code' button preceeded by a down facing arrow
+3. Under the Repository name, click the green 'Code' button preceded by a down facing arrow
 4. Copy the text visible in the dropdown tab (or press the clipboard icon next to the text field)
 5. Open your Terminal and go to a directory where you want the cloned directory to be copied in.
 6. Type `Git Clone` and paste the text you copied from the GitHub (CTRL + Shift + C to paste within a terminal window) and press `Enter`
 
 ### Installing Node & Dependencies
 
-To install the NPM dependencies used wihtin this document after cloning the project:
+To install the NPM dependencies used within this document after cloning the project:
 
 1. Download the [Node.js installer for your OS](https://nodejs.org/en/download/) and follow the install instructions. For Linux systems, follow the [installation via a package manager instructions here](https://nodejs.org/en/download/package-manager/)
 2. Verify your installation by opening a terminal window and entering `node –v` which will display the Node.js version installed on your system. You can do the same for NPM with `npm -v`
@@ -689,7 +689,7 @@ While in the project's root folder, you can enter the following terminal command
 
 #### Building CSS File for deployment
 While in the project's root folder, you can enter the following terminal commands:
-- `npm run compile:sass` compile's the project's SCSS code into a separate **app.comp.css** file
+- `npm run compile:sass` compiles the project's SCSS code into a separate **app.comp.css** file
 - `npm run prefix:css` parses the previously compiled CSS file and adds vendor prefixes to CSS rules, and saves as a new **app.prefix.css** file
 - `npm run compress:css` compiles and compresses the prefixed and outputs it into the project's main CSS file, to minify CSS file size.
 - **`npm run build:css` will run these above processes in order to fully compile and compress the project's CSS, ready for deployment**
