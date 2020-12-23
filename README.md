@@ -87,7 +87,7 @@ It provides varying levels of difficulty depending on which region of the world 
 - For this I chose an illustration of the earth by [Alfonso de Tomas, sourced on Shutterstock](https://www.shutterstock.com/image-vector/europe-map-africa-russia-asia-north-229383577)
 - This image is animated on loading the main menu of the page, growing in size which again brings life into the design of the app.
 
-<img align="left" width="500" height="500" src="assets/images/globe-blue-sm.jpg">
+![Illustrated image of earth](assets/images/globe-blue-sm.jpg)
 
 #### Colour Scheme
 
@@ -103,7 +103,7 @@ It provides varying levels of difficulty depending on which region of the world 
 
 - As the country flags appearing within the app will feature many bright colours throughout, I kept the amount of colours used in the app to a minimum, as too many additional colours would easily risk clashing against the flags or make the game page overwhelming in terms of colour content.
 
-<img align="left" height="300" src="docs/color-palette.png">
+![Color palette](docs/color-palette.png)
 
 #### Typography
 
@@ -464,7 +464,7 @@ Tested with JSHint NPM Package](https://www.npmjs.com/package/jshint)
   - Brave (mobile | Android)
 - Responsiveness was tested extensively in both [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) and [Responsive Design Checker](https://responsivedesignchecker.com/)
 - Devices tested within DevTools were:
-  - <img align="left" src="docs/devtool-sizes.png">
+  - ![dev tool sizes used](docs/devtool-sizes.png)
   - Custom viewport sizes I created for testing purposes were:
     - 4k: 3840 x 2160
     - Macbook Pro 15: 2880 x 1800
