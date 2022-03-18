@@ -50,10 +50,12 @@ let regionSetting, difficultySetting;
 // ========== SETTING UP GAME ==========
 
 // fetch full list of countries from REST Countries API && Filter to only countries that have a defined population and capital
-fetch("https://restcountries.eu/rest/v2/all")
+fetch("https://restcountries.com/v3.1/all")
   .then((res) => res.json())
   .then((data) => (countryList = data.filter((country) => country.population && country.capital)))
   .catch((error) => console.error("Error:", error));
+
+console.log(countryList)
 
 // ========== SELECTING REGION ==========
 
@@ -123,7 +125,7 @@ function selectCountries(list) {
   while (newList.length < 5) {
     // code from https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/
     const newCountry = list[Math.floor(Math.random() * list.length)];
-    if (!newList.some((country) => country.name === newCountry.name)) {
+    if (!newList.some((country) => country.name.common === newCountry.name.common)) {
       newList.push(newCountry);
     }
   }
@@ -135,18 +137,19 @@ function getAnswers(list) {
   let answers = [];
   for (let country of list) {
     // create array of country flags for each question
-    questionFlags.push(country.flag);
+    questionFlags.push(country.flags.png);
     // Create a names array of the official country name, the native country name, and alternative spellings
-    let names = [country.name.toLowerCase(), country.nativeName.toLowerCase()];
+    let short_name = Object.keys(country.name.nativeName)[0]
+    let names = [country.name.common.toLowerCase(), country.name.nativeName[short_name].common.toLowerCase()];
     for (let altName of country.altSpellings) {
       if (!names.includes(altName.toLowerCase())) names.push(altName.toLowerCase());
     }
     for (let translation of Object.values(country.translations)) {
-      if (translation && !names.includes(translation.toLowerCase())) names.push(translation.toLowerCase());
+      if (translation && !names.includes(translation.common.toLowerCase())) names.push(translation.common.toLowerCase());
     }
     //return an answer array of 5 subarrays in format:
     // [names answers, capital answer, population answer]
-    answers.push([names, country.capital.toLowerCase(), country.population]);
+    answers.push([names, country.capital[0].toLowerCase(), country.population]);
   }
   return answers;
 }
