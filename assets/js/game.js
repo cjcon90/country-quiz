@@ -296,7 +296,7 @@ function submitAnswer(answer, displayAnswer) {
 
     // Store another separate submitAnswer function that can be removed from *both* text input and submit button eventListeners, as only one of them will be used
     function submitFunc() {
-      currentAnswer = answerInput.value;
+      currentAnswer = answerInput.value.trim();
       isCorrect(answer);
       // remove all event Listeners
       answerInput.removeEventListener("keydown", inputFunc);
